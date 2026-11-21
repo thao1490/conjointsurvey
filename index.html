@@ -1,370 +1,408 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Khảo sát Lựa chọn Chương trình Tiếng Anh</title>
-<style>
-  * {
-    box-sizing: border-box;
-    font-family: "Times New Roman", Times, serif !important;
-  }
-  body {
-    margin: 0;
-    padding: 0;
-    background-color: #f4f6f9;
-    color: #222222;
-    font-size: 17px;
-    line-height: 1.6;
-  }
-  .container {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 20px 14px;
-  }
-  .card {
-    background: #ffffff;
-    border-radius: 10px;
-    padding: 24px 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
-    border: 1px solid #e2e8f0;
-  }
-  h1 {
-    font-size: 24px;
-    color: #1a365d;
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 12px;
-    font-weight: bold;
-  }
-  h2 {
-    font-size: 20px;
-    color: #2b6cb0;
-    border-bottom: 2px solid #ebf8ff;
-    padding-bottom: 8px;
-    margin-top: 0;
-    margin-bottom: 16px;
-  }
-  .intro-text {
-    font-size: 17px;
-    color: #4a5568;
-    background: #f7fafc;
-    padding: 14px 16px;
-    border-left: 4px solid #3182ce;
-    border-radius: 4px;
-    margin-bottom: 20px;
-  }
-  .form-group {
-    margin-bottom: 22px;
-  }
-  .form-label {
-    font-weight: bold;
-    font-size: 17px;
-    color: #2d3748;
-    margin-bottom: 8px;
-    display: block;
-  }
-  .form-label .required {
-    color: #e53e3e;
-    margin-left: 4px;
-  }
-  select, input[type="text"] {
-    width: 100%;
-    padding: 12px 14px;
-    font-size: 16px;
-    border: 1px solid #cbd5e0;
-    border-radius: 6px;
-    background-color: #fff;
-    color: #2d3748;
-  }
-  .radio-group {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 6px;
-  }
-  .radio-option {
-    display: flex;
-    align-items: center;
-    padding: 10px 14px;
-    border: 1px solid #e2e8f0;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-  .radio-option:hover {
-    background: #f7fafc;
-  }
-  .radio-option input[type="radio"] {
-    margin-right: 12px;
-    transform: scale(1.2);
-  }
-  /* Likert Table / Grid */
-  .likert-item {
-    background: #faf5ff;
-    border: 1px solid #e9d8fd;
-    border-radius: 8px;
-    padding: 16px;
-    margin-bottom: 16px;
-  }
-  .likert-title {
-    font-weight: bold;
-    font-size: 17px;
-    color: #44337a;
-    margin-bottom: 12px;
-  }
-  .likert-scale {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 4px;
-  }
-  .likert-point {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 1;
-    font-size: 14px;
-    text-align: center;
-    cursor: pointer;
-  }
-  .likert-point input {
-    margin-bottom: 4px;
-    transform: scale(1.3);
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khảo sát ý kiến phụ huynh về việc lựa chọn chương trình học tiếng Anh cho con</title>
 
-  /* Conjoint Task Cards Layout (Side-by-side 50/50) */
-  .task-header {
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-    color: #2c5282;
-    margin-bottom: 16px;
-    padding: 8px;
-    background: #ebf8ff;
-    border-radius: 6px;
-  }
-  .conjoint-grid {
-    display: flex;
-    gap: 10px;
-    width: 100%;
-  }
-  .class-card {
-    flex: 1;
-    width: 50%;
-    border: 2px solid #cbd5e0;
-    border-radius: 8px;
-    padding: 12px 10px;
-    background: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: all 0.2s;
-  }
-  .class-card.selected {
-    border-color: #3182ce;
-    background: #ebf8ff;
-    box-shadow: 0 0 0 2px #3182ce;
-  }
-  .class-title {
-    font-size: 19px;
-    font-weight: bold;
-    text-align: center;
-    padding-bottom: 8px;
-    margin-bottom: 10px;
-    border-bottom: 2px solid #e2e8f0;
-    color: #2b6cb0;
-  }
-  .attr-group {
-    margin-bottom: 12px;
-  }
-  .attr-label {
-    font-size: 13px;
-    font-weight: bold;
-    color: #718096;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 2px;
-  }
-  .attr-val {
-    font-size: 16px;
-    color: #1a202c;
-    line-height: 1.4;
-    font-weight: 500;
-  }
-  .btn-select {
-    width: 100%;
-    padding: 12px 6px;
-    margin-top: 10px;
-    border: 2px solid #3182ce;
-    background: #ffffff;
-    color: #3182ce;
-    font-weight: bold;
-    font-size: 16px;
-    border-radius: 6px;
-    cursor: pointer;
-    text-align: center;
-  }
-  .class-card.selected .btn-select {
-    background: #3182ce;
-    color: #ffffff;
-  }
-
-  /* Action Bar Buttons */
-  .btn-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 24px;
-    gap: 12px;
-  }
-  .btn {
-    padding: 14px 24px;
-    font-size: 17px;
-    font-weight: bold;
-    border-radius: 6px;
-    cursor: pointer;
-    border: none;
-    transition: background 0.2s;
-  }
-  .btn-primary {
-    background: #2b6cb0;
-    color: #ffffff;
-    flex: 2;
-  }
-  .btn-primary:hover {
-    background: #2c5282;
-  }
-  .btn-secondary {
-    background: #e2e8f0;
-    color: #4a5568;
-    flex: 1;
-  }
-  .btn-secondary:hover {
-    background: #cbd5e0;
-  }
-
-  /* Alert Banner */
-  .alert-box {
-    display: none;
-    background: #fff5f5;
-    border: 1px solid #feb2b2;
-    color: #c53030;
-    padding: 12px 16px;
-    border-radius: 6px;
-    font-weight: bold;
-    margin-bottom: 16px;
-  }
-
-  .hidden {
-    display: none !important;
-  }
-
-  @media (max-width: 480px) {
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: "Times New Roman", Times, serif;
+      background-color: #f4f6f8;
+      color: #2c3e50;
+      line-height: 1.6;
+      font-size: 18px;
+      padding: 15px;
+    }
     .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      padding: 25px 20px;
+    }
+    header {
+      text-align: center;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #eaeded;
+      margin-bottom: 25px;
+    }
+    h1 {
+      font-size: 24px;
+      color: #1a365d;
+      margin-bottom: 12px;
+      line-height: 1.4;
+      font-weight: bold;
+    }
+    .subtitle {
+      font-size: 16px;
+      color: #4a5568;
+      font-style: italic;
+    }
+    .intro-box {
+      background-color: #f7fafc;
+      border-left: 4px solid #3182ce;
+      padding: 18px;
+      border-radius: 6px;
+      margin-bottom: 25px;
+      font-size: 17px;
+    }
+    .intro-box p {
+      margin-bottom: 12px;
+    }
+    .intro-box p:last-child {
+      margin-bottom: 0;
+    }
+    .section-title {
+      font-size: 20px;
+      font-weight: bold;
+      color: #2b6cb0;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .form-group {
+      margin-bottom: 22px;
+    }
+    label.q-label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+      font-size: 18px;
+      color: #2d3748;
+    }
+    select, input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      font-size: 17px;
+      font-family: "Times New Roman", Times, serif;
+      border: 1px solid #cbd5e0;
+      border-radius: 6px;
+      background-color: #fff;
+    }
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 6px;
+    }
+    .radio-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .radio-option:hover {
+      background-color: #ebf8ff;
+    }
+    .radio-option input[type="radio"] {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Likert Scale Styling */
+    .likert-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      margin-bottom: 25px;
+    }
+    .likert-table th, .likert-table td {
       padding: 10px 6px;
+      text-align: center;
+      border: 1px solid #e2e8f0;
+      font-size: 16px;
     }
-    .card {
-      padding: 16px 12px;
+    .likert-table th {
+      background-color: #edf2f7;
+      font-weight: bold;
+      color: #2d3748;
     }
-    .attr-label {
-      font-size: 12px;
+    .likert-table td.statement {
+      text-align: left;
+      font-size: 17px;
+      padding-left: 12px;
+      width: 45%;
+    }
+    .likert-table input[type="radio"] {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+
+    /* Conjoint Side-by-Side Cards (Mobile 50/50 & Responsive) */
+    .conjoint-instructions {
+      background-color: #fffaf0;
+      border-left: 4px solid #dd6b20;
+      padding: 15px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      font-size: 17px;
+    }
+    .conjoint-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .class-card {
+      border: 2px solid #cbd5e0;
+      border-radius: 8px;
+      background: #ffffff;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease-in-out;
+    }
+    .class-card.selected {
+      border-color: #3182ce;
+      background-color: #ebf8ff;
+      box-shadow: 0 0 0 2px #3182ce;
+    }
+    .class-header {
+      text-align: center;
+      font-size: 19px;
+      font-weight: bold;
+      color: #2b6cb0;
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    .attr-row {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+    .attr-name {
+      font-weight: bold;
+      color: #4a5568;
+      font-size: 15px;
+      display: block;
+      margin-bottom: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
     .attr-val {
-      font-size: 15px;
+      color: #1a202c;
+      font-weight: 500;
+      line-height: 1.4;
     }
-    .btn-select {
-      font-size: 15px;
-      padding: 10px 4px;
+    .select-btn {
+      width: 100%;
+      padding: 12px 8px;
+      margin-top: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      font-family: "Times New Roman", Times, serif;
+      border: 1px solid #3182ce;
+      border-radius: 6px;
+      background-color: #ffffff;
+      color: #3182ce;
+      cursor: pointer;
+      transition: all 0.2s;
     }
-  }
-</style>
+    .class-card.selected .select-btn {
+      background-color: #3182ce;
+      color: #ffffff;
+    }
+
+    /* Buttons & Nav */
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    .btn {
+      padding: 14px 24px;
+      font-size: 18px;
+      font-weight: bold;
+      font-family: "Times New Roman", Times, serif;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-primary {
+      background-color: #3182ce;
+      color: #ffffff;
+      margin-left: auto;
+    }
+    .btn-primary:hover {
+      background-color: #2b6cb0;
+    }
+    .btn-secondary {
+      background-color: #e2e8f0;
+      color: #4a5568;
+    }
+    .btn-secondary:hover {
+      background-color: #cbd5e0;
+    }
+    .alert-box {
+      display: none;
+      background-color: #fff5f5;
+      border: 1px solid #feb2b2;
+      color: #c53030;
+      padding: 12px 16px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .progress-bar-container {
+      width: 100%;
+      background-color: #edf2f7;
+      height: 8px;
+      border-radius: 4px;
+      margin-bottom: 25px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      height: 100%;
+      background-color: #3182ce;
+      width: 0%;
+      transition: width 0.3s;
+    }
+    .step-page {
+      display: none;
+    }
+    .step-page.active {
+      display: block;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 8px;
+        font-size: 16px;
+      }
+      .container {
+        padding: 15px 12px;
+      }
+      h1 {
+        font-size: 20px;
+      }
+      .conjoint-grid {
+        gap: 8px;
+      }
+      .class-card {
+        padding: 10px 8px;
+      }
+      .attr-name {
+        font-size: 13px;
+      }
+      .attr-val {
+        font-size: 14px;
+      }
+      .likert-table th, .likert-table td {
+        padding: 8px 3px;
+        font-size: 14px;
+      }
+      .likert-table td.statement {
+        font-size: 14px;
+        padding-left: 6px;
+      }
+    }
+  </style>
 </head>
 <body>
 
 <div class="container">
-  <!-- Alert Banner for missing inputs -->
+  <div class="progress-bar-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
   <div id="alertBox" class="alert-box"></div>
 
-  <!-- SECTION 1: DEMOGRAPHICS -->
-  <div id="section1" class="card">
-    <h1>KHẢO SÁT LỰA CHỌN CHƯƠNG TRÌNH TIẾNG ANH</h1>
-    <div class="intro-text">
-      Kính chào Quý phụ huynh,<br>
-      Dự án nghiên cứu nhằm thấu hiểu nhu cầu và nguyện vọng của Quý phụ huynh trong việc lựa chọn chương trình học tiếng Anh phù hợp cho con. Rất mong Quý phụ huynh dành ít phút hoàn thành các câu hỏi dưới đây. Mọi thông tin đều được bảo mật hoàn toàn.
+  <!-- STEP 0: INTRODUCTION -->
+  <div id="step0" class="step-page active">
+    <header>
+      <h1>Khảo sát ý kiến phụ huynh về việc lựa chọn chương trình học tiếng Anh cho con</h1>
+      <div class="subtitle">Survey on parental preferences for children's English programs</div>
+    </header>
+
+    <div class="intro-box">
+      <p><strong>Kính gửi Quý Phụ huynh,</strong></p>
+      <p>Tôi tên là <strong>Thảo</strong>, học viên cao học MBA tại <strong>Đại học Doshisha (Nhật Bản)</strong>, hiện đang thực hiện đề tài nghiên cứu tốt nghiệp về: <em>"Nhu cầu và các yếu tố ảnh hưởng đến việc lựa chọn lớp học tiếng Anh cho học sinh tiểu học tại khu vực ngoại thành Hà Nội"</em>.</p>
+      <p>Bài khảo sát này nhằm tìm hiểu quan điểm và các tiêu chí của Quý Phụ huynh khi đánh giá, lựa chọn các hình thức học tiếng Anh ngoài trường cho con. Những thông tin chia sẻ quý báu của Anh/Chị sẽ cung cấp nguồn dữ liệu thực tiễn quan trọng để đề xuất các mô hình giáo dục phù hợp, chất lượng và dễ tiếp cận hơn cho cộng đồng địa phương.</p>
+      <p>⏱️ <strong>Thời gian hoàn thành:</strong> Khoảng <strong>5 – 7 phút</strong>.</p>
+      <p>🔒 <strong>Bảo mật thông tin:</strong> Mọi câu trả lời được <strong>bảo mật tuyệt đối</strong>, mã hóa an toàn và chỉ sử dụng duy nhất cho mục đích nghiên cứu khoa học.</p>
+      <p>Xin chân thành cảm ơn sự hỗ trợ và hợp tác của Quý Phụ huynh!</p>
     </div>
 
-    <h2>PHẦN 1: THÔNG TIN GIA ĐÌNH</h2>
+    <div class="btn-container">
+      <button type="button" class="btn btn-primary" onclick="nextStep(1)">BẮT ĐẦU KHẢO SÁT »</button>
+    </div>
+  </div>
+
+  <!-- STEP 1: DEMOGRAPHICS -->
+  <div id="step1" class="step-page">
+    <div class="section-title">Phần 1: Thông tin chung về Hộ gia đình</div>
 
     <div class="form-group">
-      <label class="form-label">1. Quý phụ huynh hiện đang sinh sống tại Quận/Huyện nào ở Hà Nội?<span class="required">*</span></label>
+      <label class="q-label">Q1. Quý phụ huynh hiện đang sinh sống tại Quận/Huyện nào ở Hà Nội?</label>
       <select id="q1_district">
-        <option value="">-- Chọn Quận / Huyện --</option>
-        <option value="Ba Vì">Ba Vì</option>
-        <option value="Chương Mỹ">Chương Mỹ</option>
-
-        <option value="Đan Phượng">Đan Phượng</option>
-        <option value="Đông Anh">Đông Anh</option>
-        <option value="Gia Lâm">Gia Lâm</option>
-        <option value="Hoài Đức">Hoài Đức</option>
-        <option value="Mê Linh">Mê Linh</option>
-        <option value="Mỹ Đức">Mỹ Đức</option>
-
-        <option value="Phú Xuyên">Phú Xuyên</option>
-        <option value="Phúc Thọ">Phúc Thọ</option>
-        <option value="Quốc Oai">Quốc Oai</option>
-        <option value="Sóc Sơn">Sóc Sơn</option>
-        <option value="Sơn Tây">Sơn Tây</option>
-
-        <option value="Thạch Thất">Thạch Thất</option>
-        <option value="Thanh Oai">Thanh Oai</option>
-
-        <option value="Thanh Trì">Thanh Trì</option>
-        <option value="Thường Tín">Thường Tín</option>
-        <option value="Ứng Hòa">Ứng Hòa</option>
+        <option value="">-- Chọn Quận/Huyện --</option>
         <option value="Hà Đông">Hà Đông</option>
-
-        <option value="Long Biên">Long Biên</option>
-        <option value="Nam Từ Liêm">Nam Từ Liêm</option>
-        <option value="Bắc Từ Liêm">Bắc Từ Liêm</option>
+        <option value="Thanh Trì">Thanh Trì</option>
+        <option value="Hoài Đức">Hoài Đức</option>
+        <option value="Quốc Oai">Quốc Oai</option>
+        <option value="Chương Mỹ">Chương Mỹ</option>
+        <option value="Mỹ Đức">Mỹ Đức</option>
+        <option value="Ứng Hòa">Ứng Hòa</option>
+        <option value="Thanh Oai">Thanh Oai</option>
+        <option value="Ba Vì">Ba Vì</option>
+        <option value="Đan Phượng">Đan Phượng</option>
+        <option value="Phúc Thọ">Phúc Thọ</option>
+        <option value="Sơn Tây">Sơn Tây</option>
+        <option value="Thạch Thất">Thạch Thất</option>
         <option value="Khác">Quận/Huyện khác</option>
       </select>
     </div>
 
     <div class="form-group">
-      <label class="form-label">2. Mối quan hệ của Quý phụ huynh với học sinh?<span class="required">*</span></label>
+      <label class="q-label">Q2. Mối quan hệ của Anh/Chị với học sinh là gì?</label>
       <div class="radio-group">
-        <label class="radio-option"><input type="radio" name="q2_relationship" value="Bố"> Bố</label>
-        <label class="radio-option"><input type="radio" name="q2_relationship" value="Mẹ"> Mẹ</label>
-        <label class="radio-option"><input type="radio" name="q2_relationship" value="Người giám hộ/Khác"> Người giám hộ / Khác</label>
+        <label class="radio-option"><input type="radio" name="q2_rel" value="Bố"> Bố</label>
+        <label class="radio-option"><input type="radio" name="q2_rel" value="Mẹ"> Mẹ</label>
+        <label class="radio-option"><input type="radio" name="q2_rel" value="Ông/Bà"> Ông / Bà</label>
+        <label class="radio-option"><input type="radio" name="q2_rel" value="Khác"> Khác (Người giám hộ, Anh/Chị...)</label>
       </div>
     </div>
 
     <div class="form-group">
-      <label class="form-label">3. Thu nhập trung bình hàng tháng của gia đình?<span class="required">*</span></label>
+      <label class="q-label">Q3. Thu nhập trung bình hàng tháng của hộ gia đình Anh/Chị ở mức nào?</label>
       <div class="radio-group">
-        <label class="radio-option"><input type="radio" name="q3_income" value="Dưới 5 triệu"> Dưới 5 triệu VNĐ</label>
-        <label class="radio-option"><input type="radio" name="q3_income" value="5 - 10 triệu"> 5 - 10 triệu VNĐ</label>
-        <label class="radio-option"><input type="radio" name="q3_income" value="10 - 15 triệu"> 10 - 15 triệu VNĐ</label>
-        <label class="radio-option"><input type="radio" name="q3_income" value="15 - 20 triệu"> 15 - 20 triệu VNĐ</label>
-        <label class="radio-option"><input type="radio" name="q3_income" value="Từ 20 triệu trở lên"> Từ 20 triệu VNĐ trở lên</label>
-        <label class="radio-option"><input type="radio" name="q3_income" value="Không tiết lộ"> Không tiện tiết lộ</label>
+        <label class="radio-option"><input type="radio" name="q3_inc" value="Dưới 5 triệu"> Dưới 5 triệu VNĐ</label>
+        <label class="radio-option"><input type="radio" name="q3_inc" value="5 - 10 triệu"> 5 – 10 triệu VNĐ</label>
+        <label class="radio-option"><input type="radio" name="q3_inc" value="10 - 15 triệu"> 10 – 15 triệu VNĐ</label>
+        <label class="radio-option"><input type="radio" name="q3_inc" value="15 - 20 triệu"> 15 – 20 triệu VNĐ</label>
+        <label class="radio-option"><input type="radio" name="q3_inc" value="Trên 20 triệu"> Trên 20 triệu VNĐ</label>
+        <label class="radio-option"><input type="radio" name="q3_inc" value="Không tiết lộ"> Không muốn tiết lộ</label>
       </div>
     </div>
 
     <div class="form-group">
-      <label class="form-label">4. Mức độ ổn định của nguồn thu nhập gia đình?<span class="required">*</span></label>
+      <label class="q-label">Q4. Thu nhập của hộ gia đình Anh/Chị có tính chất như thế nào?</label>
       <div class="radio-group">
-        <label class="radio-option"><input type="radio" name="q4_stability" value="Rất ổn định"> Rất ổn định</label>
-        <label class="radio-option"><input type="radio" name="q4_stability" value="Khá ổn định"> Khá ổn định</label>
-        <label class="radio-option"><input type="radio" name="q4_stability" value="Thỉnh thoảng biến động"> Thỉnh thoảng biến động</label>
-        <label class="radio-option"><input type="radio" name="q4_stability" value="Không ổn định"> Biến động nhiều / Không ổn định</label>
+        <label class="radio-option"><input type="radio" name="q4_stab" value="Khá ổn định"> Khá ổn định hàng tháng</label>
+        <label class="radio-option"><input type="radio" name="q4_stab" value="Biến động nhẹ"> Biến động nhẹ theo mùa / tháng</label>
+        <label class="radio-option"><input type="radio" name="q4_stab" value="Biến động nhiều"> Biến động nhiều / Không cố định</label>
+        <label class="radio-option"><input type="radio" name="q4_stab" value="Không tiết lộ"> Không muốn tiết lộ</label>
       </div>
     </div>
 
     <div class="form-group">
-      <label class="form-label">5. Con của Quý phụ huynh hiện đang học khối lớp mấy?<span class="required">*</span></label>
+      <label class="q-label">Q5. Cháu nhà mình hiện đang học khối lớp mấy?</label>
       <div class="radio-group">
         <label class="radio-option"><input type="radio" name="q5_grade" value="Lớp 1"> Lớp 1</label>
         <label class="radio-option"><input type="radio" name="q5_grade" value="Lớp 2"> Lớp 2</label>
@@ -375,142 +413,176 @@
     </div>
 
     <div class="form-group">
-      <label class="form-label">6. Con có đang tham gia lớp học tiếng Anh nào ngoài trường chính khóa không?<span class="required">*</span></label>
+      <label class="q-label">Q6. Cháu hiện có đang tham gia lớp học tiếng Anh ngoài trường không?</label>
       <div class="radio-group">
-        <label class="radio-option"><input type="radio" name="q6_external" value="Có"> Có (Đang học trung tâm/gia sư/lớp thêm)</label>
-        <label class="radio-option"><input type="radio" name="q6_external" value="Không"> Không (Chỉ học tại trường chính khóa)</label>
+        <label class="radio-option"><input type="radio" name="q6_ext" value="Có"> Có</label>
+        <label class="radio-option"><input type="radio" name="q6_ext" value="Không"> Không</label>
       </div>
     </div>
 
     <div class="form-group">
-      <label class="form-label">7. Mức chi tiêu hàng tháng hiện tại cho việc học tiếng Anh thêm của con?<span class="required">*</span></label>
+      <label class="q-label">Q7. Chi phí dành cho việc học tiếng Anh ngoài trường của cháu hàng tháng khoảng bao nhiêu?</label>
       <div class="radio-group">
-        <label class="radio-option"><input type="radio" name="q7_spending" value="0 VNĐ"> 0 VNĐ (Không tham gia học thêm)</label>
-        <label class="radio-option"><input type="radio" name="q7_spending" value="Dưới 480.000 VNĐ"> Dưới 480.000 VNĐ/tháng</label>
-        <label class="radio-option"><input type="radio" name="q7_spending" value="480.000 - 800.000 VNĐ"> 480.000 - 800.000 VNĐ/tháng</label>
-        <label class="radio-option"><input type="radio" name="q7_spending" value="800.000 - 1.200.000 VNĐ"> 800.000 - 1.200.000 VNĐ/tháng</label>
-        <label class="radio-option"><input type="radio" name="q7_spending" value="Trên 1.200.000 VNĐ"> Trên 1.200.000 VNĐ/tháng</label>
+        <label class="radio-option"><input type="radio" name="q7_spend" value="Dưới 480k"> Dưới 480.000 VNĐ</label>
+        <label class="radio-option"><input type="radio" name="q7_spend" value="480k - 800k"> 480.000 – 800.000 VNĐ</label>
+        <label class="radio-option"><input type="radio" name="q7_spend" value="800k - 1.2tr"> 800.000 – 1.200.000 VNĐ</label>
+        <label class="radio-option"><input type="radio" name="q7_spend" value="Trên 1.2tr"> Trên 1.200.000 VNĐ</label>
+        <label class="radio-option"><input type="radio" name="q7_spend" value="Chưa cho học"> Hiện chưa cho học ngoài trường</label>
       </div>
     </div>
 
-    <div class="btn-row">
-      <button type="button" class="btn btn-primary" onclick="goToSection(2)">TIẾP THEO (PHẦN 2) »</button>
+    <div class="btn-container">
+      <button type="button" class="btn btn-secondary" onclick="prevStep(0)">« QUAY LẠI</button>
+      <button type="button" class="btn btn-primary" onclick="nextStep(2)">TIẾP THEO »</button>
     </div>
   </div>
 
+  <!-- STEP 2: LIKERT ATTITUDES -->
+  <div id="step2" class="step-page">
+    <div class="section-title">Phần 2: Quan điểm về việc cho con học Tiếng Anh</div>
+    <p style="margin-bottom: 15px; font-size: 16px;">Xin Quý phụ huynh cho biết mức độ đồng ý với các nhận định dưới đây (Thang điểm 1: Hoàn toàn không đồng ý ➔ 5: Hoàn toàn đồng ý):</p>
 
-  <!-- SECTION 2: LIKERT PRIORITIES -->
-  <div id="section2" class="card hidden">
-    <h2>PHẦN 2: QUAN ĐIỂM & MỨC ĐỘ ƯU TIÊN</h2>
-    <div class="intro-text">
-      Xin Quý phụ huynh vui lòng cho biết mức độ đồng ý đối với 8 nhận định dưới đây.<br>
-      <i>(Thang điểm từ 1: Hoàn toàn không đồng ý đến 5: Hoàn toàn đồng ý)</i>
-    </div>
+    <table class="likert-table">
+      <thead>
+        <tr>
+          <th class="statement">Nhận định</th>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+          <th>5</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="statement">1. Tôi ưu tiên cho con học tiếng Anh để giao tiếp tự nhiên hàng ngày hơn là chỉ để thi lấy điểm cao.</td>
+          <td><input type="radio" name="l1" value="1"></td>
+          <td><input type="radio" name="l1" value="2"></td>
+          <td><input type="radio" name="l1" value="3"></td>
+          <td><input type="radio" name="l1" value="4"></td>
+          <td><input type="radio" name="l1" value="5"></td>
+        </tr>
+        <tr>
+          <td class="statement">2. Nếu con học một thời gian mà không thấy tiến bộ rõ rệt, tôi sẽ chủ động tìm lớp khác ngay.</td>
+          <td><input type="radio" name="l2" value="1"></td>
+          <td><input type="radio" name="l2" value="2"></td>
+          <td><input type="radio" name="l2" value="3"></td>
+          <td><input type="radio" name="l2" value="4"></td>
+          <td><input type="radio" name="l2" value="5"></td>
+        </tr>
+        <tr>
+          <td class="statement">3. Tôi sẵn sàng cho con học lớp thiên về Nghe - Nói nhiều hơn là học nhiều ngữ pháp và bài tập viết.</td>
+          <td><input type="radio" name="l3" value="1"></td>
+          <td><input type="radio" name="l3" value="2"></td>
+          <td><input type="radio" name="l3" value="3"></td>
+          <td><input type="radio" name="l3" value="4"></td>
+          <td><input type="radio" name="l3" value="5"></td>
+        </tr>
+        <tr>
+          <td class="statement">4. Chương trình học phải bám sát sách giáo khoa trên trường để giúp con đạt điểm cao trong các bài kiểm tra.</td>
+          <td><input type="radio" name="l4" value="1"></td>
+          <td><input type="radio" name="l4" value="2"></td>
+          <td><input type="radio" name="l4" value="3"></td>
+          <td><input type="radio" name="l4" value="4"></td>
+          <td><input type="radio" name="l4" value="5"></td>
+        </tr>
+        <tr>
+          <td class="statement">5. Việc yêu cầu đóng học phí gộp nhiều tháng liền tạo áp lực tài chính lớn cho gia đình tôi.</td>
+          <td><input type="radio" name="l5" value="1"></td>
+          <td><input type="radio" name="l5" value="2"></td>
+          <td><input type="radio" name="l5" value="3"></td>
+          <td><input type="radio" name="l5" value="4"></td>
+          <td><input type="radio" name="l5" value="5"></td>
+        </tr>
+        <tr>
+          <td class="statement">6. Nếu được giảm giá học phí đáng kể, tôi sẵn sàng đóng tiền gộp trước cho con từ 3 đến 6 tháng.</td>
+          <td><input type="radio" name="l6" value="1"></td>
+          <td><input type="radio" name="l6" value="2"></td>
+          <td><input type="radio" name="l6" value="3"></td>
+          <td><input type="radio" name="l6" value="4"></td>
+          <td><input type="radio" name="l6" value="5"></td>
+        </tr>
+        <tr>
+          <td class="statement">7. Quãng đường đưa đón xa hoặc tốn thời gian di chuyển là lý do chính khiến tôi ngần ngại cho con đi học ngoài.</td>
+          <td><input type="radio" name="l7" value="1"></td>
+          <td><input type="radio" name="l7" value="2"></td>
+          <td><input type="radio" name="l7" value="3"></td>
+          <td><input type="radio" name="l7" value="4"></td>
+          <td><input type="radio" name="l7" value="5"></td>
+        </tr>
+        <tr>
+          <td class="statement">8. Tôi cảm thấy an tâm và tin tưởng hơn khi cho con học tại Trung tâm tư nhân so với các lớp mở tại Nhà văn hóa / Điểm sinh hoạt cộng đồng.</td>
+          <td><input type="radio" name="l8" value="1"></td>
+          <td><input type="radio" name="l8" value="2"></td>
+          <td><input type="radio" name="l8" value="3"></td>
+          <td><input type="radio" name="l8" value="4"></td>
+          <td><input type="radio" name="l8" value="5"></td>
+        </tr>
+      </tbody>
+    </table>
 
-    <div id="likertContainer"></div>
-
-    <div class="btn-row">
-      <button type="button" class="btn btn-secondary" onclick="goToSection(1)">« QUAY LẠI</button>
-      <button type="button" class="btn btn-primary" onclick="goToSection(3)">TIẾP THEO (PHẦN 3) »</button>
+    <div class="btn-container">
+      <button type="button" class="btn btn-secondary" onclick="prevStep(1)">« QUAY LẠI</button>
+      <button type="button" class="btn btn-primary" onclick="nextStep(3)">TIẾP THEO »</button>
     </div>
   </div>
 
+  <!-- STEP 3: CONJOINT TASKS (1 to 6) -->
+  <div id="step3" class="step-page">
+    <div class="section-title" id="taskTitle">Phần 3: Tình huống lựa chọn (Tình huống 1 / 6)</div>
 
-  <!-- SECTION 3: CONJOINT CHOICE TASKS -->
-  <div id="section3" class="card hidden">
-    <h2>PHẦN 3: TÌNH HUỐNG LỰA CHỌN KHÓA HỌC</h2>
-    <div class="intro-text">
-      Dưới đây là <b>6 tình huống lựa chọn khóa học độc lập</b>.<br>
-      Với mỗi tình huống, xin Quý phụ huynh hãy <b>giả định đây là 2 lựa chọn DUY NHẤT hiện có trên thị trường</b> và bấm chọn 1 chương trình học (Lớp A hoặc Lớp B) mà Quý phụ huynh ưu tiên nhất cho con mình.
+    <div class="conjoint-instructions">
+      📌 <strong>Hướng dẫn:</strong> Dưới đây là 6 tình huống lựa chọn khóa học độc lập. Với mỗi tình huống, xin Quý phụ huynh hãy giả định đây là <strong>2 lựa chọn DUY NHẤT</strong> hiện có trên thị trường và bấm chọn 1 chương trình học (Lớp A hoặc Lớp B) mà Quý phụ huynh ưu tiên nhất cho con mình.
     </div>
-
-    <div id="taskHeader" class="task-header">Tình huống 1 / 6</div>
 
     <div class="conjoint-grid">
-      <!-- CLASS A -->
-      <div id="cardClassA" class="class-card" onclick="selectClass('Class A')">
-        <div class="class-title">LỚP HỌC A</div>
-        <div class="attr-group">
-          <div class="attr-label">Học phí</div>
-          <div id="valA_tuition" class="attr-val">...</div>
-        </div>
-        <div class="attr-group">
-          <div class="attr-label">Hình thức thanh toán</div>
-          <div id="valA_payment" class="attr-val">...</div>
-        </div>
-        <div class="attr-group">
-          <div class="attr-label">Tiền đặt cọc</div>
-          <div id="valA_deposit" class="attr-val">...</div>
-        </div>
-        <div class="attr-group">
-          <div class="attr-label">Trọng tâm giảng dạy</div>
-          <div id="valA_focus" class="attr-val">...</div>
-        </div>
-        <div class="attr-group">
-          <div class="attr-label">Địa điểm học</div>
-          <div id="valA_location" class="attr-val">...</div>
-        </div>
-        <button type="button" id="btnSelectA" class="btn-select">Chọn Lớp A</button>
+      <!-- CLASS A CARD -->
+      <div class="class-card" id="cardA" onclick="selectClass('Class A')">
+        <div class="class-header">LỚP A</div>
+        <div class="attr-row"><span class="attr-name">Học phí:</span><span class="attr-val" id="a_tuition">--</span></div>
+        <div class="attr-row"><span class="attr-name">Thanh toán:</span><span class="attr-val" id="a_payment">--</span></div>
+        <div class="attr-row"><span class="attr-name">Đặt cọc:</span><span class="attr-val" id="a_deposit">--</span></div>
+        <div class="attr-row"><span class="attr-name">Trọng tâm:</span><span class="attr-val" id="a_focus">--</span></div>
+        <div class="attr-row"><span class="attr-name">Địa điểm:</span><span class="attr-val" id="a_location">--</span></div>
+        <button type="button" class="select-btn" id="btnA">CHỌN LỚP A</button>
       </div>
 
-      <!-- CLASS B -->
-      <div id="cardClassB" class="class-card" onclick="selectClass('Class B')">
-        <div class="class-title">LỚP HỌC B</div>
-        <div class="attr-group">
-          <div class="attr-label">Học phí</div>
-          <div id="valB_tuition" class="attr-val">...</div>
-        </div>
-        <div class="attr-group">
-          <div class="attr-label">Hình thức thanh toán</div>
-          <div id="valB_payment" class="attr-val">...</div>
-        </div>
-        <div class="attr-group">
-          <div class="attr-label">Tiền đặt cọc</div>
-          <div id="valB_deposit" class="attr-val">...</div>
-        </div>
-        <div class="attr-group">
-          <div class="attr-label">Trọng tâm giảng dạy</div>
-          <div id="valB_focus" class="attr-val">...</div>
-        </div>
-        <div class="attr-group">
-          <div class="attr-label">Địa điểm học</div>
-          <div id="valB_location" class="attr-val">...</div>
-        </div>
-        <button type="button" id="btnSelectB" class="btn-select">Chọn Lớp B</button>
+      <!-- CLASS B CARD -->
+      <div class="class-card" id="cardB" onclick="selectClass('Class B')">
+        <div class="class-header">LỚP B</div>
+        <div class="attr-row"><span class="attr-name">Học phí:</span><span class="attr-val" id="b_tuition">--</span></div>
+        <div class="attr-row"><span class="attr-name">Thanh toán:</span><span class="attr-val" id="b_payment">--</span></div>
+        <div class="attr-row"><span class="attr-name">Đặt cọc:</span><span class="attr-val" id="b_deposit">--</span></div>
+        <div class="attr-row"><span class="attr-name">Trọng tâm:</span><span class="attr-val" id="b_focus">--</span></div>
+        <div class="attr-row"><span class="attr-name">Địa điểm:</span><span class="attr-val" id="b_location">--</span></div>
+        <button type="button" class="select-btn" id="btnB">CHỌN LỚP B</button>
       </div>
     </div>
 
-    <div class="btn-row">
-      <button type="button" id="btnTaskBack" class="btn btn-secondary" onclick="prevTask()">« QUAY LẠI</button>
-      <button type="button" id="btnTaskNext" class="btn btn-primary" onclick="nextTask()">TIẾP THEO »</button>
+    <div class="btn-container">
+      <button type="button" class="btn btn-secondary" id="taskBackBtn" onclick="prevTask()">« QUAY LẠI</button>
+      <button type="button" class="btn btn-primary" id="taskNextBtn" onclick="nextTask()">TIẾP THEO »</button>
     </div>
   </div>
 
-
-  <!-- SECTION 4: THANK YOU / FINISH -->
-  <div id="sectionThankYou" class="card hidden" style="text-align: center; padding: 40px 20px;">
-    <h1 style="color: #2b6cb0;">XIN CHÂN THÀNH CẢM ƠN!</h1>
-    <p style="font-size: 18px; color: #4a5568;">
-      Ý kiến đóng góp quý báu của Quý phụ huynh đã được ghi nhận thành công.<br>
-      Kính chúc Quý phụ huynh và gia đình nhiều sức khỏe, hạnh phúc!
+  <!-- STEP 4: THANK YOU / FINISH -->
+  <div id="step4" class="step-page" style="text-align: center; padding: 40px 10px;">
+    <div style="font-size: 50px; margin-bottom: 20px;">🎉</div>
+    <h2 style="font-size: 26px; color: #2b6cb0; margin-bottom: 15px;">XIN CHÂN THÀNH CẢM ƠN QUÝ PHỤ HUYNH!</h2>
+    <p style="font-size: 18px; color: #4a5568; max-width: 600px; margin: 0 auto 25px auto;">
+      Ý kiến đóng góp quý báu của Anh/Chị đã được ghi nhận thành công và sẽ là nguồn dữ liệu quan trọng đóng góp cho đề tài nghiên cứu giáo dục.
     </p>
-    <div style="margin-top: 30px;">
-      <a href="#" onclick="resetSurvey(); return false;" style="color: #718096; font-size: 15px; text-decoration: underline;">Làm lại bài khảo sát (Dành cho lượt test mới)</a>
+    <div style="font-size: 14px; color: #a0aec0; margin-top: 30px;">
+      <a href="javascript:void(0)" onclick="resetSurvey()" style="color: #718096; text-decoration: underline;">Làm lại bài khảo sát (Dành cho lượt test mới)</a>
     </div>
   </div>
 
 </div>
 
 <script>
-// ==========================================
-// 1. GOOGLE APPS SCRIPT URL
-// ==========================================
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwr0NiIpGVABUJp-BDh79UDl5xyFSyQpPFOED8q9sGyWfx9jwT6M28HWoSovj1p3SfoXQ/exec";
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwr0NiIpGVABUJp-BDh79UDl5xyFSyQpPFOED8q9sGyWfx9jwT6M28HWoSovj1p3SfoXQ/exec";
 
-// ==========================================
-// 2. CONJOINT VERSIONS DATA (V1..V10 x 6 Tasks)
-// ==========================================
-const CONJOINT_DATA = {
+  const ALL_VERSIONS = {
   "1": [
     {
       "task": 1,
@@ -542,7 +614,7 @@ const CONJOINT_DATA = {
         "tuition": "  640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
         "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   640.000 VNĐ",
         "deposit": "Cọc 0.5 kỳ:   320.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
         "location": "Phòng học riêng tại nhà giáo viên"
       }
     },
@@ -576,7 +648,7 @@ const CONJOINT_DATA = {
         "tuition": "  640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
         "payment": "Đóng gộp 3 kỳ (giảm 5% còn   608.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 1.824.000 VNĐ",
         "deposit": "Cọc 0.5 kỳ:   320.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
         "location": "Phòng học riêng tại nhà giáo viên"
       }
     },
@@ -603,7 +675,7 @@ const CONJOINT_DATA = {
         "tuition": "  640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
         "payment": "Đóng gộp 3 kỳ (giảm 5% còn   608.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 1.824.000 VNĐ",
         "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
         "location": "Trung tâm tiếng Anh tư nhân"
       },
       "classB": {
@@ -629,7 +701,7 @@ const CONJOINT_DATA = {
         "tuition": "  960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
         "payment": "Đóng gộp 6 kỳ (giảm 10% còn   864.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 5.184.000 VNĐ",
         "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
         "location": "Phòng học riêng tại nhà giáo viên"
       }
     },
@@ -697,7 +769,7 @@ const CONJOINT_DATA = {
         "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
         "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   480.000 VNĐ",
         "deposit": "Cọc 1 kỳ:   480.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
         "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       }
     },
@@ -714,7 +786,7 @@ const CONJOINT_DATA = {
         "tuition": "  800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
         "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   800.000 VNĐ",
         "deposit": "Cọc 0.5 kỳ:   400.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
         "location": "Phòng học riêng tại nhà giáo viên"
       }
     }
@@ -726,7 +798,7 @@ const CONJOINT_DATA = {
         "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
         "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 6.480.000 VNĐ",
         "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
         "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       },
       "classB": {
@@ -811,7 +883,7 @@ const CONJOINT_DATA = {
         "tuition": "  960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
         "payment": "Đóng gộp 3 kỳ (giảm 5% còn   912.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 2.736.000 VNĐ",
         "deposit": "Cọc 1 kỳ:   960.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
         "location": "Phòng học riêng tại nhà giáo viên"
       },
       "classB": {
@@ -837,7 +909,7 @@ const CONJOINT_DATA = {
         "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
         "payment": "Đóng gộp 6 kỳ (giảm 10% còn   432.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 2.592.000 VNĐ",
         "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
         "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       }
     },
@@ -898,7 +970,7 @@ const CONJOINT_DATA = {
         "tuition": "  800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
         "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   800.000 VNĐ",
         "deposit": "Cọc 0.5 kỳ:   400.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
         "location": "Phòng học riêng tại nhà giáo viên"
       },
       "classB": {
@@ -941,7 +1013,7 @@ const CONJOINT_DATA = {
         "tuition": "  800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
         "payment": "Đóng gộp 6 kỳ (giảm 10% còn   720.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 4.320.000 VNĐ",
         "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
         "location": "Trung tâm tiếng Anh tư nhân"
       }
     },
@@ -992,7 +1064,7 @@ const CONJOINT_DATA = {
         "tuition": "  800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
         "payment": "Đóng gộp 3 kỳ (giảm 5% còn   760.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 2.280.000 VNĐ",
         "deposit": "Cọc 1 kỳ:   800.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
         "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       }
     },
@@ -1045,7 +1117,7 @@ const CONJOINT_DATA = {
         "tuition": "  960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
         "payment": "Đóng gộp 3 kỳ (giảm 5% còn   912.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 2.736.000 VNĐ",
         "deposit": "Cọc 0.5 kỳ:   480.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
         "location": "Phòng học riêng tại nhà giáo viên"
       }
     },
@@ -1159,7 +1231,7 @@ const CONJOINT_DATA = {
         "tuition": "  800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
         "payment": "Đóng gộp 3 kỳ (giảm 5% còn   760.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 2.280.000 VNĐ",
         "deposit": "Cọc 0.5 kỳ:   400.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
         "location": "Phòng học riêng tại nhà giáo viên"
       },
       "classB": {
@@ -1217,7 +1289,7 @@ const CONJOINT_DATA = {
         "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
         "payment": "Đóng gộp 6 kỳ (giảm 10% còn   432.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 2.592.000 VNĐ",
         "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
         "location": "Trung tâm tiếng Anh tư nhân"
       }
     },
@@ -1253,7 +1325,7 @@ const CONJOINT_DATA = {
         "tuition": "  960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
         "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   960.000 VNĐ",
         "deposit": "Cọc 0.5 kỳ:   480.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
         "location": "Trung tâm tiếng Anh tư nhân"
       }
     },
@@ -1304,7 +1376,7 @@ const CONJOINT_DATA = {
         "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
         "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay: 1.200.000 VNĐ",
         "deposit": "Cọc 0.5 kỳ:   600.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
         "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       }
     },
@@ -1357,7 +1429,7 @@ const CONJOINT_DATA = {
         "tuition": "  800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
         "payment": "Đóng gộp 3 kỳ (giảm 5% còn   760.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 2.280.000 VNĐ",
         "deposit": "Cọc 0.5 kỳ:   400.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
         "location": "Phòng học riêng tại nhà giáo viên"
       }
     },
@@ -1418,7 +1490,7 @@ const CONJOINT_DATA = {
         "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
         "payment": "Đóng gộp 6 kỳ (giảm 10% còn   432.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 2.592.000 VNĐ",
         "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
         "location": "Phòng học riêng tại nhà giáo viên"
       },
       "classB": {
@@ -1442,7 +1514,7 @@ const CONJOINT_DATA = {
         "tuition": "  960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
         "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   960.000 VNĐ",
         "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
         "location": "Trung tâm tiếng Anh tư nhân"
       }
     }
@@ -1471,7 +1543,7 @@ const CONJOINT_DATA = {
         "tuition": "  960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
         "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   960.000 VNĐ",
         "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
         "location": "Phòng học riêng tại nhà giáo viên"
       },
       "classB": {
@@ -1546,342 +1618,232 @@ const CONJOINT_DATA = {
         "tuition": "  960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
         "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   960.000 VNĐ",
         "deposit": "Cọc 1 kỳ:   960.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
         "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       }
     }
   ]
 };
 
-// ==========================================
-// 3. LIKERT STATEMENTS
-// ==========================================
-const LIKERT_ITEMS = [
-  { id: "likert_1", text: "1. Tôi muốn con có thể giao tiếp tiếng Anh tự tin trong các tình huống hàng ngày, không chỉ phục vụ các bài kiểm tra trên trường." },
-  { id: "likert_2", text: "2. Nếu con thích học nhưng không thấy tiến bộ rõ rệt, tôi sẽ cân nhắc tìm một chương trình học khác." },
-  { id: "likert_3", text: "3. Tôi ưu tiên chọn lớp tập trung phát triển kỹ năng Nghe & Nói hơn là ôn luyện Ngữ pháp & Viết." },
-  { id: "likert_4", text: "4. Tôi ưu tiên lớp học có chương trình bám sát sách giáo khoa trên trường và hỗ trợ con đạt điểm cao trong các kỳ thi." },
-  { id: "likert_5", text: "5. Việc đóng học phí gộp nhiều kỳ liền gây áp lực tài chính lớn cho gia đình tôi." },
-  { id: "likert_6", text: "6. Tôi sẵn sàng đóng học phí trước nhiều kỳ nếu trung tâm có mức giảm giá hấp dẫn." },
-  { id: "likert_7", text: "7. Khoảng cách địa lý và thời gian đưa đón là yếu tố quan trọng hàng đầu khi tôi chọn lớp học cho con." },
-  { id: "likert_8", text: "8. Tôi cảm thấy yên tâm hơn khi cho con học tại Trung tâm tiếng Anh tư nhân hơn là lớp học tại nhà giáo viên." }
-];
+  let currentStep = 0;
+  let currentVersion = 1;
+  let currentTaskIdx = 0; // 0 to 5
+  let taskChoices = ["", "", "", "", "", ""];
+  let respondentId = "";
 
-// ==========================================
-// 4. SURVEY STATE MANAGEMENT
-// ==========================================
-let currentSection = 1;
-let currentTaskIdx = 0; // 0 to 5
-let selectedVersion = 1;
-let respondentId = "";
-let choices = {};
+  window.onload = function() {
+    initRespondent();
+  };
 
-// Initialize Likert Questions
-function renderLikert() {
-  const container = document.getElementById("likertContainer");
-  container.innerHTML = "";
-  LIKERT_ITEMS.forEach(item => {
-    const div = document.createElement("div");
-    div.className = "likert-item";
-    div.innerHTML = `
-      <div class="likert-title">${item.text}</div>
-      <div class="likert-scale">
-        <label class="likert-point"><input type="radio" name="${item.id}" value="1">1<br><span style="font-size:11px;color:#718096">Không đồng ý</span></label>
-        <label class="likert-point"><input type="radio" name="${item.id}" value="2">2</label>
-        <label class="likert-point"><input type="radio" name="${item.id}" value="3">3<br><span style="font-size:11px;color:#718096">Trung lập</span></label>
-        <label class="likert-point"><input type="radio" name="${item.id}" value="4">4</label>
-        <label class="likert-point"><input type="radio" name="${item.id}" value="5">5<br><span style="font-size:11px;color:#718096">Rất đồng ý</span></label>
-      </div>
-    `;
-    container.appendChild(div);
-  });
-}
+  function initRespondent() {
+    let savedId = localStorage.getItem('rpr_resp_id');
+    if (!savedId) {
+      savedId = 'RESP_' + Math.random().toString(36).substr(2, 9).toUpperCase();
+      localStorage.setItem('rpr_resp_id', savedId);
+    }
+    respondentId = savedId;
 
-// Initialize Survey Session
-function initSurvey() {
-  renderLikert();
-  
-  // Check local storage
-  const saved = localStorage.getItem("conjoint_survey_state");
-  if (saved) {
-    try {
-      const parsed = JSON.parse(saved);
-      if (parsed.submitted) {
-        showSection('sectionThankYou');
-        return;
+    let savedVer = localStorage.getItem('rpr_version');
+    if (!savedVer) {
+      savedVer = Math.floor(Math.random() * 10) + 1;
+      localStorage.setItem('rpr_version', savedVer);
+    }
+    currentVersion = parseInt(savedVer);
+
+    // Check if already completed
+    if (localStorage.getItem('rpr_completed') === 'true') {
+      showStep(4);
+      return;
+    }
+
+    showStep(0);
+  }
+
+  function showStep(step) {
+    currentStep = step;
+    document.querySelectorAll('.step-page').forEach(p => p.classList.remove('active'));
+    document.getElementById('step' + step).classList.add('active');
+    hideAlert();
+
+    // Update progress bar
+    let pct = 0;
+    if (step === 1) pct = 20;
+    else if (step === 2) pct = 40;
+    else if (step === 3) pct = 40 + (currentTaskIdx + 1) * 9.5; // 40 to 97
+    else if (step === 4) pct = 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+
+    if (step === 3) {
+      renderTask();
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function showAlert(msg) {
+    const box = document.getElementById('alertBox');
+    box.innerText = msg;
+    box.style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function hideAlert() {
+    document.getElementById('alertBox').style.display = 'none';
+  }
+
+  function nextStep(targetStep) {
+    if (currentStep === 1) {
+      // Validate Demographics
+      if (!document.getElementById('q1_district').value) return showAlert('⚠️ Vui lòng chọn Quận/Huyện bạn đang sinh sống.');
+      if (!getRadioValue('q2_rel')) return showAlert('⚠️ Vui lòng chọn Mối quan hệ của Anh/Chị với học sinh.');
+      if (!getRadioValue('q3_inc')) return showAlert('⚠️ Vui lòng chọn Thu nhập trung bình hàng tháng.');
+      if (!getRadioValue('q4_stab')) return showAlert('⚠️ Vui lòng chọn Tính chất thu nhập của gia đình.');
+      if (!getRadioValue('q5_grade')) return showAlert('⚠️ Vui lòng chọn Khối lớp hiện tại của cháu.');
+      if (!getRadioValue('q6_ext')) return showAlert('⚠️ Vui lòng cho biết cháu có đang học tiếng Anh ngoài trường không.');
+      if (!getRadioValue('q7_spend')) return showAlert('⚠️ Vui lòng chọn Chi phí học tiếng Anh hàng tháng.');
+    }
+
+    if (currentStep === 2) {
+      // Validate Likert L1-L8
+      for (let i = 1; i <= 8; i++) {
+        if (!getRadioValue('l' + i)) return showAlert('⚠️ Vui lòng đánh giá đủ 8 nhận định ở Phần 2.');
       }
-      selectedVersion = parsed.version || (Math.floor(Math.random() * 10) + 1);
-      respondentId = parsed.respondentId || 'RESP_' + Math.random().toString(36).substr(2, 9);
-      choices = parsed.choices || {};
-      currentSection = parsed.currentSection || 1;
-      currentTaskIdx = parsed.currentTaskIdx || 0;
-      restoreInputs(parsed.inputs);
-    } catch(e) {
-      setupNewSession();
     }
-  } else {
-    setupNewSession();
+
+    showStep(targetStep);
   }
-  
-  showSection('section' + currentSection);
-  if (currentSection === 3) renderTask();
-}
 
-function setupNewSession() {
-  selectedVersion = Math.floor(Math.random() * 10) + 1;
-  respondentId = 'RESP_' + Math.random().toString(36).substr(2, 9);
-  choices = {};
-  currentSection = 1;
-  currentTaskIdx = 0;
-  saveState();
-}
-
-function saveState() {
-  const inputs = getFormData();
-  const state = {
-    version: selectedVersion,
-    respondentId: respondentId,
-    choices: choices,
-    currentSection: currentSection,
-    currentTaskIdx: currentTaskIdx,
-    inputs: inputs
-  };
-  localStorage.setItem("conjoint_survey_state", JSON.stringify(state));
-}
-
-function restoreInputs(inputs) {
-  if (!inputs) return;
-  if (inputs.q1_district) document.getElementById("q1_district").value = inputs.q1_district;
-  ['q2_relationship', 'q3_income', 'q4_stability', 'q5_grade', 'q6_external', 'q7_spending'].forEach(key => {
-    if (inputs[key]) {
-      const el = document.querySelector(`input[name="${key}"][value="${inputs[key]}"]`);
-      if (el) el.checked = true;
-    }
-  });
-  LIKERT_ITEMS.forEach(item => {
-    if (inputs[item.id]) {
-      const el = document.querySelector(`input[name="${item.id}"][value="${inputs[item.id]}"]`);
-      if (el) el.checked = true;
-    }
-  });
-}
-
-function getFormData() {
-  const data = {};
-  data.q1_district = document.getElementById("q1_district").value;
-  ['q2_relationship', 'q3_income', 'q4_stability', 'q5_grade', 'q6_external', 'q7_spending'].forEach(key => {
-    const selected = document.querySelector(`input[name="${key}"]:checked`);
-    data[key] = selected ? selected.value : "";
-  });
-  LIKERT_ITEMS.forEach(item => {
-    const selected = document.querySelector(`input[name="${item.id}"]:checked`);
-    data[item.id] = selected ? selected.value : "";
-  });
-  return data;
-}
-
-function showAlert(msg) {
-  const alertBox = document.getElementById("alertBox");
-  alertBox.innerHTML = msg;
-  alertBox.style.display = "block";
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function hideAlert() {
-  document.getElementById("alertBox").style.display = "none";
-}
-
-// Section Navigation & Validation
-function goToSection(sec) {
-  hideAlert();
-  if (sec === 2 && currentSection === 1) {
-    // Validate Section 1
-    const data = getFormData();
-    if (!data.q1_district) return showAlert("⚠️ Vui lòng chọn Quận/Huyện bạn đang sinh sống.");
-    if (!data.q2_relationship) return showAlert("⚠️ Vui lòng chọn Mối quan hệ với học sinh.");
-    if (!data.q3_income) return showAlert("⚠️ Vui lòng chọn Thu nhập trung bình hàng tháng.");
-    if (!data.q4_stability) return showAlert("⚠️ Vui lòng chọn Mức độ ổn định thu nhập.");
-    if (!data.q5_grade) return showAlert("⚠️ Vui lòng chọn Khối lớp của con.");
-    if (!data.q6_external) return showAlert("⚠️ Vui lòng cho biết con có đang học thêm tiếng Anh ngoài trường không.");
-    if (!data.q7_spending) return showAlert("⚠️ Vui lòng chọn Mức chi tiêu hàng tháng cho việc học tiếng Anh.");
+  function prevStep(targetStep) {
+    showStep(targetStep);
   }
-  
-  if (sec === 3 && currentSection === 2) {
-    // Validate Section 2 (Likert)
-    const data = getFormData();
-    for (let i = 0; i < LIKERT_ITEMS.length; i++) {
-      const item = LIKERT_ITEMS[i];
-      if (!data[item.id]) return showAlert(`⚠️ Vui lòng đánh giá nhận định số ${i+1} ở Phần 2.`);
+
+  function renderTask() {
+    hideAlert();
+    const tasks = ALL_VERSIONS[currentVersion];
+    const t = tasks[currentTaskIdx];
+
+    document.getElementById('taskTitle').innerText = `Phần 3: Tình huống lựa chọn (Tình huống ${currentTaskIdx + 1} / 6)`;
+
+    // Class A
+    document.getElementById('a_tuition').innerText = t.classA.tuition;
+    document.getElementById('a_payment').innerText = t.classA.payment;
+    document.getElementById('a_deposit').innerText = t.classA.deposit;
+    document.getElementById('a_focus').innerText = t.classA.focus;
+    document.getElementById('a_location').innerText = t.classA.location;
+
+    // Class B
+    document.getElementById('b_tuition').innerText = t.classB.tuition;
+    document.getElementById('b_payment').innerText = t.classB.payment;
+    document.getElementById('b_deposit').innerText = t.classB.deposit;
+    document.getElementById('b_focus').innerText = t.classB.focus;
+    document.getElementById('b_location').innerText = t.classB.location;
+
+    // Highlight selected
+    const chosen = taskChoices[currentTaskIdx];
+    document.getElementById('cardA').classList.remove('selected');
+    document.getElementById('cardB').classList.remove('selected');
+    document.getElementById('btnA').innerText = 'CHỌN LỚP A';
+    document.getElementById('btnB').innerText = 'CHỌN LỚP B';
+
+    if (chosen === 'Class A') {
+      document.getElementById('cardA').classList.add('selected');
+      document.getElementById('btnA').innerText = '✓ ĐÃ CHỌN LỚP A';
+    } else if (chosen === 'Class B') {
+      document.getElementById('cardB').classList.add('selected');
+      document.getElementById('btnB').innerText = '✓ ĐÃ CHỌN LỚP B';
     }
+
+    // Update buttons text
+    if (currentTaskIdx === 5) {
+      document.getElementById('taskNextBtn').innerText = 'HOÀN THÀNH & NỘP BÀI »';
+    } else {
+      document.getElementById('taskNextBtn').innerText = 'TIẾP THEO »';
+    }
+  }
+
+  function selectClass(choice) {
+    taskChoices[currentTaskIdx] = choice;
+    renderTask();
+  }
+
+  function nextTask() {
+    if (!taskChoices[currentTaskIdx]) {
+      return showAlert('⚠️ Vui lòng bấm chọn Lớp A hoặc Lớp B trước khi tiếp tục.');
+    }
+
+    if (currentTaskIdx < 5) {
+      currentTaskIdx++;
+      renderTask();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      submitSurvey();
+    }
+  }
+
+  function prevTask() {
+    if (currentTaskIdx > 0) {
+      currentTaskIdx--;
+      renderTask();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      showStep(2);
+    }
+  }
+
+  function getRadioValue(name) {
+    const el = document.querySelector(`input[name="${name}"]:checked`);
+    return el ? el.value : '';
+  }
+
+  function submitSurvey() {
+    const payload = {
+      respondent_id: respondentId,
+      version: currentVersion,
+      q1_district: document.getElementById('q1_district').value,
+      q2_relationship: getRadioValue('q2_rel'),
+      q3_income: getRadioValue('q3_inc'),
+      q4_stability: getRadioValue('q4_stab'),
+      q5_grade: getRadioValue('q5_grade'),
+      q6_external: getRadioValue('q6_ext'),
+      q7_spending: getRadioValue('q7_spend'),
+      likert_1: getRadioValue('l1'),
+      likert_2: getRadioValue('l2'),
+      likert_3: getRadioValue('l3'),
+      likert_4: getRadioValue('l4'),
+      likert_5: getRadioValue('l5'),
+      likert_6: getRadioValue('l6'),
+      likert_7: getRadioValue('l7'),
+      likert_8: getRadioValue('l8'),
+      task_1: taskChoices[0],
+      task_2: taskChoices[1],
+      task_3: taskChoices[2],
+      task_4: taskChoices[3],
+      task_5: taskChoices[4],
+      task_6: taskChoices[5]
+    };
+
+    // Send payload via fetch (no-cors)
+    if (GOOGLE_SCRIPT_URL && !GOOGLE_SCRIPT_URL.includes('YOUR_GOOGLE_APPS_SCRIPT_URL')) {
+      fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }).catch(err => console.log('Submit error:', err));
+    }
+
+    localStorage.setItem('rpr_completed', 'true');
+    showStep(4);
+  }
+
+  function resetSurvey() {
+    localStorage.removeItem('rpr_completed');
+    localStorage.removeItem('rpr_version');
+    localStorage.removeItem('rpr_resp_id');
+    taskChoices = ["", "", "", "", "", ""];
     currentTaskIdx = 0;
-    renderTask();
+    initRespondent();
   }
-
-  currentSection = sec;
-  saveState();
-  showSection('section' + sec);
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function showSection(secId) {
-  ['section1', 'section2', 'section3', 'sectionThankYou'].forEach(id => {
-    document.getElementById(id).classList.add('hidden');
-  });
-  document.getElementById(secId).classList.remove('hidden');
-}
-
-// Task Rendering & Navigation
-function renderTask() {
-  hideAlert();
-  const tasks = CONJOINT_DATA[selectedVersion];
-  const t = tasks[currentTaskIdx];
-
-  document.getElementById("taskHeader").innerHTML = `Tình huống ${currentTaskIdx + 1} / 6`;
-
-  // Class A values
-  document.getElementById("valA_tuition").innerText = t.classA.tuition;
-  document.getElementById("valA_payment").innerText = t.classA.payment;
-  document.getElementById("valA_deposit").innerText = t.classA.deposit;
-  document.getElementById("valA_focus").innerText = t.classA.focus;
-  document.getElementById("valA_location").innerText = t.classA.location;
-
-  // Class B values
-  document.getElementById("valB_tuition").innerText = t.classB.tuition;
-  document.getElementById("valB_payment").innerText = t.classB.payment;
-  document.getElementById("valB_deposit").innerText = t.classB.deposit;
-  document.getElementById("valB_focus").innerText = t.classB.focus;
-  document.getElementById("valB_location").innerText = t.classB.location;
-
-  // Selection state
-  const selected = choices[currentTaskIdx + 1];
-  updateClassCardUI(selected);
-
-  // Buttons label
-  if (currentTaskIdx === 5) {
-    document.getElementById("btnTaskNext").innerText = "HOÀN THÀNH & NỘP BÀI »";
-  } else {
-    document.getElementById("btnTaskNext").innerText = "TIẾP THEO »";
-  }
-}
-
-function selectClass(className) {
-  choices[currentTaskIdx + 1] = className;
-  updateClassCardUI(className);
-  hideAlert();
-  saveState();
-}
-
-function updateClassCardUI(selected) {
-  const cardA = document.getElementById("cardClassA");
-  const cardB = document.getElementById("cardClassB");
-  const btnA = document.getElementById("btnSelectA");
-  const btnB = document.getElementById("btnSelectB");
-
-  cardA.classList.remove("selected");
-  cardB.classList.remove("selected");
-  btnA.innerText = "Chọn Lớp A";
-  btnB.innerText = "Chọn Lớp B";
-
-  if (selected === 'Class A') {
-    cardA.classList.add("selected");
-    btnA.innerText = "✓ Đã chọn Lớp A";
-  } else if (selected === 'Class B') {
-    cardB.classList.add("selected");
-    btnB.innerText = "✓ Đã chọn Lớp B";
-  }
-}
-
-function prevTask() {
-  hideAlert();
-  if (currentTaskIdx > 0) {
-    currentTaskIdx--;
-    saveState();
-    renderTask();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  } else {
-    goToSection(2);
-  }
-}
-
-function nextTask() {
-  hideAlert();
-  if (!choices[currentTaskIdx + 1]) {
-    return showAlert("⚠️ Vui lòng chọn Lớp A hoặc Lớp B trước khi tiếp tục.");
-  }
-
-  if (currentTaskIdx < 5) {
-    currentTaskIdx++;
-    saveState();
-    renderTask();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  } else {
-    submitSurvey();
-  }
-}
-
-// Final Submission via Apps Script Fetch
-function submitSurvey() {
-  const formData = getFormData();
-  const payload = {
-    respondent_id: respondentId,
-    version: selectedVersion,
-    q1_district: formData.q1_district,
-    q2_relationship: formData.q2_relationship,
-    q3_income: formData.q3_income,
-    q4_stability: formData.q4_stability,
-    q5_grade: formData.q5_grade,
-    q6_external: formData.q6_external,
-    q7_spending: formData.q7_spending,
-    likert_1: formData.likert_1,
-    likert_2: formData.likert_2,
-    likert_3: formData.likert_3,
-    likert_4: formData.likert_4,
-    likert_5: formData.likert_5,
-    likert_6: formData.likert_6,
-    likert_7: formData.likert_7,
-    likert_8: formData.likert_8,
-    task_1: choices[1] || "",
-    task_2: choices[2] || "",
-    task_3: choices[3] || "",
-    task_4: choices[4] || "",
-    task_5: choices[5] || "",
-    task_6: choices[6] || ""
-  };
-
-  const btnNext = document.getElementById("btnTaskNext");
-  btnNext.disabled = true;
-  btnNext.innerText = "Đang gửi dữ liệu...";
-
-  fetch(GOOGLE_SCRIPT_URL, {
-    method: "POST",
-    mode: "no-cors",
-    headers: {
-      "Content-Type": "text/plain;charset=utf-8"
-    },
-    body: JSON.stringify(payload)
-  }).then(() => {
-    const state = JSON.parse(localStorage.getItem("conjoint_survey_state") || "{}");
-    state.submitted = true;
-    localStorage.setItem("conjoint_survey_state", JSON.stringify(state));
-    showSection('sectionThankYou');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }).catch(err => {
-    console.error("Submission error:", err);
-    const state = JSON.parse(localStorage.getItem("conjoint_survey_state") || "{}");
-    state.submitted = true;
-    localStorage.setItem("conjoint_survey_state", JSON.stringify(state));
-    showSection('sectionThankYou');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-}
-
-function resetSurvey() {
-  localStorage.removeItem("conjoint_survey_state");
-  location.reload();
-}
-
-// Initialize on page load
-window.addEventListener("DOMContentLoaded", initSurvey);
 </script>
+
 </body>
 </html>
