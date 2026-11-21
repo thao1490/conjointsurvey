@@ -181,52 +181,70 @@
       accent-color: var(--primary);
       flex-shrink: 0;
     }
-    /* Conjoint Cards Grid */
+    /* Conjoint Aligned Comparison Grid (Row-Matched Across Class A & Class B) */
     .conjoint-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      column-gap: 12px;
+      row-gap: 0;
       margin: 14px 0 22px 0;
       align-items: stretch;
     }
-    .conjoint-card {
-      border: 2px solid var(--border);
-      border-radius: 10px;
-      padding: 14px 12px;
+    .conjoint-cell {
       background: #ffffff;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: all 0.2s ease;
+      border-left: 2px solid var(--border);
+      border-right: 2px solid var(--border);
+      padding: 10px 14px;
       cursor: pointer;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
       min-width: 0;
       word-wrap: break-word;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
     }
-    .conjoint-card:hover {
-      border-color: var(--primary-border);
+    .conjoint-cell.cell-header {
+      border-top: 2px solid var(--border);
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      padding-top: 14px;
+      padding-bottom: 10px;
     }
-    .conjoint-card.selected {
-      border-color: var(--primary);
+    .conjoint-cell.cell-attr {
+      border-bottom: 1px dashed #e2e8f0;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    .conjoint-cell.cell-attr-last {
+      border-bottom: none;
+      padding-bottom: 12px;
+    }
+    .conjoint-cell.cell-footer {
+      border-bottom: 2px solid var(--border);
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      padding-top: 8px;
+      padding-bottom: 14px;
+      justify-content: flex-end;
+    }
+    .conjoint-cell.selected {
       background-color: var(--primary-soft);
-      box-shadow: 0 0 0 2px rgba(43, 108, 176, 0.22);
+      border-left-color: var(--primary);
+      border-right-color: var(--primary);
+    }
+    .conjoint-cell.cell-header.selected {
+      border-top-color: var(--primary);
+    }
+    .conjoint-cell.cell-footer.selected {
+      border-bottom-color: var(--primary);
     }
     .card-header {
       text-align: center;
       font-weight: 700;
       font-size: 18px;
       color: var(--primary);
-      padding-bottom: 10px;
+      padding-bottom: 8px;
       border-bottom: 2px solid var(--primary);
-      margin-bottom: 14px;
-    }
-    .attr-row {
-      margin-bottom: 12px;
-      padding-bottom: 10px;
-      border-bottom: 1px dashed #e2e8f0;
-    }
-    .attr-row:last-of-type {
-      border-bottom: none;
-      margin-bottom: 6px;
     }
     .attr-name {
       font-size: 12px;
@@ -240,24 +258,23 @@
       font-size: 15px;
       font-weight: 500;
       color: var(--text);
-      line-height: 1.45;
+      line-height: 1.42;
     }
     .btn-select {
       width: 100%;
-      padding: 13px;
-      margin-top: 12px;
+      padding: 12px 10px;
       background-color: #ffffff;
       color: var(--primary);
       border: 2px solid var(--primary);
       border-radius: 8px;
       font-family: inherit;
-      font-size: 16px;
+      font-size: 15.5px;
       font-weight: 700;
       cursor: pointer;
       text-align: center;
       transition: all 0.2s;
     }
-    .conjoint-card.selected .btn-select {
+    .conjoint-cell.selected .btn-select {
       background-color: var(--primary);
       color: #ffffff;
     }
@@ -312,24 +329,26 @@
       margin-left: 0;
     }
     .level-item {
-      margin-bottom: 18px;
+      margin-bottom: 14px;
     }
     .level-title {
       font-weight: 700;
-      font-size: 16px;
+      font-size: 17px;
       color: var(--primary);
       display: block;
-      margin-bottom: 8px;
+      margin-bottom: 5px;
+      line-height: 1.38;
     }
     .level-sub-list {
       list-style-type: disc;
-      padding-left: 22px;
+      padding-left: 20px;
       margin-left: 0;
     }
     .level-sub-list li {
-      padding: 4px 0;
-      margin-bottom: 6px;
-      font-size: 15px;
+      padding: 2px 0;
+      margin-bottom: 3px;
+      font-size: 16px;
+      line-height: 1.42;
       color: var(--text);
     }
     .alert-box {
@@ -365,32 +384,64 @@
       }
       .conjoint-grid {
         grid-template-columns: 1fr 1fr;
-        gap: 6px;
+        column-gap: 6px;
+        row-gap: 0;
       }
-      .conjoint-card {
-        padding: 10px 8px;
-        border-radius: 8px;
+      .conjoint-cell {
+        padding: 8px 8px;
+        border-left-width: 1.5px;
+        border-right-width: 1.5px;
+      }
+      .conjoint-cell.cell-header {
+        border-top-width: 1.5px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        padding-top: 10px;
+        padding-bottom: 6px;
+      }
+      .conjoint-cell.cell-attr {
+        padding-top: 7px;
+        padding-bottom: 7px;
+      }
+      .conjoint-cell.cell-footer {
+        border-bottom-width: 1.5px;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        padding-top: 6px;
+        padding-bottom: 10px;
       }
       .card-header {
         font-size: 17px;
         padding-bottom: 6px;
-        margin-bottom: 10px;
-      }
-      .attr-row {
-        margin-bottom: 9px;
-        padding-bottom: 8px;
       }
       .attr-name {
         font-size: 11px;
         letter-spacing: 0.2px;
+        margin-bottom: 2px;
       }
       .attr-val {
         font-size: 15.5px;
-        line-height: 1.38;
+        line-height: 1.36;
       }
       .btn-select {
         padding: 11px 6px;
         font-size: 15px;
+      }
+      .level-item {
+        margin-bottom: 12px;
+      }
+      .level-title {
+        font-size: 16.5px;
+        margin-bottom: 4px;
+      }
+      .level-sub-list {
+        padding-left: 18px;
+      }
+      .level-sub-list li {
+        font-size: 16px;
+        line-height: 1.38;
+        padding: 1.5px 0;
+        margin-bottom: 2px;
       }
     }
   </style>
@@ -1747,39 +1798,58 @@
     const container = document.getElementById("taskStepsContainer");
     container.innerHTML = "";
     const tasks = CONJOINT_QUESTIONS[selectedVersion] || CONJOINT_QUESTIONS[1];
+    const attrSpecs = [
+      { key: "tuition", label: "Học phí cơ bản", isLast: false },
+      { key: "payment", label: "Thanh toán", isLast: false },
+      { key: "deposit", label: "Tiền đặt cọc", isLast: false },
+      { key: "focus", label: "Mục tiêu học", isLast: false },
+      { key: "location", label: "Địa điểm", isLast: true }
+    ];
+
     tasks.forEach((t, i) => {
       let stepIndex = 5 + i; // Step 5 to 10
       let stepDiv = document.createElement("div");
       stepDiv.className = "step-page";
       stepDiv.id = `step${stepIndex}`;
+
+      let rowsHtml = `
+        <div class="conjoint-cell cell-header class-a-t${t.task}" onclick="selectClass(${t.task}, 'Class A')">
+          <div class="card-header">LỚP A</div>
+        </div>
+        <div class="conjoint-cell cell-header class-b-t${t.task}" onclick="selectClass(${t.task}, 'Class B')">
+          <div class="card-header">LỚP B</div>
+        </div>
+      `;
+
+      attrSpecs.forEach((attr) => {
+        const lastCls = attr.isLast ? " cell-attr-last" : "";
+        rowsHtml += `
+          <div class="conjoint-cell cell-attr${lastCls} class-a-t${t.task}" onclick="selectClass(${t.task}, 'Class A')">
+            <div class="attr-name">${attr.label}</div>
+            <div class="attr-val">${t.Class_A[attr.key]}</div>
+          </div>
+          <div class="conjoint-cell cell-attr${lastCls} class-b-t${t.task}" onclick="selectClass(${t.task}, 'Class B')">
+            <div class="attr-name">${attr.label}</div>
+            <div class="attr-val">${t.Class_B[attr.key]}</div>
+          </div>
+        `;
+      });
+
+      rowsHtml += `
+        <div class="conjoint-cell cell-footer class-a-t${t.task}" onclick="selectClass(${t.task}, 'Class A')">
+          <button type="button" class="btn-select">CHỌN LỚP A</button>
+        </div>
+        <div class="conjoint-cell cell-footer class-b-t${t.task}" onclick="selectClass(${t.task}, 'Class B')">
+          <button type="button" class="btn-select">CHỌN LỚP B</button>
+        </div>
+      `;
+
       stepDiv.innerHTML = `
         <h2>Câu ${t.task} / 6: Lựa chọn chương trình học</h2>
         <p>Nếu chỉ có 2 lựa chọn lớp học tiếng Anh dưới đây, Anh/Chị sẽ ưu tiên chọn <strong>Lớp A</strong> hay <strong>Lớp B</strong> cho con?</p>
 
         <div class="conjoint-grid">
-          <div class="conjoint-card" id="card_A_t${t.task}" onclick="selectClass(${t.task}, 'Class A')">
-            <div>
-              <div class="card-header">LỚP A</div>
-              <div class="attr-row"><div class="attr-name">Học phí cơ bản</div><div class="attr-val">${t.Class_A.tuition}</div></div>
-              <div class="attr-row"><div class="attr-name">Thanh toán</div><div class="attr-val">${t.Class_A.payment}</div></div>
-              <div class="attr-row"><div class="attr-name">Tiền đặt cọc</div><div class="attr-val">${t.Class_A.deposit}</div></div>
-              <div class="attr-row"><div class="attr-name">Mục tiêu học</div><div class="attr-val">${t.Class_A.focus}</div></div>
-              <div class="attr-row"><div class="attr-name">Địa điểm</div><div class="attr-val">${t.Class_A.location}</div></div>
-            </div>
-            <button type="button" class="btn-select">CHỌN LỚP A</button>
-          </div>
-
-          <div class="conjoint-card" id="card_B_t${t.task}" onclick="selectClass(${t.task}, 'Class B')">
-            <div>
-              <div class="card-header">LỚP B</div>
-              <div class="attr-row"><div class="attr-name">Học phí cơ bản</div><div class="attr-val">${t.Class_B.tuition}</div></div>
-              <div class="attr-row"><div class="attr-name">Thanh toán</div><div class="attr-val">${t.Class_B.payment}</div></div>
-              <div class="attr-row"><div class="attr-name">Tiền đặt cọc</div><div class="attr-val">${t.Class_B.deposit}</div></div>
-              <div class="attr-row"><div class="attr-name">Mục tiêu học</div><div class="attr-val">${t.Class_B.focus}</div></div>
-              <div class="attr-row"><div class="attr-name">Địa điểm</div><div class="attr-val">${t.Class_B.location}</div></div>
-            </div>
-            <button type="button" class="btn-select">CHỌN LỚP B</button>
-          </div>
+          ${rowsHtml}
         </div>
 
         <div class="btn-nav-group">
@@ -1795,14 +1865,14 @@
 
   function selectClass(taskNum, choice) {
     surveyAnswers[`task_${taskNum}`] = choice;
-    let cardA = document.getElementById(`card_A_t${taskNum}`);
-    let cardB = document.getElementById(`card_B_t${taskNum}`);
+    const cellsA = document.querySelectorAll(`.class-a-t${taskNum}`);
+    const cellsB = document.querySelectorAll(`.class-b-t${taskNum}`);
     if (choice === 'Class A') {
-      cardA.classList.add('selected');
-      cardB.classList.remove('selected');
+      cellsA.forEach(el => el.classList.add('selected'));
+      cellsB.forEach(el => el.classList.remove('selected'));
     } else {
-      cardB.classList.add('selected');
-      cardA.classList.remove('selected');
+      cellsB.forEach(el => el.classList.add('selected'));
+      cellsA.forEach(el => el.classList.remove('selected'));
     }
     hideAlert();
   }
