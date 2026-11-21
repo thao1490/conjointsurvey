@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Survey on Parental Preferences for Children's English Programs</title>
+  <title>Khảo sát ý kiến Phụ huynh về việc lựa chọn chương trình học tiếng Anh cho con</title>
   <style>
     :root {
       --primary: #2b6cb0;
@@ -181,7 +181,7 @@
       accent-color: var(--primary);
       flex-shrink: 0;
     }
-    /* Conjoint Aligned Comparison Grid (Row-Matched Across Program A & Program B) */
+    /* Conjoint Aligned Comparison Grid (Row-Matched Across Class A & Class B) */
     .conjoint-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -451,7 +451,7 @@
 <div class="container">
   <div class="progress-wrap">
     <div class="progress-meta">
-      <span id="progressLabel">Introduction</span>
+      <span id="progressLabel">Giới thiệu</span>
       <span id="progressPercent">0%</span>
     </div>
     <div class="progress-container">
@@ -463,197 +463,197 @@
 
   <!-- STEP 0: WELCOME & CONSENT -->
   <div class="step-page active" id="step0">
-    <h1>Survey on Parental Preferences for Children's English Programs</h1>
-    <p>Dear Parents,</p>
-    <p>My name is Thao, an MBA student at Doshisha University (Japan), currently conducting my graduation research on: <em>"Parental preferences and factors influencing the choice of English language classes for primary school children in the outskirts of Hanoi"</em>.</p>
-    <p>This survey seeks to understand your overall perspectives and criteria when evaluating different English class options for primary school children. Your valuable insights will provide essential empirical data to propose suitable and accessible educational models for local communities.</p>
+    <h1>Khảo sát ý kiến Phụ huynh về việc lựa chọn chương trình học tiếng Anh cho con</h1>
+    <p>Kính gửi Quý Phụ huynh,</p>
+    <p>Tôi/Em tên là Thảo, học viên cao học tại Đại học Doshisha (Nhật Bản), hiện đang thực hiện đề tài nghiên cứu tốt nghiệp về: <em>"Nhu cầu và các yếu tố ảnh hưởng đến việc lựa chọn lớp học tiếng Anh cho học sinh tiểu học tại các khu vực ngoại thành Hà Nội"</em>.</p>
+    <p>Bài khảo sát này nhằm tìm hiểu quan điểm và các tiêu chí của Quý Phụ huynh khi đánh giá, lựa chọn các hình thức học tiếng Anh ngoài trường cho con. Những thông tin chia sẻ quý báu của Anh/Chị sẽ cung cấp nguồn dữ liệu thực tiễn quan trọng để đề xuất các mô hình giáo dục phù hợp, chất lượng và dễ tiếp cận hơn cho cộng đồng địa phương.</p>
     
     <div class="info-card">
-      <p style="margin-bottom: 8px;"><strong>Survey Information:</strong></p>
+      <p style="margin-bottom: 8px;"><strong>Thông tin bài khảo sát:</strong></p>
       <ul style="list-style-type: none; padding-left: 0; margin-left: 0;">
-        <li style="margin-bottom: 6px;">⏱️ <strong>Estimated completion time:</strong> Approximately 5 – 7 minutes.</li>
-        <li style="margin-bottom: 0;">🔒 <strong>Data Privacy &amp; Confidentiality:</strong> All responses are strictly anonymous, encrypted, and used exclusively for academic research purposes.</li>
+        <li style="margin-bottom: 6px;">⏱️ <strong>Thời gian hoàn thành:</strong> Khoảng 5 – 7 phút.</li>
+        <li style="margin-bottom: 0;">🔒 <strong>Bảo mật thông tin:</strong> Mọi câu trả lời được bảo mật tuyệt đối, mã hóa an toàn và chỉ sử dụng duy nhất cho mục đích nghiên cứu khoa học.</li>
       </ul>
     </div>
     
-    <p>Thank you very much for your valuable time and support!</p>
+    <p>Tôi/Em xin chân thành cảm ơn sự hỗ trợ của Quý Phụ huynh!</p>
     
     <div class="btn-nav-group">
-      <button class="btn btn-primary" onclick="nextStep(0)">START SURVEY »</button>
+      <button class="btn btn-primary" onclick="nextStep(0)">BẮT ĐẦU KHẢO SÁT »</button>
     </div>
   </div>
 
   <!-- STEP 1: DEMOGRAPHICS (PART 1) -->
   <div class="step-page" id="step1">
-    <h2>Part 1: Background Information</h2>
+    <h2>Phần 1: Thông tin chung về hộ gia đình</h2>
     
     <div class="form-group">
-      <label class="question-label" for="q1_district">1. Which district or area in Hanoi are you currently living in?</label>
-      <input type="text" id="q1_district" placeholder="e.g., Dong Anh, Gia Lam, Me Linh...">
+      <label class="question-label" for="q1_district">1. Anh/Chị hiện đang sinh sống tại quận/huyện nào ở Hà Nội?</label>
+      <input type="text" id="q1_district" placeholder="Ví dụ: Đông Anh, Gia Lâm, Mê Linh...">
     </div>
 
     <div class="form-group">
-      <label class="question-label">2. What is your relationship to the child?</label>
+      <label class="question-label">2. Mối quan hệ của Anh/Chị với trẻ là gì?</label>
       <div class="radio-group">
-        <label class="radio-item"><input type="radio" name="q2_rel" value="Father" onchange="toggleQ2Other()"> Father</label>
-        <label class="radio-item"><input type="radio" name="q2_rel" value="Mother" onchange="toggleQ2Other()"> Mother</label>
+        <label class="radio-item"><input type="radio" name="q2_rel" value="Bố" onchange="toggleQ2Other()"> Bố</label>
+        <label class="radio-item"><input type="radio" name="q2_rel" value="Mẹ" onchange="toggleQ2Other()"> Mẹ</label>
         <label class="radio-item" style="flex-direction: column; align-items: stretch; gap: 10px;">
           <span style="display: flex; align-items: center;">
-            <input type="radio" name="q2_rel" id="q2_rel_other" value="Other" onchange="toggleQ2Other()"> Other (please specify)
+            <input type="radio" name="q2_rel" id="q2_rel_other" value="Khác" onchange="toggleQ2Other()"> Khác (Vui lòng ghi rõ)
           </span>
-          <input type="text" id="q2_other_text" placeholder="e.g., Grandfather, Grandmother, Aunt, Uncle, Legal Guardian..." oninput="handleQ2OtherInput()">
+          <input type="text" id="q2_other_text" placeholder="Ví dụ: Ông, Bà, Cô, Chú, Người giám hộ..." oninput="handleQ2OtherInput()">
         </label>
       </div>
     </div>
 
     <div class="form-group">
-      <label class="question-label">3. Approximately what is your household’s <strong>average total income</strong> from all sources per month?</label>
+      <label class="question-label">3. Thu nhập <strong>trung bình hàng tháng</strong> của toàn hộ gia đình Anh/Chị (từ tất cả các nguồn) khoảng bao nhiêu?</label>
       <div class="radio-group">
-        <label class="radio-item"><input type="radio" name="q3_inc" value="Less than 5 million VND"> Less than 5 million VND</label>
-        <label class="radio-item"><input type="radio" name="q3_inc" value="5 million to less than 10 million VND"> 5 million to less than 10 million VND</label>
-        <label class="radio-item"><input type="radio" name="q3_inc" value="10 million to less than 15 million VND"> 10 million to less than 15 million VND</label>
-        <label class="radio-item"><input type="radio" name="q3_inc" value="15 million to less than 20 million VND"> 15 million to less than 20 million VND</label>
-        <label class="radio-item"><input type="radio" name="q3_inc" value="20 million VND or more"> 20 million VND or more</label>
+        <label class="radio-item"><input type="radio" name="q3_inc" value="Dưới 5 triệu VNĐ"> Dưới 5 triệu VNĐ</label>
+        <label class="radio-item"><input type="radio" name="q3_inc" value="Từ 5 triệu đến dưới 10 triệu VNĐ"> Từ 5 triệu đến dưới 10 triệu VNĐ</label>
+        <label class="radio-item"><input type="radio" name="q3_inc" value="Từ 10 triệu đến dưới 15 triệu VNĐ"> Từ 10 triệu đến dưới 15 triệu VNĐ</label>
+        <label class="radio-item"><input type="radio" name="q3_inc" value="Từ 15 triệu đến dưới 20 triệu VNĐ"> Từ 15 triệu đến dưới 20 triệu VNĐ</label>
+        <label class="radio-item"><input type="radio" name="q3_inc" value="Từ 20 triệu VNĐ trở lên"> Từ 20 triệu VNĐ trở lên</label>
       </div>
     </div>
 
     <div class="form-group">
-      <label class="question-label">4. How would you describe your household's monthly income over the past 12 months?</label>
+      <label class="question-label">4. Anh/Chị đánh giá thế nào về độ ổn định thu nhập hàng tháng của gia đình mình trong 12 tháng qua?</label>
       <div class="radio-group">
-        <label class="radio-item"><input type="radio" name="q4_stab" value="Mostly stable"> Mostly stable</label>
-        <label class="radio-item"><input type="radio" name="q4_stab" value="Somewhat variable"> Somewhat variable</label>
-        <label class="radio-item"><input type="radio" name="q4_stab" value="Highly variable"> Highly variable</label>
+        <label class="radio-item"><input type="radio" name="q4_stab" value="Khá ổn định"> Khá ổn định</label>
+        <label class="radio-item"><input type="radio" name="q4_stab" value="Có biến động nhẹ"> Có biến động nhẹ</label>
+        <label class="radio-item"><input type="radio" name="q4_stab" value="Biến động nhiều / Không ổn định"> Biến động nhiều / Không ổn định</label>
       </div>
     </div>
 
     <div class="form-group">
-      <label class="question-label">5. Which grade is your child currently attending?</label>
+      <label class="question-label">5. Con của Anh/Chị hiện đang học lớp mấy?</label>
       <div class="radio-group">
-        <label class="radio-item"><input type="radio" name="q5_grade" value="Grade 1"> Grade 1</label>
-        <label class="radio-item"><input type="radio" name="q5_grade" value="Grade 2"> Grade 2</label>
-        <label class="radio-item"><input type="radio" name="q5_grade" value="Grade 3"> Grade 3</label>
-        <label class="radio-item"><input type="radio" name="q5_grade" value="Grade 4"> Grade 4</label>
-        <label class="radio-item"><input type="radio" name="q5_grade" value="Grade 5"> Grade 5</label>
+        <label class="radio-item"><input type="radio" name="q5_grade" value="Lớp 1"> Lớp 1</label>
+        <label class="radio-item"><input type="radio" name="q5_grade" value="Lớp 2"> Lớp 2</label>
+        <label class="radio-item"><input type="radio" name="q5_grade" value="Lớp 3"> Lớp 3</label>
+        <label class="radio-item"><input type="radio" name="q5_grade" value="Lớp 4"> Lớp 4</label>
+        <label class="radio-item"><input type="radio" name="q5_grade" value="Lớp 5"> Lớp 5</label>
       </div>
     </div>
 
     <div class="form-group">
-      <label class="question-label">6. Does your child currently attend any English classes outside of primary school? (e.g., private tutoring with school teachers, small group classes, English centers, etc.)</label>
+      <label class="question-label">6. Con của Anh/Chị hiện có đang theo học lớp tiếng Anh nào ngoài trường tiểu học không (Ví dụ: lớp học thêm của cô giáo, lớp học nhóm, học trung tâm tiếng Anh, v.v.)?</label>
       <div class="radio-group">
-        <label class="radio-item"><input type="radio" name="q6_ext" value="Yes" onchange="toggleQ7()"> Yes</label>
-        <label class="radio-item"><input type="radio" name="q6_ext" value="No" onchange="toggleQ7()"> No</label>
+        <label class="radio-item"><input type="radio" name="q6_ext" value="Có" onchange="toggleQ7()"> Có</label>
+        <label class="radio-item"><input type="radio" name="q6_ext" value="Không" onchange="toggleQ7()"> Không</label>
       </div>
     </div>
 
     <div class="form-group" id="q7_group" style="display: none;">
-      <label class="question-label">7. If YES, approximately how much does your household spend on your child's English learning <strong>each month</strong>?</label>
+      <label class="question-label">7. Nếu CÓ, trung bình <strong>mỗi tháng</strong> gia đình Anh/Chị chi trả khoảng bao nhiêu tiền cho việc học tiếng Anh ngoài trường của con?</label>
       <div class="radio-group">
-        <label class="radio-item"><input type="radio" name="q7_bud" value="Less than 480,000 VND"> Less than 480,000 VND</label>
-        <label class="radio-item"><input type="radio" name="q7_bud" value="481,000 - 800,000 VND"> 481,000 – 800,000 VND</label>
-        <label class="radio-item"><input type="radio" name="q7_bud" value="801,000 - 1,200,000 VND"> 801,000 – 1,200,000 VND</label>
-        <label class="radio-item"><input type="radio" name="q7_bud" value="More than 1,200,000 VND"> More than 1,200,000 VND</label>
+        <label class="radio-item"><input type="radio" name="q7_bud" value="Dưới 480.000 VNĐ"> Dưới 480.000 VNĐ</label>
+        <label class="radio-item"><input type="radio" name="q7_bud" value="Từ 481.000 – 800.000 VNĐ"> Từ 481.000 – 800.000 VNĐ</label>
+        <label class="radio-item"><input type="radio" name="q7_bud" value="Từ 801.000 – 1.200.000 VNĐ"> Từ 801.000 – 1.200.000 VNĐ</label>
+        <label class="radio-item"><input type="radio" name="q7_bud" value="Trên 1.200.000 VNĐ"> Trên 1.200.000 VNĐ</label>
       </div>
     </div>
 
     <div class="btn-nav-group">
-      <button class="btn btn-secondary" onclick="prevStep(1)">« BACK</button>
-      <button class="btn btn-primary" onclick="nextStep(1)">NEXT »</button>
+      <button class="btn btn-secondary" onclick="prevStep(1)">« QUAY LẠI</button>
+      <button class="btn btn-primary" onclick="nextStep(1)">TIẾP THEO »</button>
     </div>
   </div>
 
   <!-- STEP 2: LIKERT ATTITUDES (PART 2) -->
   <div class="step-page" id="step2">
-    <h2>Part 2: Attitudes and Priorities Regarding English Learning</h2>
-    <p style="margin-bottom:15px;">Please indicate your level of agreement with each of the following statements on a scale from 1 (Strongly disagree) to 5 (Strongly agree).</p>
+    <h2>Phần 2: Quan điểm và mức độ ưu tiên đối với việc học tiếng Anh</h2>
+    <p style="margin-bottom:15px;">Xin Anh/Chị cho biết mức độ đồng ý của mình với các nhận định dưới đây theo thang điểm từ 1 (Hoàn toàn không đồng ý) đến 5 (Hoàn toàn đồng ý).</p>
     <div id="likertContainer"></div>
     
     <div class="btn-nav-group">
-      <button class="btn btn-secondary" onclick="prevStep(2)">« BACK</button>
-      <button class="btn btn-primary" onclick="nextStep(2)">NEXT »</button>
+      <button class="btn btn-secondary" onclick="prevStep(2)">« QUAY LẠI</button>
+      <button class="btn btn-primary" onclick="nextStep(2)">TIẾP THEO »</button>
     </div>
   </div>
 
   <!-- STEP 3: PART 3 INTRO & FIXED CONDITIONS -->
   <div class="step-page" id="step3">
-    <h2>Part 3: Choice-Based Conjoint Tasks</h2>
-    <p>In this section, you will act as the primary decision-maker choosing an outside English program for your child. You will be presented with <strong>6 hypothetical choice scenarios</strong>. In each scenario, please evaluate the two offered programs (Program A vs. Program B) and select the single program you would <strong>most prefer</strong> for your child.</p>
+    <h2>Phần 3: Lựa chọn chương trình học tiếng Anh phù hợp</h2>
+    <p>Ở phần này, Anh/Chị sẽ đóng vai trò là người quyết định chọn lớp học tiếng Anh cho con. Chúng tôi sẽ đưa ra <strong>6 tình huống lựa chọn</strong>. Ở mỗi tình huống, Anh/Chị hãy so sánh 2 chương trình học (Lớp A và Lớp B) và chọn ra 1 lớp học mà Anh/Chị <strong>ưu tiên nhất</strong> cho con.</p>
 
     <div class="info-card">
-      <h3 style="margin-top:0; margin-bottom:10px; font-size: 17px;">Conditions held constant across all program options:</h3>
-      <p style="font-size:16px; margin-bottom:12px;"><em>To ensure a fair comparison, all educational options in this survey strictly adhere to the following 5 fixed standards:</em></p>
+      <h3 style="margin-top:0; margin-bottom:10px; font-size: 17px;">Quy tắc và điều kiện cố định chung cho tất cả các lớp học:</h3>
+      <p style="font-size:16px; margin-bottom:12px;"><em>Để đảm bảo so sánh công bằng, tất cả các lựa chọn lớp học trong bài khảo sát này đều tuân theo 5 quy chuẩn cố định sau:</em></p>
       <ul style="list-style-type: none; padding-left: 0; margin-left: 0;">
-        <li style="margin-bottom: 10px;"><strong>1. Session schedule:</strong> Eight 90-minute sessions per period, typically 2 sessions per week.</li>
-        <li style="margin-bottom: 10px;"><strong>2. Class size:</strong> Maximum of 20 children per class.</li>
-        <li style="margin-bottom: 10px;"><strong>3. Teacher standards:</strong> The same stated teacher qualification and experience requirements across all options.</li>
-        <li style="margin-bottom: 10px;"><strong>4. Facilities &amp; safety:</strong> The same stated basic classroom equipment, learning materials, and safety conditions.</li>
-        <li style="margin-bottom: 0;"><strong>5. Pricing transparency:</strong> No additional compulsory fees beyond those shown (no hidden registration, textbook, or uniform fees).</li>
+        <li style="margin-bottom: 10px;"><strong>1. Thời lượng học:</strong> Mỗi kỳ gồm 8 buổi học, 90 phút/buổi (thường học 2 buổi/tuần).</li>
+        <li style="margin-bottom: 10px;"><strong>2. Sĩ số lớp:</strong> Tối đa 20 học sinh/lớp.</li>
+        <li style="margin-bottom: 10px;"><strong>3. Chất lượng giáo viên:</strong> Trình độ bằng cấp và kinh nghiệm giảng dạy của giáo viên ở tất cả các lớp là như nhau.</li>
+        <li style="margin-bottom: 10px;"><strong>4. Cơ sở vật chất và điều kiện an toàn:</strong> Trang thiết bị học tập cơ bản và điều kiện an toàn phòng học là tương đương nhau.</li>
+        <li style="margin-bottom: 0;"><strong>5. Cam kết chi phí:</strong> Không phát sinh bất kỳ khoản phí bắt buộc nào khác ngoài các khoản hiển thị (không thu thêm phí nhập học, phí giáo trình hay đồng phục).</li>
       </ul>
     </div>
 
     <div class="btn-nav-group">
-      <button class="btn btn-secondary" onclick="prevStep(3)">« BACK</button>
-      <button class="btn btn-primary" onclick="nextStep(3)">NEXT »</button>
+      <button class="btn btn-secondary" onclick="prevStep(3)">« QUAY LẠI</button>
+      <button class="btn btn-primary" onclick="nextStep(3)">TIẾP THEO »</button>
     </div>
   </div>
 
   <!-- STEP 4: PART 3 ATTRIBUTE EXPLANATIONS -->
   <div class="step-page" id="step4">
-    <h2>Attribute Definitions and Level Specifications</h2>
-    <p style="margin-bottom:15px;"><em>Please review the list below to understand the meaning of each feature before proceeding to the choice tasks:</em></p>
+    <h2>Giải thích ý nghĩa đặc điểm của các lớp học</h2>
+    <p style="margin-bottom:15px;"><em>Anh/Chị vui lòng đọc danh sách dưới đây để hiểu rõ ý nghĩa của các lựa chọn trước khi bắt đầu làm khảo sát:</em></p>
 
     <ul class="level-list">
       <li class="level-item">
-        <span class="level-title">1. Baseline Tuition (per period of 8 sessions):</span>
+        <span class="level-title">1. Học phí cơ bản (cho 1 kỳ = 8 buổi):</span>
         <ul class="level-sub-list">
-          <li>480,000 VND / period (approx. 60,000 VND/session)</li>
-          <li>640,000 VND / period (approx. 80,000 VND/session)</li>
-          <li>800,000 VND / period (approx. 100,000 VND/session)</li>
-          <li>960,000 VND / period (approx. 120,000 VND/session)</li>
-          <li>1,200,000 VND / period (approx. 150,000 VND/session)</li>
+          <li>480.000 VNĐ / kỳ (tương đương 60.000 VNĐ/buổi)</li>
+          <li>640.000 VNĐ / kỳ (tương đương 80.000 VNĐ/buổi)</li>
+          <li>800.000 VNĐ / kỳ (tương đương 100.000 VNĐ/buổi)</li>
+          <li>960.000 VNĐ / kỳ (tương đương 120.000 VNĐ/buổi)</li>
+          <li>1.200.000 VNĐ / kỳ (tương đương 150.000 VNĐ/buổi)</li>
         </ul>
       </li>
 
       <li class="level-item">
-        <span class="level-title">2. Payment Schedule &amp; Package Discount:</span>
+        <span class="level-title">2. Hình thức đóng tiền và ưu đãi chiết khấu:</span>
         <ul class="level-sub-list">
-          <li>Pay each period (8 sessions at a time), no discount applied.</li>
-          <li>Pay 3 periods upfront in a single payment (24 sessions), receive a 5% total discount.</li>
-          <li>Pay 6 periods upfront in a single payment (48 sessions), receive a 10% total discount.</li>
+          <li>Đóng từng kỳ (8 buổi/lần), không áp dụng giảm giá.</li>
+          <li>Đóng gộp 1 lần cho 3 kỳ (24 buổi), được giảm 5% tổng học phí.</li>
+          <li>Đóng gộp 1 lần cho 6 kỳ (48 buổi), được giảm 10% tổng học phí.</li>
         </ul>
       </li>
 
       <li class="level-item">
-        <span class="level-title">3. Deposit &amp; Early-Withdrawal Policy:</span>
+        <span class="level-title">3. Khoản tiền đặt cọc và điều kiện rút vốn:</span>
         <ul class="level-sub-list">
-          <li>No upfront deposit required, parents only pay standard tuition fees.</li>
-          <li>Half-period tuition deposit (4 sessions), which is credited toward the final period's tuition, but forfeited if the student drops out midway.</li>
-          <li>One-period tuition deposit (8 sessions), which is credited toward the final period's tuition, but forfeited if the student drops out midway.</li>
+          <li>Không yêu cầu đặt cọc, chỉ thanh toán tiền học phí tiêu chuẩn.</li>
+          <li>Đặt cọc 0.5 kỳ học phí (tiền học 4 buổi), khoản cọc này sẽ được trừ vào học phí của kỳ học cuối cùng, nhưng không được hoàn lại nếu tự ý cho con nghỉ học giữa chừng.</li>
+          <li>Đặt cọc 1 kỳ học phí (tiền học 8 buổi), khoản cọc này sẽ được trừ vào học phí của kỳ học cuối cùng, nhưng không được hoàn lại nếu tự ý cho con nghỉ học giữa chừng.</li>
         </ul>
       </li>
 
       <li class="level-item">
-        <span class="level-title">4. Main Learning Focus:</span>
+        <span class="level-title">4. Mục tiêu và phương pháp học chính:</span>
         <ul class="level-sub-list">
-          <li>Grammar review &amp; school curriculum alignment.</li>
-          <li>Communicative focus &amp; natural response.</li>
-          <li>Learning through games &amp; group activities.</li>
-          <li>Phonics &amp; foundational literacy.</li>
+          <li>Ôn ngữ pháp và bám sát bài trên trường.</li>
+          <li>Tập trung giao tiếp và phản xạ tự nhiên.</li>
+          <li>Học qua trò chơi và hoạt động nhóm.</li>
+          <li>Chuẩn hóa phát âm và kĩ năng đọc, viết nền tảng.</li>
         </ul>
       </li>
 
       <li class="level-item">
-        <span class="level-title">5. Class Location:</span>
+        <span class="level-title">5. Địa điểm tổ chức lớp học:</span>
         <ul class="level-sub-list">
-          <li>A classroom at a local community house / cultural center.</li>
-          <li>A classroom at a private English center.</li>
-          <li>A private classroom at the teacher's home.</li>
+          <li>Phòng học tổ chức tại nhà văn hóa làng/xã địa phương.</li>
+          <li>Phòng học tổ chức tại trung tâm tiếng Anh chuyên nghiệp.</li>
+          <li>Phòng học được chuẩn bị tại nhà riêng của giáo viên.</li>
         </ul>
       </li>
     </ul>
 
     <div class="btn-nav-group">
-      <button class="btn btn-secondary" onclick="prevStep(4)">« BACK</button>
-      <button class="btn btn-primary" onclick="nextStep(4)">START CHOICE TASKS »</button>
+      <button class="btn btn-secondary" onclick="prevStep(4)">« QUAY LẠI</button>
+      <button class="btn btn-primary" onclick="nextStep(4)">BẮT ĐẦU CHỌN CÁC TÌNH HUỐNG »</button>
     </div>
   </div>
 
@@ -663,9 +663,9 @@
   <!-- STEP 11: THANK YOU -->
   <div class="step-page" id="step11">
     <div style="text-align: center; padding: 30px 12px;">
-      <h1 style="color: var(--primary); font-size: 25px; margin-bottom: 16px;">✓ THANK YOU VERY MUCH!</h1>
-      <p style="font-size: 16px; color: var(--text); margin-bottom: 14px;">Thank you for taking your valuable time to complete this survey.</p>
-      <p style="font-size: 16px; color: var(--text); margin-bottom: 0;">We wish you and your family good health and happiness!</p>
+      <h1 style="color: var(--primary); font-size: 25px; margin-bottom: 16px;">✓ XIN CHÂN THÀNH CẢM ƠN!</h1>
+      <p style="font-size: 16px; color: var(--text); margin-bottom: 14px;">Cảm ơn Quý phụ huynh đã dành thời gian quý báu để hoàn thành khảo sát này.</p>
+      <p style="font-size: 16px; color: var(--text); margin-bottom: 0;">Kính chúc Quý phụ huynh thật nhiều sức khỏe!</p>
     </div>
   </div>
 
@@ -674,109 +674,109 @@
 <script>
   const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwr0NiIpGVABUJp-BDh79UDl5xyFSyQpPFOED8q9sGyWfx9jwT6M28HWoSovj1p3SfoXQ/exec";
 
-  // 10 CONJOINT DESIGN VERSIONS (60 REAL TASKS FROM EXPERIMENTAL DESIGN - ENGLISH)
+  // 10 CONJOINT DESIGN VERSIONS (60 REAL TASKS FROM EXPERIMENTAL DESIGN)
   const CONJOINT_QUESTIONS = {
   "1": [
     {
       "task": 1,
       "Class_A": {
-        "tuition": "640,000 VND/period ( 80,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to   576,000 VND/period)<br>Immediate payment: 3,456,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Private classroom at teacher's home"
+        "tuition": "640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 576.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 3.456.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Phòng học riêng tại nhà giáo viên"
       },
       "Class_B": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   456,000 VND/period)<br>Immediate payment: 1,368,000 VND",
-        "deposit": "0.5-period deposit:   240,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Private English center"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 456.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 1.368.000 VNĐ",
+        "deposit": "Cọc 0.5 kỳ: 240.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Trung tâm tiếng Anh tư nhân"
       }
     },
     {
       "task": 2,
       "Class_A": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   456,000 VND/period)<br>Immediate payment: 1,368,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Community center / Cultural house"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 456.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 1.368.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       },
       "Class_B": {
-        "tuition": "640,000 VND/period ( 80,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment:   640,000 VND",
-        "deposit": "0.5-period deposit:   320,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Phonics standardization & Foundation literacy",
-        "location": "Private classroom at teacher's home"
+        "tuition": "640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 640.000 VNĐ",
+        "deposit": "Cọc 0.5 kỳ: 320.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "location": "Phòng học riêng tại nhà giáo viên"
       }
     },
     {
       "task": 3,
       "Class_A": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   456,000 VND/period)<br>Immediate payment: 1,368,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Private classroom at teacher's home"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 456.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 1.368.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Phòng học riêng tại nhà giáo viên"
       },
       "Class_B": {
-        "tuition": "1,200,000 VND/period (150,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to 1,080,000 VND/period)<br>Immediate payment: 6,480,000 VND",
-        "deposit": "1-period deposit: 1,200,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Community center / Cultural house"
+        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 6.480.000 VNĐ",
+        "deposit": "Cọc 1 kỳ: 1.200.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       }
     },
     {
       "task": 4,
       "Class_A": {
-        "tuition": "960,000 VND/period (120,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment:   960,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Community center / Cultural house"
+        "tuition": "960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 960.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       },
       "Class_B": {
-        "tuition": "640,000 VND/period ( 80,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   608,000 VND/period)<br>Immediate payment: 1,824,000 VND",
-        "deposit": "0.5-period deposit:   320,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Phonics standardization & Foundation literacy",
-        "location": "Private classroom at teacher's home"
+        "tuition": "640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 608.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 1.824.000 VNĐ",
+        "deposit": "Cọc 0.5 kỳ: 320.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "location": "Phòng học riêng tại nhà giáo viên"
       }
     },
     {
       "task": 5,
       "Class_A": {
-        "tuition": "800,000 VND/period (100,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment:   800,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Game-based learning & Group activities",
-        "location": "Private English center"
+        "tuition": "800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 800.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Học qua trò chơi & Hoạt động nhóm",
+        "location": "Trung tâm tiếng Anh tư nhân"
       },
       "Class_B": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   456,000 VND/period)<br>Immediate payment: 1,368,000 VND",
-        "deposit": "0.5-period deposit:   240,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Community center / Cultural house"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 456.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 1.368.000 VNĐ",
+        "deposit": "Cọc 0.5 kỳ: 240.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       }
     },
     {
       "task": 6,
       "Class_A": {
-        "tuition": "640,000 VND/period ( 80,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   608,000 VND/period)<br>Immediate payment: 1,824,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Phonics standardization & Foundation literacy",
-        "location": "Private English center"
+        "tuition": "640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 608.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 1.824.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "location": "Trung tâm tiếng Anh tư nhân"
       },
       "Class_B": {
-        "tuition": "960,000 VND/period (120,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment:   960,000 VND",
-        "deposit": "0.5-period deposit:   480,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Private classroom at teacher's home"
+        "tuition": "960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 960.000 VNĐ",
+        "deposit": "Cọc 0.5 kỳ: 480.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Phòng học riêng tại nhà giáo viên"
       }
     }
   ],
@@ -784,103 +784,103 @@
     {
       "task": 1,
       "Class_A": {
-        "tuition": "640,000 VND/period ( 80,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment:   640,000 VND",
-        "deposit": "1-period deposit:   640,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Game-based learning & Group activities",
-        "location": "Private English center"
+        "tuition": "640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 640.000 VNĐ",
+        "deposit": "Cọc 1 kỳ: 640.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Học qua trò chơi & Hoạt động nhóm",
+        "location": "Trung tâm tiếng Anh tư nhân"
       },
       "Class_B": {
-        "tuition": "960,000 VND/period (120,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to   864,000 VND/period)<br>Immediate payment: 5,184,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Phonics standardization & Foundation literacy",
-        "location": "Private classroom at teacher's home"
+        "tuition": "960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 864.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 5.184.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "location": "Phòng học riêng tại nhà giáo viên"
       }
     },
     {
       "task": 2,
       "Class_A": {
-        "tuition": "960,000 VND/period (120,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to   864,000 VND/period)<br>Immediate payment: 5,184,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Private English center"
+        "tuition": "960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 864.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 5.184.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Trung tâm tiếng Anh tư nhân"
       },
       "Class_B": {
-        "tuition": "640,000 VND/period ( 80,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   608,000 VND/period)<br>Immediate payment: 1,824,000 VND",
-        "deposit": "1-period deposit:   640,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Community center / Cultural house"
+        "tuition": "640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 608.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 1.824.000 VNĐ",
+        "deposit": "Cọc 1 kỳ: 640.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       }
     },
     {
       "task": 3,
       "Class_A": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   456,000 VND/period)<br>Immediate payment: 1,368,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Private classroom at teacher's home"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 456.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 1.368.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Phòng học riêng tại nhà giáo viên"
       },
       "Class_B": {
-        "tuition": "1,200,000 VND/period (150,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to 1,080,000 VND/period)<br>Immediate payment: 6,480,000 VND",
-        "deposit": "1-period deposit: 1,200,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Community center / Cultural house"
+        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 6.480.000 VNĐ",
+        "deposit": "Cọc 1 kỳ: 1.200.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       }
     },
     {
       "task": 4,
       "Class_A": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment:   480,000 VND",
-        "deposit": "0.5-period deposit:   240,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Private English center"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 480.000 VNĐ",
+        "deposit": "Cọc 0.5 kỳ: 240.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Trung tâm tiếng Anh tư nhân"
       },
       "Class_B": {
-        "tuition": "960,000 VND/period (120,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   912,000 VND/period)<br>Immediate payment: 2,736,000 VND",
-        "deposit": "1-period deposit:   960,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Community center / Cultural house"
+        "tuition": "960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 912.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 2.736.000 VNĐ",
+        "deposit": "Cọc 1 kỳ: 960.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       }
     },
     {
       "task": 5,
       "Class_A": {
-        "tuition": "640,000 VND/period ( 80,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to   576,000 VND/period)<br>Immediate payment: 3,456,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Game-based learning & Group activities",
-        "location": "Private English center"
+        "tuition": "640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 576.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 3.456.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Học qua trò chơi & Hoạt động nhóm",
+        "location": "Trung tâm tiếng Anh tư nhân"
       },
       "Class_B": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment:   480,000 VND",
-        "deposit": "1-period deposit:   480,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Phonics standardization & Foundation literacy",
-        "location": "Community center / Cultural house"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 480.000 VNĐ",
+        "deposit": "Cọc 1 kỳ: 480.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       }
     },
     {
       "task": 6,
       "Class_A": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   456,000 VND/period)<br>Immediate payment: 1,368,000 VND",
-        "deposit": "1-period deposit:   480,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Private English center"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 456.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 1.368.000 VNĐ",
+        "deposit": "Cọc 1 kỳ: 480.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Trung tâm tiếng Anh tư nhân"
       },
       "Class_B": {
-        "tuition": "800,000 VND/period (100,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment:   800,000 VND",
-        "deposit": "0.5-period deposit:   400,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Phonics standardization & Foundation literacy",
-        "location": "Private classroom at teacher's home"
+        "tuition": "800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 800.000 VNĐ",
+        "deposit": "Cọc 0.5 kỳ: 400.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "location": "Phòng học riêng tại nhà giáo viên"
       }
     }
   ],
@@ -888,103 +888,103 @@
     {
       "task": 1,
       "Class_A": {
-        "tuition": "1,200,000 VND/period (150,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to 1,080,000 VND/period)<br>Immediate payment: 6,480,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Phonics standardization & Foundation literacy",
-        "location": "Community center / Cultural house"
+        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 6.480.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       },
       "Class_B": {
-        "tuition": "800,000 VND/period (100,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   760,000 VND/period)<br>Immediate payment: 2,280,000 VND",
-        "deposit": "1-period deposit:   800,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Game-based learning & Group activities",
-        "location": "Private classroom at teacher's home"
+        "tuition": "800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 760.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 2.280.000 VNĐ",
+        "deposit": "Cọc 1 kỳ: 800.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Học qua trò chơi & Hoạt động nhóm",
+        "location": "Phòng học riêng tại nhà giáo viên"
       }
     },
     {
       "task": 2,
       "Class_A": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment:   480,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Community center / Cultural house"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 480.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       },
       "Class_B": {
-        "tuition": "640,000 VND/period ( 80,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   608,000 VND/period)<br>Immediate payment: 1,824,000 VND",
-        "deposit": "1-period deposit:   640,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Game-based learning & Group activities",
-        "location": "Private classroom at teacher's home"
+        "tuition": "640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 608.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 1.824.000 VNĐ",
+        "deposit": "Cọc 1 kỳ: 640.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Học qua trò chơi & Hoạt động nhóm",
+        "location": "Phòng học riêng tại nhà giáo viên"
       }
     },
     {
       "task": 3,
       "Class_A": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   456,000 VND/period)<br>Immediate payment: 1,368,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Private classroom at teacher's home"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 456.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 1.368.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Phòng học riêng tại nhà giáo viên"
       },
       "Class_B": {
-        "tuition": "1,200,000 VND/period (150,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to 1,080,000 VND/period)<br>Immediate payment: 6,480,000 VND",
-        "deposit": "1-period deposit: 1,200,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Community center / Cultural house"
+        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 6.480.000 VNĐ",
+        "deposit": "Cọc 1 kỳ: 1.200.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       }
     },
     {
       "task": 4,
       "Class_A": {
-        "tuition": "960,000 VND/period (120,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   912,000 VND/period)<br>Immediate payment: 2,736,000 VND",
-        "deposit": "0.5-period deposit:   480,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Community center / Cultural house"
+        "tuition": "960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 912.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 2.736.000 VNĐ",
+        "deposit": "Cọc 0.5 kỳ: 480.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       },
       "Class_B": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to   432,000 VND/period)<br>Immediate payment: 2,592,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Private classroom at teacher's home"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 432.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 2.592.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Phòng học riêng tại nhà giáo viên"
       }
     },
     {
       "task": 5,
       "Class_A": {
-        "tuition": "960,000 VND/period (120,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   912,000 VND/period)<br>Immediate payment: 2,736,000 VND",
-        "deposit": "1-period deposit:   960,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Community center / Cultural house"
+        "tuition": "960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 912.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 2.736.000 VNĐ",
+        "deposit": "Cọc 1 kỳ: 960.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       },
       "Class_B": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to   432,000 VND/period)<br>Immediate payment: 2,592,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Private classroom at teacher's home"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 432.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 2.592.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Phòng học riêng tại nhà giáo viên"
       }
     },
     {
       "task": 6,
       "Class_A": {
-        "tuition": "960,000 VND/period (120,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   912,000 VND/period)<br>Immediate payment: 2,736,000 VND",
-        "deposit": "1-period deposit:   960,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Phonics standardization & Foundation literacy",
-        "location": "Private classroom at teacher's home"
+        "tuition": "960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 912.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 2.736.000 VNĐ",
+        "deposit": "Cọc 1 kỳ: 960.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "location": "Phòng học riêng tại nhà giáo viên"
       },
       "Class_B": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment:   480,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Private English center"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 480.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Trung tâm tiếng Anh tư nhân"
       }
     }
   ],
@@ -992,103 +992,103 @@
     {
       "task": 1,
       "Class_A": {
-        "tuition": "960,000 VND/period (120,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment:   960,000 VND",
-        "deposit": "0.5-period deposit:   480,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Game-based learning & Group activities",
-        "location": "Private English center"
+        "tuition": "960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 960.000 VNĐ",
+        "deposit": "Cọc 0.5 kỳ: 480.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Học qua trò chơi & Hoạt động nhóm",
+        "location": "Trung tâm tiếng Anh tư nhân"
       },
       "Class_B": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to   432,000 VND/period)<br>Immediate payment: 2,592,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Phonics standardization & Foundation literacy",
-        "location": "Community center / Cultural house"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 432.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 2.592.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       }
     },
     {
       "task": 2,
       "Class_A": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment:   480,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Game-based learning & Group activities",
-        "location": "Private classroom at teacher's home"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 480.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Học qua trò chơi & Hoạt động nhóm",
+        "location": "Phòng học riêng tại nhà giáo viên"
       },
       "Class_B": {
-        "tuition": "640,000 VND/period ( 80,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   608,000 VND/period)<br>Immediate payment: 1,824,000 VND",
-        "deposit": "1-period deposit:   640,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Community center / Cultural house"
+        "tuition": "640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 608.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 1.824.000 VNĐ",
+        "deposit": "Cọc 1 kỳ: 640.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       }
     },
     {
       "task": 3,
       "Class_A": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   456,000 VND/period)<br>Immediate payment: 1,368,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Private classroom at teacher's home"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 456.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 1.368.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Phòng học riêng tại nhà giáo viên"
       },
       "Class_B": {
-        "tuition": "1,200,000 VND/period (150,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to 1,080,000 VND/period)<br>Immediate payment: 6,480,000 VND",
-        "deposit": "1-period deposit: 1,200,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Community center / Cultural house"
+        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 6.480.000 VNĐ",
+        "deposit": "Cọc 1 kỳ: 1.200.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       }
     },
     {
       "task": 4,
       "Class_A": {
-        "tuition": "640,000 VND/period ( 80,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   608,000 VND/period)<br>Immediate payment: 1,824,000 VND",
-        "deposit": "0.5-period deposit:   320,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Private classroom at teacher's home"
+        "tuition": "640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 608.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 1.824.000 VNĐ",
+        "deposit": "Cọc 0.5 kỳ: 320.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Phòng học riêng tại nhà giáo viên"
       },
       "Class_B": {
-        "tuition": "1,200,000 VND/period (150,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to 1,080,000 VND/period)<br>Immediate payment: 6,480,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Private English center"
+        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 6.480.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Trung tâm tiếng Anh tư nhân"
       }
     },
     {
       "task": 5,
       "Class_A": {
-        "tuition": "800,000 VND/period (100,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment:   800,000 VND",
-        "deposit": "0.5-period deposit:   400,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Phonics standardization & Foundation literacy",
-        "location": "Private classroom at teacher's home"
+        "tuition": "800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 800.000 VNĐ",
+        "deposit": "Cọc 0.5 kỳ: 400.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "location": "Phòng học riêng tại nhà giáo viên"
       },
       "Class_B": {
-        "tuition": "640,000 VND/period ( 80,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to   576,000 VND/period)<br>Immediate payment: 3,456,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Community center / Cultural house"
+        "tuition": "640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 576.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 3.456.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       }
     },
     {
       "task": 6,
       "Class_A": {
-        "tuition": "640,000 VND/period ( 80,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   608,000 VND/period)<br>Immediate payment: 1,824,000 VND",
-        "deposit": "0.5-period deposit:   320,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Private English center"
+        "tuition": "640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 608.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 1.824.000 VNĐ",
+        "deposit": "Cọc 0.5 kỳ: 320.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Trung tâm tiếng Anh tư nhân"
       },
       "Class_B": {
-        "tuition": "960,000 VND/period (120,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment:   960,000 VND",
-        "deposit": "1-period deposit:   960,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Game-based learning & Group activities",
-        "location": "Private classroom at teacher's home"
+        "tuition": "960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 960.000 VNĐ",
+        "deposit": "Cọc 1 kỳ: 960.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Học qua trò chơi & Hoạt động nhóm",
+        "location": "Phòng học riêng tại nhà giáo viên"
       }
     }
   ],
@@ -1096,103 +1096,103 @@
     {
       "task": 1,
       "Class_A": {
-        "tuition": "640,000 VND/period ( 80,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment:   640,000 VND",
-        "deposit": "1-period deposit:   640,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Private classroom at teacher's home"
+        "tuition": "640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 640.000 VNĐ",
+        "deposit": "Cọc 1 kỳ: 640.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Phòng học riêng tại nhà giáo viên"
       },
       "Class_B": {
-        "tuition": "800,000 VND/period (100,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to   720,000 VND/period)<br>Immediate payment: 4,320,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Phonics standardization & Foundation literacy",
-        "location": "Private English center"
+        "tuition": "800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 720.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 4.320.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "location": "Trung tâm tiếng Anh tư nhân"
       }
     },
     {
       "task": 2,
       "Class_A": {
-        "tuition": "1,200,000 VND/period (150,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment: 1,200,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Private classroom at teacher's home"
+        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 1.200.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Phòng học riêng tại nhà giáo viên"
       },
       "Class_B": {
-        "tuition": "960,000 VND/period (120,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   912,000 VND/period)<br>Immediate payment: 2,736,000 VND",
-        "deposit": "1-period deposit:   960,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Community center / Cultural house"
+        "tuition": "960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 912.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 2.736.000 VNĐ",
+        "deposit": "Cọc 1 kỳ: 960.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       }
     },
     {
       "task": 3,
       "Class_A": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   456,000 VND/period)<br>Immediate payment: 1,368,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Private classroom at teacher's home"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 456.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 1.368.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Phòng học riêng tại nhà giáo viên"
       },
       "Class_B": {
-        "tuition": "1,200,000 VND/period (150,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to 1,080,000 VND/period)<br>Immediate payment: 6,480,000 VND",
-        "deposit": "1-period deposit: 1,200,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Community center / Cultural house"
+        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 6.480.000 VNĐ",
+        "deposit": "Cọc 1 kỳ: 1.200.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       }
     },
     {
       "task": 4,
       "Class_A": {
-        "tuition": "1,200,000 VND/period (150,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to 1,080,000 VND/period)<br>Immediate payment: 6,480,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Private English center"
+        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 6.480.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Trung tâm tiếng Anh tư nhân"
       },
       "Class_B": {
-        "tuition": "800,000 VND/period (100,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   760,000 VND/period)<br>Immediate payment: 2,280,000 VND",
-        "deposit": "1-period deposit:   800,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Phonics standardization & Foundation literacy",
-        "location": "Community center / Cultural house"
+        "tuition": "800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 760.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 2.280.000 VNĐ",
+        "deposit": "Cọc 1 kỳ: 800.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       }
     },
     {
       "task": 5,
       "Class_A": {
-        "tuition": "1,200,000 VND/period (150,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment: 1,200,000 VND",
-        "deposit": "0.5-period deposit:   600,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Community center / Cultural house"
+        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 1.200.000 VNĐ",
+        "deposit": "Cọc 0.5 kỳ: 600.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       },
       "Class_B": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to   432,000 VND/period)<br>Immediate payment: 2,592,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Private classroom at teacher's home"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 432.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 2.592.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Phòng học riêng tại nhà giáo viên"
       }
     },
     {
       "task": 6,
       "Class_A": {
-        "tuition": "1,200,000 VND/period (150,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to 1,080,000 VND/period)<br>Immediate payment: 6,480,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Community center / Cultural house"
+        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 6.480.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       },
       "Class_B": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   456,000 VND/period)<br>Immediate payment: 1,368,000 VND",
-        "deposit": "1-period deposit:   480,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Game-based learning & Group activities",
-        "location": "Private English center"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 456.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 1.368.000 VNĐ",
+        "deposit": "Cọc 1 kỳ: 480.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Học qua trò chơi & Hoạt động nhóm",
+        "location": "Trung tâm tiếng Anh tư nhân"
       }
     }
   ],
@@ -1200,103 +1200,103 @@
     {
       "task": 1,
       "Class_A": {
-        "tuition": "800,000 VND/period (100,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment:   800,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Game-based learning & Group activities",
-        "location": "Community center / Cultural house"
+        "tuition": "800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 800.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Học qua trò chơi & Hoạt động nhóm",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       },
       "Class_B": {
-        "tuition": "960,000 VND/period (120,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   912,000 VND/period)<br>Immediate payment: 2,736,000 VND",
-        "deposit": "0.5-period deposit:   480,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Phonics standardization & Foundation literacy",
-        "location": "Private classroom at teacher's home"
+        "tuition": "960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 912.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 2.736.000 VNĐ",
+        "deposit": "Cọc 0.5 kỳ: 480.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "location": "Phòng học riêng tại nhà giáo viên"
       }
     },
     {
       "task": 2,
       "Class_A": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   456,000 VND/period)<br>Immediate payment: 1,368,000 VND",
-        "deposit": "0.5-period deposit:   240,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Private English center"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 456.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 1.368.000 VNĐ",
+        "deposit": "Cọc 0.5 kỳ: 240.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Trung tâm tiếng Anh tư nhân"
       },
       "Class_B": {
-        "tuition": "1,200,000 VND/period (150,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to 1,080,000 VND/period)<br>Immediate payment: 6,480,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Community center / Cultural house"
+        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 6.480.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       }
     },
     {
       "task": 3,
       "Class_A": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   456,000 VND/period)<br>Immediate payment: 1,368,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Private classroom at teacher's home"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 456.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 1.368.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Phòng học riêng tại nhà giáo viên"
       },
       "Class_B": {
-        "tuition": "1,200,000 VND/period (150,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to 1,080,000 VND/period)<br>Immediate payment: 6,480,000 VND",
-        "deposit": "1-period deposit: 1,200,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Community center / Cultural house"
+        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 6.480.000 VNĐ",
+        "deposit": "Cọc 1 kỳ: 1.200.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       }
     },
     {
       "task": 4,
       "Class_A": {
-        "tuition": "960,000 VND/period (120,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment:   960,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Community center / Cultural house"
+        "tuition": "960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 960.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       },
       "Class_B": {
-        "tuition": "640,000 VND/period ( 80,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   608,000 VND/period)<br>Immediate payment: 1,824,000 VND",
-        "deposit": "0.5-period deposit:   320,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Game-based learning & Group activities",
-        "location": "Private English center"
+        "tuition": "640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 608.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 1.824.000 VNĐ",
+        "deposit": "Cọc 0.5 kỳ: 320.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Học qua trò chơi & Hoạt động nhóm",
+        "location": "Trung tâm tiếng Anh tư nhân"
       }
     },
     {
       "task": 5,
       "Class_A": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment:   480,000 VND",
-        "deposit": "0.5-period deposit:   240,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Private English center"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 480.000 VNĐ",
+        "deposit": "Cọc 0.5 kỳ: 240.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Trung tâm tiếng Anh tư nhân"
       },
       "Class_B": {
-        "tuition": "800,000 VND/period (100,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to   720,000 VND/period)<br>Immediate payment: 4,320,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Game-based learning & Group activities",
-        "location": "Community center / Cultural house"
+        "tuition": "800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 720.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 4.320.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Học qua trò chơi & Hoạt động nhóm",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       }
     },
     {
       "task": 6,
       "Class_A": {
-        "tuition": "960,000 VND/period (120,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to   864,000 VND/period)<br>Immediate payment: 5,184,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Private English center"
+        "tuition": "960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 864.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 5.184.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Trung tâm tiếng Anh tư nhân"
       },
       "Class_B": {
-        "tuition": "640,000 VND/period ( 80,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment:   640,000 VND",
-        "deposit": "1-period deposit:   640,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Private classroom at teacher's home"
+        "tuition": "640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 640.000 VNĐ",
+        "deposit": "Cọc 1 kỳ: 640.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Phòng học riêng tại nhà giáo viên"
       }
     }
   ],
@@ -1304,103 +1304,103 @@
     {
       "task": 1,
       "Class_A": {
-        "tuition": "960,000 VND/period (120,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   912,000 VND/period)<br>Immediate payment: 2,736,000 VND",
-        "deposit": "0.5-period deposit:   480,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Game-based learning & Group activities",
-        "location": "Private English center"
+        "tuition": "960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 912.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 2.736.000 VNĐ",
+        "deposit": "Cọc 0.5 kỳ: 480.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Học qua trò chơi & Hoạt động nhóm",
+        "location": "Trung tâm tiếng Anh tư nhân"
       },
       "Class_B": {
-        "tuition": "800,000 VND/period (100,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment:   800,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Private classroom at teacher's home"
+        "tuition": "800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 800.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Phòng học riêng tại nhà giáo viên"
       }
     },
     {
       "task": 2,
       "Class_A": {
-        "tuition": "800,000 VND/period (100,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   760,000 VND/period)<br>Immediate payment: 2,280,000 VND",
-        "deposit": "0.5-period deposit:   400,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Phonics standardization & Foundation literacy",
-        "location": "Private classroom at teacher's home"
+        "tuition": "800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 760.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 2.280.000 VNĐ",
+        "deposit": "Cọc 0.5 kỳ: 400.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "location": "Phòng học riêng tại nhà giáo viên"
       },
       "Class_B": {
-        "tuition": "640,000 VND/period ( 80,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment:   640,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Private English center"
+        "tuition": "640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 640.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Trung tâm tiếng Anh tư nhân"
       }
     },
     {
       "task": 3,
       "Class_A": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   456,000 VND/period)<br>Immediate payment: 1,368,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Private classroom at teacher's home"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 456.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 1.368.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Phòng học riêng tại nhà giáo viên"
       },
       "Class_B": {
-        "tuition": "1,200,000 VND/period (150,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to 1,080,000 VND/period)<br>Immediate payment: 6,480,000 VND",
-        "deposit": "1-period deposit: 1,200,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Community center / Cultural house"
+        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 6.480.000 VNĐ",
+        "deposit": "Cọc 1 kỳ: 1.200.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       }
     },
     {
       "task": 4,
       "Class_A": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   456,000 VND/period)<br>Immediate payment: 1,368,000 VND",
-        "deposit": "0.5-period deposit:   240,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Game-based learning & Group activities",
-        "location": "Private English center"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 456.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 1.368.000 VNĐ",
+        "deposit": "Cọc 0.5 kỳ: 240.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Học qua trò chơi & Hoạt động nhóm",
+        "location": "Trung tâm tiếng Anh tư nhân"
       },
       "Class_B": {
-        "tuition": "640,000 VND/period ( 80,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to   576,000 VND/period)<br>Immediate payment: 3,456,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Community center / Cultural house"
+        "tuition": "640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 576.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 3.456.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       }
     },
     {
       "task": 5,
       "Class_A": {
-        "tuition": "1,200,000 VND/period (150,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment: 1,200,000 VND",
-        "deposit": "1-period deposit: 1,200,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Community center / Cultural house"
+        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 1.200.000 VNĐ",
+        "deposit": "Cọc 1 kỳ: 1.200.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       },
       "Class_B": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to   432,000 VND/period)<br>Immediate payment: 2,592,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Phonics standardization & Foundation literacy",
-        "location": "Private English center"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 432.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 2.592.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "location": "Trung tâm tiếng Anh tư nhân"
       }
     },
     {
       "task": 6,
       "Class_A": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment:   480,000 VND",
-        "deposit": "0.5-period deposit:   240,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Private English center"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 480.000 VNĐ",
+        "deposit": "Cọc 0.5 kỳ: 240.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Trung tâm tiếng Anh tư nhân"
       },
       "Class_B": {
-        "tuition": "640,000 VND/period ( 80,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to   576,000 VND/period)<br>Immediate payment: 3,456,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Game-based learning & Group activities",
-        "location": "Private classroom at teacher's home"
+        "tuition": "640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 576.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 3.456.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Học qua trò chơi & Hoạt động nhóm",
+        "location": "Phòng học riêng tại nhà giáo viên"
       }
     }
   ],
@@ -1408,103 +1408,103 @@
     {
       "task": 1,
       "Class_A": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   456,000 VND/period)<br>Immediate payment: 1,368,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Game-based learning & Group activities",
-        "location": "Community center / Cultural house"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 456.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 1.368.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Học qua trò chơi & Hoạt động nhóm",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       },
       "Class_B": {
-        "tuition": "960,000 VND/period (120,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment:   960,000 VND",
-        "deposit": "0.5-period deposit:   480,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Phonics standardization & Foundation literacy",
-        "location": "Private English center"
+        "tuition": "960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 960.000 VNĐ",
+        "deposit": "Cọc 0.5 kỳ: 480.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "location": "Trung tâm tiếng Anh tư nhân"
       }
     },
     {
       "task": 2,
       "Class_A": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to   432,000 VND/period)<br>Immediate payment: 2,592,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Game-based learning & Group activities",
-        "location": "Community center / Cultural house"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 432.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 2.592.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Học qua trò chơi & Hoạt động nhóm",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       },
       "Class_B": {
-        "tuition": "800,000 VND/period (100,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment:   800,000 VND",
-        "deposit": "0.5-period deposit:   400,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Private English center"
+        "tuition": "800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 800.000 VNĐ",
+        "deposit": "Cọc 0.5 kỳ: 400.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Trung tâm tiếng Anh tư nhân"
       }
     },
     {
       "task": 3,
       "Class_A": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   456,000 VND/period)<br>Immediate payment: 1,368,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Private classroom at teacher's home"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 456.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 1.368.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Phòng học riêng tại nhà giáo viên"
       },
       "Class_B": {
-        "tuition": "1,200,000 VND/period (150,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to 1,080,000 VND/period)<br>Immediate payment: 6,480,000 VND",
-        "deposit": "1-period deposit: 1,200,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Community center / Cultural house"
+        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 6.480.000 VNĐ",
+        "deposit": "Cọc 1 kỳ: 1.200.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       }
     },
     {
       "task": 4,
       "Class_A": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to   432,000 VND/period)<br>Immediate payment: 2,592,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Private English center"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 432.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 2.592.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Trung tâm tiếng Anh tư nhân"
       },
       "Class_B": {
-        "tuition": "1,200,000 VND/period (150,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment: 1,200,000 VND",
-        "deposit": "0.5-period deposit:   600,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Phonics standardization & Foundation literacy",
-        "location": "Community center / Cultural house"
+        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 1.200.000 VNĐ",
+        "deposit": "Cọc 0.5 kỳ: 600.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       }
     },
     {
       "task": 5,
       "Class_A": {
-        "tuition": "800,000 VND/period (100,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   760,000 VND/period)<br>Immediate payment: 2,280,000 VND",
-        "deposit": "0.5-period deposit:   400,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Game-based learning & Group activities",
-        "location": "Private English center"
+        "tuition": "800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 760.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 2.280.000 VNĐ",
+        "deposit": "Cọc 0.5 kỳ: 400.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Học qua trò chơi & Hoạt động nhóm",
+        "location": "Trung tâm tiếng Anh tư nhân"
       },
       "Class_B": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to   432,000 VND/period)<br>Immediate payment: 2,592,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Community center / Cultural house"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 432.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 2.592.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       }
     },
     {
       "task": 6,
       "Class_A": {
-        "tuition": "1,200,000 VND/period (150,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to 1,080,000 VND/period)<br>Immediate payment: 6,480,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Community center / Cultural house"
+        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 6.480.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       },
       "Class_B": {
-        "tuition": "960,000 VND/period (120,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   912,000 VND/period)<br>Immediate payment: 2,736,000 VND",
-        "deposit": "0.5-period deposit:   480,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Private classroom at teacher's home"
+        "tuition": "960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 912.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 2.736.000 VNĐ",
+        "deposit": "Cọc 0.5 kỳ: 480.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Phòng học riêng tại nhà giáo viên"
       }
     }
   ],
@@ -1512,103 +1512,103 @@
     {
       "task": 1,
       "Class_A": {
-        "tuition": "640,000 VND/period ( 80,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to   576,000 VND/period)<br>Immediate payment: 3,456,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Community center / Cultural house"
+        "tuition": "640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 576.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 3.456.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       },
       "Class_B": {
-        "tuition": "800,000 VND/period (100,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   760,000 VND/period)<br>Immediate payment: 2,280,000 VND",
-        "deposit": "0.5-period deposit:   400,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Phonics standardization & Foundation literacy",
-        "location": "Private classroom at teacher's home"
+        "tuition": "800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 760.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 2.280.000 VNĐ",
+        "deposit": "Cọc 0.5 kỳ: 400.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "location": "Phòng học riêng tại nhà giáo viên"
       }
     },
     {
       "task": 2,
       "Class_A": {
-        "tuition": "800,000 VND/period (100,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to   720,000 VND/period)<br>Immediate payment: 4,320,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Community center / Cultural house"
+        "tuition": "800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 720.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 4.320.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       },
       "Class_B": {
-        "tuition": "960,000 VND/period (120,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   912,000 VND/period)<br>Immediate payment: 2,736,000 VND",
-        "deposit": "1-period deposit:   960,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Private English center"
+        "tuition": "960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 912.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 2.736.000 VNĐ",
+        "deposit": "Cọc 1 kỳ: 960.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Trung tâm tiếng Anh tư nhân"
       }
     },
     {
       "task": 3,
       "Class_A": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   456,000 VND/period)<br>Immediate payment: 1,368,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Private classroom at teacher's home"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 456.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 1.368.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Phòng học riêng tại nhà giáo viên"
       },
       "Class_B": {
-        "tuition": "1,200,000 VND/period (150,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to 1,080,000 VND/period)<br>Immediate payment: 6,480,000 VND",
-        "deposit": "1-period deposit: 1,200,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Community center / Cultural house"
+        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 6.480.000 VNĐ",
+        "deposit": "Cọc 1 kỳ: 1.200.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       }
     },
     {
       "task": 4,
       "Class_A": {
-        "tuition": "1,200,000 VND/period (150,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to 1,140,000 VND/period)<br>Immediate payment: 3,420,000 VND",
-        "deposit": "0.5-period deposit:   600,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Private classroom at teacher's home"
+        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 1.140.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 3.420.000 VNĐ",
+        "deposit": "Cọc 0.5 kỳ: 600.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Phòng học riêng tại nhà giáo viên"
       },
       "Class_B": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment:   480,000 VND",
-        "deposit": "1-period deposit:   480,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Private English center"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 480.000 VNĐ",
+        "deposit": "Cọc 1 kỳ: 480.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Trung tâm tiếng Anh tư nhân"
       }
     },
     {
       "task": 5,
       "Class_A": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to   432,000 VND/period)<br>Immediate payment: 2,592,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Phonics standardization & Foundation literacy",
-        "location": "Private classroom at teacher's home"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 432.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 2.592.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "location": "Phòng học riêng tại nhà giáo viên"
       },
       "Class_B": {
-        "tuition": "1,200,000 VND/period (150,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to 1,140,000 VND/period)<br>Immediate payment: 3,420,000 VND",
-        "deposit": "0.5-period deposit:   600,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Game-based learning & Group activities",
-        "location": "Private English center"
+        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 1.140.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 3.420.000 VNĐ",
+        "deposit": "Cọc 0.5 kỳ: 600.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Học qua trò chơi & Hoạt động nhóm",
+        "location": "Trung tâm tiếng Anh tư nhân"
       }
     },
     {
       "task": 6,
       "Class_A": {
-        "tuition": "800,000 VND/period (100,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   760,000 VND/period)<br>Immediate payment: 2,280,000 VND",
-        "deposit": "1-period deposit:   800,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Private classroom at teacher's home"
+        "tuition": "800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 760.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 2.280.000 VNĐ",
+        "deposit": "Cọc 1 kỳ: 800.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Phòng học riêng tại nhà giáo viên"
       },
       "Class_B": {
-        "tuition": "960,000 VND/period (120,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment:   960,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Phonics standardization & Foundation literacy",
-        "location": "Private English center"
+        "tuition": "960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 960.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "location": "Trung tâm tiếng Anh tư nhân"
       }
     }
   ],
@@ -1616,131 +1616,127 @@
     {
       "task": 1,
       "Class_A": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment:   480,000 VND",
-        "deposit": "0.5-period deposit:   240,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Private English center"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 480.000 VNĐ",
+        "deposit": "Cọc 0.5 kỳ: 240.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Trung tâm tiếng Anh tư nhân"
       },
       "Class_B": {
-        "tuition": "1,200,000 VND/period (150,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to 1,080,000 VND/period)<br>Immediate payment: 6,480,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Game-based learning & Group activities",
-        "location": "Community center / Cultural house"
+        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 6.480.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Học qua trò chơi & Hoạt động nhóm",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       }
     },
     {
       "task": 2,
       "Class_A": {
-        "tuition": "960,000 VND/period (120,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment:   960,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Phonics standardization & Foundation literacy",
-        "location": "Private classroom at teacher's home"
+        "tuition": "960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 960.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "location": "Phòng học riêng tại nhà giáo viên"
       },
       "Class_B": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   456,000 VND/period)<br>Immediate payment: 1,368,000 VND",
-        "deposit": "0.5-period deposit:   240,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Game-based learning & Group activities",
-        "location": "Private English center"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 456.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 1.368.000 VNĐ",
+        "deposit": "Cọc 0.5 kỳ: 240.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Học qua trò chơi & Hoạt động nhóm",
+        "location": "Trung tâm tiếng Anh tư nhân"
       }
     },
     {
       "task": 3,
       "Class_A": {
-        "tuition": "480,000 VND/period ( 60,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to   456,000 VND/period)<br>Immediate payment: 1,368,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Private classroom at teacher's home"
+        "tuition": "480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 456.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 1.368.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Phòng học riêng tại nhà giáo viên"
       },
       "Class_B": {
-        "tuition": "1,200,000 VND/period (150,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to 1,080,000 VND/period)<br>Immediate payment: 6,480,000 VND",
-        "deposit": "1-period deposit: 1,200,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Community center / Cultural house"
+        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 6.480.000 VNĐ",
+        "deposit": "Cọc 1 kỳ: 1.200.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       }
     },
     {
       "task": 4,
       "Class_A": {
-        "tuition": "800,000 VND/period (100,000 VND/session)",
-        "payment": "Upfront for 6 periods (10% discount to   720,000 VND/period)<br>Immediate payment: 4,320,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Community center / Cultural house"
+        "tuition": "800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 720.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 4.320.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       },
       "Class_B": {
-        "tuition": "960,000 VND/period (120,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment:   960,000 VND",
-        "deposit": "1-period deposit:   960,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Game-based learning & Group activities",
-        "location": "Private English center"
+        "tuition": "960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 960.000 VNĐ",
+        "deposit": "Cọc 1 kỳ: 960.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Học qua trò chơi & Hoạt động nhóm",
+        "location": "Trung tâm tiếng Anh tư nhân"
       }
     },
     {
       "task": 5,
       "Class_A": {
-        "tuition": "1,200,000 VND/period (150,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to 1,140,000 VND/period)<br>Immediate payment: 3,420,000 VND",
-        "deposit": "No deposit required (0 VND)",
-        "focus": "Game-based learning & Group activities",
-        "location": "Private classroom at teacher's home"
+        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 1.140.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 3.420.000 VNĐ",
+        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
+        "focus": "Học qua trò chơi & Hoạt động nhóm",
+        "location": "Phòng học riêng tại nhà giáo viên"
       },
       "Class_B": {
-        "tuition": "640,000 VND/period ( 80,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment:   640,000 VND",
-        "deposit": "1-period deposit:   640,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Communicative focus & Natural response",
-        "location": "Private English center"
+        "tuition": "640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 640.000 VNĐ",
+        "deposit": "Cọc 1 kỳ: 640.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
+        "location": "Trung tâm tiếng Anh tư nhân"
       }
     },
     {
       "task": 6,
       "Class_A": {
-        "tuition": "1,200,000 VND/period (150,000 VND/session)",
-        "payment": "Upfront for 3 periods (5% discount to 1,140,000 VND/period)<br>Immediate payment: 3,420,000 VND",
-        "deposit": "0.5-period deposit:   600,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Grammar review & School curriculum alignment",
-        "location": "Private classroom at teacher's home"
+        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
+        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 1.140.000 VNĐ/kỳ)<br>Số tiền đóng ngay: 3.420.000 VNĐ",
+        "deposit": "Cọc 0.5 kỳ: 600.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
+        "location": "Phòng học riêng tại nhà giáo viên"
       },
       "Class_B": {
-        "tuition": "960,000 VND/period (120,000 VND/session)",
-        "payment": "Pay per period (no discount)<br>Immediate payment:   960,000 VND",
-        "deposit": "1-period deposit:   960,000 VND (deducted from final period; forfeited if dropout)",
-        "focus": "Phonics standardization & Foundation literacy",
-        "location": "Community center / Cultural house"
+        "tuition": "960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
+        "payment": "Đóng theo từng kỳ (không giảm giá)<br>Số tiền đóng ngay: 960.000 VNĐ",
+        "deposit": "Cọc 1 kỳ: 960.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
+        "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng",
+        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
       }
     }
   ]
 };
 
   const LIKERT_STATEMENTS = [
-    { id: "l1", key: "l1_communication", text: "L1. I want my child to be able to use English in everyday situations, not only in school tests." },
-    { id: "l2", key: "l2_progress", text: "L2. If my child enjoys the lessons but shows little progress, I would look for another program." },
-    { id: "l3", key: "l3_speaking", text: "L3. I prefer an English class that focuses on speaking and listening rather than grammar and written exercises." },
-    { id: "l4", key: "l4_curriculum", text: "L4. I prefer an English class that follows the school curriculum and helps with homework and test preparation." },
-    { id: "l5", key: "l5_liquidity", text: "L5. Even when total tuition is affordable, paying several periods at once is difficult for my household budget." },
-    { id: "l6", key: "l6_advance", text: "L6. I would feel comfortable paying for several months of English tuition in advance if it reduced the overall cost." },
-    { id: "l7", key: "l7_travel", text: "L7. A program that requires a long travel time is less attractive to me, even if the tuition is lower." },
-    { id: "l8", key: "l8_location_conf", text: "L8. I feel less confident in the quality of an English class held at a community house than one held at a private English center." }
+    { id: "l1", key: "l1_communication", text: "L1. Tôi mong con có thể sử dụng được tiếng Anh trong giao tiếp hàng ngày, chứ không chỉ dừng lại ở việc làm bài kiểm tra trên trường." },
+    { id: "l2", key: "l2_progress", text: "L2. Dù con thích đi học tiếng Anh, nhưng nếu không thấy con tiến bộ rõ rệt, tôi vẫn sẽ tìm chỗ học khác cho con." },
+    { id: "l3", key: "l3_speaking", text: "L3. Tôi ưu tiên chọn lớp học chú trọng rèn nghe - nói cho con hơn là chỉ xoáy sâu vào ngữ pháp và bài tập viết." },
+    { id: "l4", key: "l4_curriculum", text: "L4. Tôi ưu tiên chọn lớp học bám sát sách giáo khoa và chương trình học trên trường để hỗ trợ con làm bài tập về nhà và chuẩn bị cho các kỳ thi." },
+    { id: "l5", key: "l5_liquidity", text: "L5. Dù tổng tiền học không quá đắt, nhưng việc phải gộp tiền đóng liền một lúc nhiều kỳ vẫn là áp lực đối với chi tiêu gia đình tôi." },
+    { id: "l6", key: "l6_advance", text: "L6. Nếu được giảm tổng chi phí, tôi sẵn sàng gom tiền đóng trước học phí vài kỳ cho con." },
+    { id: "l7", key: "l7_travel", text: "L7. Tôi ngại cho con đi học tiếng Anh ở những nơi quá xa (mất nhiều thời gian đi lại), ngay cả khi học phí ở đó rẻ hơn." },
+    { id: "l8", key: "l8_location_conf", text: "L8. Tôi cảm thấy chưa thực sự yên tâm về chất lượng nếu lớp học tổ chức tại nhà văn hóa làng/xã thay vì tại trung tâm tiếng Anh chuyên nghiệp." }
   ];
 
   let currentStep = 0;
   let selectedVersion = 1;
   let surveyAnswers = {};
   let isSubmitting = false;
-  let surveyStartTime = 0;
 
   // INITIALIZATION
   window.onload = function() {
-    surveyStartTime = Date.now();
     selectedVersion = Math.floor(Math.random() * 10) + 1;
-    surveyAnswers.language = "EN";
-    surveyAnswers.language = "VI";
     surveyAnswers.version = selectedVersion;
     surveyAnswers.respondent_id = "RESP_" + Date.now() + "_" + Math.floor(100 + Math.random() * 900);
     
@@ -1752,7 +1748,7 @@
   function toggleQ2Other() {
     const rel = document.querySelector('input[name="q2_rel"]:checked');
     const otherInput = document.getElementById("q2_other_text");
-    if (rel && rel.value === "Other") {
+    if (rel && rel.value === "Khác") {
       otherInput.focus();
     } else if (rel) {
       otherInput.value = "";
@@ -1770,7 +1766,7 @@
   function toggleQ7() {
     const ext = document.querySelector('input[name="q6_ext"]:checked');
     const q7Group = document.getElementById("q7_group");
-    if (ext && ext.value === "Yes") {
+    if (ext && ext.value === "Có") {
       q7Group.style.display = "block";
     } else {
       q7Group.style.display = "none";
@@ -1787,11 +1783,11 @@
       card.innerHTML = `
         <div class="likert-statement">${item.text}</div>
         <div class="likert-options">
-          <label class="likert-option-label"><input type="radio" name="${item.id}" value="1"> 1 - Strongly disagree</label>
-          <label class="likert-option-label"><input type="radio" name="${item.id}" value="2"> 2 - Disagree</label>
-          <label class="likert-option-label"><input type="radio" name="${item.id}" value="3"> 3 - Neither agree nor disagree</label>
-          <label class="likert-option-label"><input type="radio" name="${item.id}" value="4"> 4 - Agree</label>
-          <label class="likert-option-label"><input type="radio" name="${item.id}" value="5"> 5 - Strongly agree</label>
+          <label class="likert-option-label"><input type="radio" name="${item.id}" value="1"> 1 - Hoàn toàn không đồng ý</label>
+          <label class="likert-option-label"><input type="radio" name="${item.id}" value="2"> 2 - Không đồng ý</label>
+          <label class="likert-option-label"><input type="radio" name="${item.id}" value="3"> 3 - Trung lập</label>
+          <label class="likert-option-label"><input type="radio" name="${item.id}" value="4"> 4 - Đồng ý</label>
+          <label class="likert-option-label"><input type="radio" name="${item.id}" value="5"> 5 - Hoàn toàn đồng ý</label>
         </div>
       `;
       container.appendChild(card);
@@ -1803,11 +1799,11 @@
     container.innerHTML = "";
     const tasks = CONJOINT_QUESTIONS[selectedVersion] || CONJOINT_QUESTIONS[1];
     const attrSpecs = [
-      { key: "tuition", label: "Baseline Tuition", isLast: false },
-      { key: "payment", label: "Payment Schedule", isLast: false },
-      { key: "deposit", label: "Deposit Policy", isLast: false },
-      { key: "focus", label: "Learning Focus", isLast: false },
-      { key: "location", label: "Class Location", isLast: true }
+      { key: "tuition", label: "Học phí cơ bản", isLast: false },
+      { key: "payment", label: "Thanh toán", isLast: false },
+      { key: "deposit", label: "Tiền đặt cọc", isLast: false },
+      { key: "focus", label: "Mục tiêu học", isLast: false },
+      { key: "location", label: "Địa điểm", isLast: true }
     ];
 
     tasks.forEach((t, i) => {
@@ -1818,10 +1814,10 @@
 
       let rowsHtml = `
         <div class="conjoint-cell cell-header class-a-t${t.task}" onclick="selectClass(${t.task}, 'Class A')">
-          <div class="card-header">PROGRAM A</div>
+          <div class="card-header">LỚP A</div>
         </div>
         <div class="conjoint-cell cell-header class-b-t${t.task}" onclick="selectClass(${t.task}, 'Class B')">
-          <div class="card-header">PROGRAM B</div>
+          <div class="card-header">LỚP B</div>
         </div>
       `;
 
@@ -1841,26 +1837,26 @@
 
       rowsHtml += `
         <div class="conjoint-cell cell-footer class-a-t${t.task}" onclick="selectClass(${t.task}, 'Class A')">
-          <button type="button" class="btn-select">SELECT PROGRAM A</button>
+          <button type="button" class="btn-select">CHỌN LỚP A</button>
         </div>
         <div class="conjoint-cell cell-footer class-b-t${t.task}" onclick="selectClass(${t.task}, 'Class B')">
-          <button type="button" class="btn-select">SELECT PROGRAM B</button>
+          <button type="button" class="btn-select">CHỌN LỚP B</button>
         </div>
       `;
 
       stepDiv.innerHTML = `
-        <h2>Task ${t.task} of 6: Program Selection</h2>
-        <p>If these were the only two English programs available, which one would you prefer for your child: <strong>Program A</strong> or <strong>Program B</strong>?</p>
+        <h2>Câu ${t.task} / 6: Lựa chọn chương trình học</h2>
+        <p>Nếu chỉ có 2 lựa chọn lớp học tiếng Anh dưới đây, Anh/Chị sẽ ưu tiên chọn <strong>Lớp A</strong> hay <strong>Lớp B</strong> cho con?</p>
 
         <div class="conjoint-grid">
           ${rowsHtml}
         </div>
 
         <div class="btn-nav-group">
-          <button type="button" class="btn btn-secondary" onclick="prevStep(${stepIndex})">« BACK</button>
+          <button type="button" class="btn btn-secondary" onclick="prevStep(${stepIndex})">« QUAY LẠI</button>
           ${stepIndex === 10 
-            ? `<button type="button" id="submitBtn" class="btn btn-primary" onclick="submitSurvey()">COMPLETE &amp; SUBMIT ✓</button>` 
-            : `<button type="button" class="btn btn-primary" onclick="nextStep(${stepIndex})">NEXT »</button>`}
+            ? `<button type="button" id="submitBtn" class="btn btn-primary" onclick="submitSurvey()">HOÀN THÀNH & NỘP BÀI ✓</button>` 
+            : `<button type="button" class="btn btn-primary" onclick="nextStep(${stepIndex})">TIẾP THEO »</button>`}
         </div>
       `;
       container.appendChild(stepDiv);
@@ -1893,26 +1889,26 @@
       let bud = document.querySelector('input[name="q7_bud"]:checked');
 
       if (!dist || !rel || !inc || !stab || !grade || !ext) {
-        showAlert("⚠️ Please complete all questions in Part 1 before proceeding.");
+        showAlert("⚠️ Vui lòng hoàn thành tất cả các câu hỏi ở Phần 1 trước khi tiếp tục.");
         return false;
       }
-      if (rel.value === "Other" && !relOther) {
-        showAlert("⚠️ Please specify your relationship to the child in Question 2.");
+      if (rel.value === "Khác" && !relOther) {
+        showAlert("⚠️ Vui lòng ghi rõ mối quan hệ của Anh/Chị với trẻ ở Câu 2.");
         return false;
       }
-      if (ext.value === "Yes" && !bud) {
-        showAlert("⚠️ Please select your average monthly spending in Question 7 before proceeding.");
+      if (ext.value === "Có" && !bud) {
+        showAlert("⚠️ Vui lòng chọn mức chi tiêu hàng tháng ở Câu 7 trước khi tiếp tục.");
         return false;
       }
 
       // Keys match exact Google Apps Script doPost(e) column mapping
       surveyAnswers.q1_district = dist;
-      surveyAnswers.q2_relationship = (rel.value === "Other") ? `Other: ${relOther}` : rel.value;
+      surveyAnswers.q2_relationship = (rel.value === "Khác") ? `Khác: ${relOther}` : rel.value;
       surveyAnswers.q3_income = inc.value;
       surveyAnswers.q4_stability = stab.value;
       surveyAnswers.q5_grade = grade.value;
       surveyAnswers.q6_external = ext.value;
-      surveyAnswers.q7_spending = (ext.value === "Yes" && bud) ? bud.value : "Not applicable (No outside class)";
+      surveyAnswers.q7_spending = (ext.value === "Có" && bud) ? bud.value : "Không áp dụng (Không học ngoài)";
     }
 
     if (step === 2) {
@@ -1920,7 +1916,7 @@
         let item = LIKERT_STATEMENTS[i];
         let sel = document.querySelector(`input[name="${item.id}"]:checked`);
         if (!sel) {
-          showAlert(`⚠️ Please indicate your agreement for statement L${i + 1} before proceeding.`);
+          showAlert(`⚠️ Vui lòng cho ý kiến ở nhận định L${i + 1} trước khi tiếp tục.`);
           return false;
         }
         surveyAnswers[item.key] = sel.value;
@@ -1930,7 +1926,7 @@
     if (step >= 5 && step <= 10) {
       let taskNum = step - 4;
       if (!surveyAnswers[`task_${taskNum}`]) {
-        showAlert(`⚠️ Please select either Program A or Program B in Task ${taskNum} before proceeding.`);
+        showAlert(`⚠️ Vui lòng chọn Lớp A hoặc Lớp B ở Câu ${taskNum} trước khi tiếp tục.`);
         return false;
       }
     }
@@ -1965,10 +1961,8 @@
     const submitBtn = document.getElementById("submitBtn");
     if (submitBtn) {
       submitBtn.disabled = true;
-      submitBtn.innerText = "Submitting responses...";
+      submitBtn.innerText = "Đang gửi dữ liệu...";
     }
-
-    surveyAnswers.duration_seconds = surveyStartTime ? Math.round((Date.now() - surveyStartTime) / 1000) : "";
 
     fetch(GOOGLE_SCRIPT_URL, {
       method: "POST",
@@ -1988,9 +1982,9 @@
       isSubmitting = false;
       if (submitBtn) {
         submitBtn.disabled = false;
-        submitBtn.innerText = "COMPLETE & SUBMIT ✓";
+        submitBtn.innerText = "HOÀN THÀNH & NỘP BÀI ✓";
       }
-      showAlert("⚠️ Unstable network connection. Please check your internet and try submitting again.");
+      showAlert("⚠️ Kết nối mạng không ổn định. Anh/Chị vui lòng kiểm tra mạng và bấm nộp lại.");
     });
   }
 
@@ -2000,18 +1994,18 @@
     document.getElementById("progressPercent").innerText = percent + "%";
 
     const labels = {
-      0: "Introduction",
-      1: "Part 1 / 3: Background Info",
-      2: "Part 2 / 3: Attitudes & Priorities",
-      3: "Part 3 / 3: Fixed Standards",
-      4: "Part 3 / 3: Feature Definitions",
-      5: "Part 3 / 3: Task 1 of 6",
-      6: "Part 3 / 3: Task 2 of 6",
-      7: "Part 3 / 3: Task 3 of 6",
-      8: "Part 3 / 3: Task 4 of 6",
-      9: "Part 3 / 3: Task 5 of 6",
-      10: "Part 3 / 3: Task 6 of 6",
-      11: "Completed"
+      0: "Giới thiệu",
+      1: "Phần 1 / 3: Thông tin chung",
+      2: "Phần 2 / 3: Quan điểm ưu tiên",
+      3: "Phần 3 / 3: Quy tắc chung",
+      4: "Phần 3 / 3: Giải thích lựa chọn",
+      5: "Phần 3 / 3: Câu 1 / 6",
+      6: "Phần 3 / 3: Câu 2 / 6",
+      7: "Phần 3 / 3: Câu 3 / 6",
+      8: "Phần 3 / 3: Câu 4 / 6",
+      9: "Phần 3 / 3: Câu 5 / 6",
+      10: "Phần 3 / 3: Câu 6 / 6",
+      11: "Hoàn thành"
     };
     document.getElementById("progressLabel").innerText = labels[currentStep] || "";
   }
