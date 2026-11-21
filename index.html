@@ -3,1847 +3,848 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Khảo sát ý kiến phụ huynh về việc lựa chọn chương trình học tiếng Anh cho con</title>
-
+  <title>Khảo sát ý kiến Phụ huynh về việc lựa chọn chương trình học tiếng Anh cho con</title>
   <style>
+    :root {
+      --primary: #1d4ed8;
+      --primary-hover: #1e40af;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #cbd5e1;
+      --accent: #eff6ff;
+      --danger: #dc2626;
+      --success: #16a34a;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
+
     body {
-      font-family: "Times New Roman", Times, serif;
-      background-color: #f4f6f8;
-      color: #2c3e50;
-      line-height: 1.6;
+      font-family: 'Times New Roman', Times, serif;
       font-size: 18px;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--bg);
       padding: 15px;
     }
+
     .container {
       max-width: 800px;
       margin: 0 auto;
-      background: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      background: var(--card-bg);
       padding: 25px 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      border: 1px solid var(--border);
     }
-    header {
-      text-align: center;
-      padding-bottom: 20px;
-      border-bottom: 2px solid #eaeded;
-      margin-bottom: 25px;
-    }
+
+    /* Header & Titles */
     h1 {
       font-size: 24px;
-      color: #1a365d;
-      margin-bottom: 12px;
-      line-height: 1.4;
       font-weight: bold;
-    }
-    .subtitle {
-      font-size: 16px;
-      color: #4a5568;
-      font-style: italic;
-    }
-    .intro-box {
-      background-color: #f7fafc;
-      border-left: 4px solid #3182ce;
-      padding: 18px;
-      border-radius: 6px;
-      margin-bottom: 25px;
-      font-size: 17px;
-    }
-    .intro-box p {
-      margin-bottom: 12px;
-    }
-    .intro-box p:last-child {
-      margin-bottom: 0;
-    }
-    .section-title {
-      font-size: 20px;
-      font-weight: bold;
-      color: #2b6cb0;
+      color: #0f172a;
+      text-align: center;
       margin-bottom: 15px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid #e2e8f0;
+      line-height: 1.4;
     }
+
+    h2 {
+      font-size: 21px;
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 15px;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 8px;
+    }
+
+    h3 {
+      font-size: 19px;
+      font-weight: bold;
+      color: #334155;
+      margin: 15px 0 10px 0;
+    }
+
+    p {
+      margin-bottom: 12px;
+      text-align: justify;
+    }
+
+    .alert-box {
+      background-color: #fef2f2;
+      border: 1px solid #fca5a5;
+      color: var(--danger);
+      padding: 12px 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      font-weight: bold;
+      display: none;
+    }
+
+    .info-card {
+      background-color: var(--accent);
+      border-left: 4px solid var(--primary);
+      padding: 15px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+    }
+
+    .info-card ul {
+      margin-left: 20px;
+      margin-top: 8px;
+    }
+
+    .info-card li {
+      margin-bottom: 6px;
+    }
+
+    /* Form Inputs */
     .form-group {
       margin-bottom: 22px;
     }
-    label.q-label {
-      display: block;
+
+    label.question-label {
       font-weight: bold;
+      display: block;
       margin-bottom: 8px;
       font-size: 18px;
-      color: #2d3748;
     }
-    select, input[type="text"] {
+
+    input[type="text"], select {
       width: 100%;
-      padding: 12px;
+      padding: 10px 14px;
+      font-family: inherit;
       font-size: 17px;
-      font-family: "Times New Roman", Times, serif;
-      border: 1px solid #cbd5e0;
+      border: 1px solid var(--border);
       border-radius: 6px;
-      background-color: #fff;
+      outline: none;
+      transition: border 0.2s;
     }
-    .radio-group {
+
+    input[type="text"]:focus, select:focus {
+      border-color: var(--primary);
+    }
+
+    .radio-group, .checkbox-group {
       display: flex;
       flex-direction: column;
       gap: 10px;
-      margin-top: 6px;
     }
-    .radio-option {
+
+    .radio-item, .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      padding: 8px 12px;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+
+    .radio-item:hover, .checkbox-item:hover {
+      background-color: #f1f5f9;
+    }
+
+    input[type="radio"], input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--primary);
+    }
+
+    /* Likert Linear Cards */
+    .likert-card {
+      background: #fafafa;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 18px;
+    }
+
+    .likert-statement {
+      font-weight: bold;
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
+
+    .likert-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .likert-option-label {
       display: flex;
       align-items: center;
       gap: 10px;
       padding: 10px 14px;
-      border: 1px solid #e2e8f0;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
       border-radius: 6px;
       cursor: pointer;
-      transition: background 0.2s;
-    }
-    .radio-option:hover {
-      background-color: #ebf8ff;
-    }
-    .radio-option input[type="radio"] {
-      width: 18px;
-      height: 18px;
-    }
-
-    /* Likert Scale Styling */
-    .likert-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 15px;
-      margin-bottom: 25px;
-    }
-    .likert-table th, .likert-table td {
-      padding: 10px 6px;
-      text-align: center;
-      border: 1px solid #e2e8f0;
-      font-size: 16px;
-    }
-    .likert-table th {
-      background-color: #edf2f7;
-      font-weight: bold;
-      color: #2d3748;
-    }
-    .likert-table td.statement {
-      text-align: left;
-      font-size: 17px;
-      padding-left: 12px;
-      width: 45%;
-    }
-    .likert-table input[type="radio"] {
-      width: 18px;
-      height: 18px;
-      cursor: pointer;
-    }
-
-    /* Conjoint Side-by-Side Cards (Mobile 50/50 & Responsive) */
-    .conjoint-instructions {
-      background-color: #fffaf0;
-      border-left: 4px solid #dd6b20;
-      padding: 15px;
-      border-radius: 6px;
-      margin-bottom: 20px;
       font-size: 17px;
     }
+
+    .likert-option-label:hover {
+      background-color: var(--accent);
+      border-color: var(--primary);
+    }
+
+    /* Conjoint Cards Grid */
     .conjoint-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
-      margin-bottom: 20px;
+      margin: 15px 0 25px 0;
     }
-    .class-card {
-      border: 2px solid #cbd5e0;
-      border-radius: 8px;
-      background: #ffffff;
+
+    .conjoint-card {
+      border: 2px solid var(--border);
+      border-radius: 10px;
       padding: 12px;
+      background: #ffffff;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: all 0.2s ease-in-out;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
-    .class-card.selected {
-      border-color: #3182ce;
-      background-color: #ebf8ff;
-      box-shadow: 0 0 0 2px #3182ce;
+
+    .conjoint-card.selected {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(29, 78, 216, 0.2);
+      background-color: #f0f9ff;
     }
-    .class-header {
-      text-align: center;
-      font-size: 19px;
+
+    .card-header {
+      font-size: 20px;
       font-weight: bold;
-      color: #2b6cb0;
+      text-align: center;
+      color: var(--primary);
       padding-bottom: 8px;
+      border-bottom: 2px solid var(--accent);
       margin-bottom: 10px;
-      border-bottom: 2px solid #e2e8f0;
     }
+
     .attr-row {
       margin-bottom: 10px;
-      font-size: 16px;
+      min-height: 52px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
+
     .attr-name {
+      font-size: 14px;
       font-weight: bold;
-      color: #4a5568;
-      font-size: 15px;
-      display: block;
-      margin-bottom: 2px;
+      color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.5px;
+
     }
+
     .attr-val {
-      color: #1a202c;
-      font-weight: 500;
-      line-height: 1.4;
+      font-size: 16.5px;
+      font-weight: 600;
+      color: #0f172a;
+      line-height: 1.35;
     }
-    .select-btn {
+
+    .btn-select {
       width: 100%;
-      padding: 12px 8px;
-      margin-top: 12px;
-      font-size: 16px;
-      font-weight: bold;
-      font-family: "Times New Roman", Times, serif;
-      border: 1px solid #3182ce;
-      border-radius: 6px;
+      padding: 12px;
+      margin-top: 10px;
       background-color: #ffffff;
-      color: #3182ce;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 17px;
+      font-weight: bold;
       cursor: pointer;
+      text-align: center;
       transition: all 0.2s;
     }
-    .class-card.selected .select-btn {
-      background-color: #3182ce;
+
+    .conjoint-card.selected .btn-select {
+      background-color: var(--primary);
       color: #ffffff;
     }
 
-    /* Buttons & Nav */
-    .btn-container {
+    /* Action Buttons */
+    .btn-nav-group {
       display: flex;
       justify-content: space-between;
       gap: 15px;
-      margin-top: 30px;
+      margin-top: 25px;
     }
+
     .btn {
-      padding: 14px 24px;
+      padding: 12px 24px;
+      font-family: inherit;
       font-size: 18px;
       font-weight: bold;
-      font-family: "Times New Roman", Times, serif;
       border-radius: 6px;
       border: none;
       cursor: pointer;
       transition: background 0.2s;
     }
+
     .btn-primary {
-      background-color: #3182ce;
+      background-color: var(--primary);
       color: #ffffff;
-      margin-left: auto;
+      flex: 1;
     }
+
     .btn-primary:hover {
-      background-color: #2b6cb0;
+      background-color: var(--primary-hover);
     }
+
     .btn-secondary {
       background-color: #e2e8f0;
-      color: #4a5568;
+      color: #475569;
     }
+
     .btn-secondary:hover {
-      background-color: #cbd5e0;
+      background-color: #cbd5e1;
     }
-    .alert-box {
-      display: none;
-      background-color: #fff5f5;
-      border: 1px solid #feb2b2;
-      color: #c53030;
-      padding: 12px 16px;
-      border-radius: 6px;
-      margin-bottom: 20px;
-      font-size: 16px;
-      font-weight: bold;
-    }
-    .progress-bar-container {
-      width: 100%;
-      background-color: #edf2f7;
-      height: 8px;
-      border-radius: 4px;
-      margin-bottom: 25px;
-      overflow: hidden;
-    }
-    .progress-bar {
-      height: 100%;
-      background-color: #3182ce;
-      width: 0%;
-      transition: width 0.3s;
-    }
+
     .step-page {
       display: none;
     }
+
     .step-page.active {
       display: block;
     }
 
-    @media (max-width: 600px) {
+    .progress-bar-container {
+      width: 100%;
+      height: 8px;
+      background-color: #e2e8f0;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background-color: var(--primary);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    @media (max-width: 480px) {
       body {
         padding: 8px;
-        font-size: 16px;
       }
       .container {
-        padding: 15px 12px;
-      }
-      h1 {
-        font-size: 20px;
+        padding: 15px 10px;
       }
       .conjoint-grid {
-        gap: 8px;
+        gap: 6px;
       }
-      .class-card {
-        padding: 10px 8px;
+      .conjoint-card {
+        padding: 8px 6px;
       }
       .attr-name {
         font-size: 13px;
       }
       .attr-val {
-        font-size: 14px;
+        font-size: 15px;
       }
-      .likert-table th, .likert-table td {
-        padding: 8px 3px;
-        font-size: 14px;
-      }
-      .likert-table td.statement {
-        font-size: 14px;
-        padding-left: 6px;
+      .btn-select {
+        padding: 8px 4px;
+        font-size: 15px;
       }
     }
   </style>
 </head>
 <body>
 
-<div class="container">
-  <div class="progress-bar-container">
-    <div class="progress-bar" id="progressBar"></div>
-  </div>
+  <div class="container">
+    <div class="progress-bar-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
 
-  <div id="alertBox" class="alert-box"></div>
+    <div class="alert-box" id="alertBox"></div>
 
-  <!-- STEP 0: INTRODUCTION -->
-  <div id="step0" class="step-page active">
-    <header>
-      <h1>Khảo sát ý kiến phụ huynh về việc lựa chọn chương trình học tiếng Anh cho con</h1>
-      <div class="subtitle">Survey on parental preferences for children's English programs</div>
-    </header>
-
-    <div class="intro-box">
-      <p><strong>Kính gửi Quý Phụ huynh,</strong></p>
-      <p>Tôi tên là <strong>Thảo</strong>, học viên cao học MBA tại <strong>Đại học Doshisha (Nhật Bản)</strong>, hiện đang thực hiện đề tài nghiên cứu tốt nghiệp về: <em>"Nhu cầu và các yếu tố ảnh hưởng đến việc lựa chọn lớp học tiếng Anh cho học sinh tiểu học tại khu vực ngoại thành Hà Nội"</em>.</p>
+    <!-- STEP 0: WELCOME & CONSENT -->
+    <div class="step-page active" id="step0">
+      <h1>Khảo sát ý kiến Phụ huynh về việc lựa chọn chương trình học tiếng Anh cho con</h1>
+      
+      <p>Kính gửi Quý Phụ huynh,</p>
+      
+      <p>Tôi/Em tên là Thảo, học viên cao học tại Đại học Doshisha (Nhật Bản), hiện đang thực hiện đề tài nghiên cứu tốt nghiệp về: <em>"Nhu cầu và các yếu tố ảnh hưởng đến việc lựa chọn lớp học tiếng Anh cho học sinh tiểu học tại các khu vực ngoại thành Hà Nội"</em>.</p>
+      
       <p>Bài khảo sát này nhằm tìm hiểu quan điểm và các tiêu chí của Quý Phụ huynh khi đánh giá, lựa chọn các hình thức học tiếng Anh ngoài trường cho con. Những thông tin chia sẻ quý báu của Anh/Chị sẽ cung cấp nguồn dữ liệu thực tiễn quan trọng để đề xuất các mô hình giáo dục phù hợp, chất lượng và dễ tiếp cận hơn cho cộng đồng địa phương.</p>
-      <p>⏱️ <strong>Thời gian hoàn thành:</strong> Khoảng <strong>5 – 7 phút</strong>.</p>
-      <p>🔒 <strong>Bảo mật thông tin:</strong> Mọi câu trả lời được <strong>bảo mật tuyệt đối</strong>, mã hóa an toàn và chỉ sử dụng duy nhất cho mục đích nghiên cứu khoa học.</p>
-      <p>Xin chân thành cảm ơn sự hỗ trợ và hợp tác của Quý Phụ huynh!</p>
+
+      <div class="info-card">
+        <p><strong>Thông tin bài khảo sát:</strong></p>
+        <ul>
+          <li>⏱️ <strong>Thời gian hoàn thành:</strong> Khoảng 5 – 7 phút.</li>
+          <li>🔒 <strong>Bảo mật thông tin:</strong> Mọi câu trả lời được bảo mật tuyệt đối, mã hóa an toàn và chỉ sử dụng duy nhất cho mục đích nghiên cứu khoa học.</li>
+        </ul>
+      </div>
+
+      <p>Tôi/Em xin chân thành cảm ơn sự hỗ trợ của Quý Phụ huynh!</p>
+
+      <div class="btn-nav-group">
+        <button class="btn btn-primary" onclick="nextStep(0)">BẮT ĐẦU KHẢO SÁT »</button>
+      </div>
     </div>
 
-    <div class="btn-container">
-      <button type="button" class="btn btn-primary" onclick="nextStep(1)">BẮT ĐẦU KHẢO SÁT »</button>
+    <!-- STEP 1: DEMOGRAPHICS (PART 1) -->
+    <div class="step-page" id="step1">
+      <h2>Phần 1: Thông tin chung về Hộ gia đình</h2>
+      
+      <div class="form-group">
+        <label class="question-label">1. Anh/Chị hiện đang sinh sống tại quận/huyện nào ở Hà Nội?</label>
+        <input type="text" id="q1_district" placeholder="Ví dụ: Đông Anh, Gia Lâm, Mê Linh...">
+      </div>
+
+      <div class="form-group">
+        <label class="question-label">2. Mối quan hệ của Anh/Chị với trẻ là gì?</label>
+        <div class="radio-group">
+          <label class="radio-item"><input type="radio" name="q2_rel" value="Bố"> Bố</label>
+          <label class="radio-item"><input type="radio" name="q2_rel" value="Mẹ"> Mẹ</label>
+          <label class="radio-item"><input type="radio" name="q2_rel" value="Khác"> Khác (Ông, bà, người giám hộ...)</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="question-label">3. Thu nhập <strong>trung bình hàng tháng</strong> của toàn hộ gia đình Anh/Chị (từ tất cả các nguồn) khoảng bao nhiêu?</label>
+        <div class="radio-group">
+          <label class="radio-item"><input type="radio" name="q3_inc" value="Dưới 5 triệu"> Dưới 5 triệu VNĐ</label>
+          <label class="radio-item"><input type="radio" name="q3_inc" value="Từ 5 đến dưới 10 triệu"> Từ 5 đến dưới 10 triệu VNĐ</label>
+          <label class="radio-item"><input type="radio" name="q3_inc" value="Từ 10 đến dưới 15 triệu"> Từ 10 đến dưới 15 triệu VNĐ</label>
+          <label class="radio-item"><input type="radio" name="q3_inc" value="Từ 15 đến dưới 20 triệu"> Từ 15 đến dưới 20 triệu VNĐ</label>
+          <label class="radio-item"><input type="radio" name="q3_inc" value="Từ 20 triệu trở lên"> Từ 20 triệu VNĐ trở lên</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="question-label">4. Anh/Chị đánh giá thế nào về độ ổn định thu nhập hàng tháng của gia đình mình trong 12 tháng qua?</label>
+        <div class="radio-group">
+          <label class="radio-item"><input type="radio" name="q4_stab" value="Khá ổn định"> Khá ổn định</label>
+          <label class="radio-item"><input type="radio" name="q4_stab" value="Có biến động nhẹ"> Có biến động nhẹ</label>
+          <label class="radio-item"><input type="radio" name="q4_stab" value="Biến động nhiều/Không ổn định"> Biến động nhiều/Không ổn định</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="question-label">5. Con của Anh/Chị hiện đang học lớp mấy?</label>
+        <div class="radio-group">
+          <label class="radio-item"><input type="radio" name="q5_grade" value="Lớp 1"> Lớp 1</label>
+          <label class="radio-item"><input type="radio" name="q5_grade" value="Lớp 2"> Lớp 2</label>
+          <label class="radio-item"><input type="radio" name="q5_grade" value="Lớp 3"> Lớp 3</label>
+          <label class="radio-item"><input type="radio" name="q5_grade" value="Lớp 4"> Lớp 4</label>
+          <label class="radio-item"><input type="radio" name="q5_grade" value="Lớp 5"> Lớp 5</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="question-label">6. Con của Anh/Chị hiện có đang theo học lớp tiếng Anh nào ngoài trường tiểu học không (Ví dụ: lớp học thêm của cô giáo, lớp học nhóm, học trung tâm tiếng Anh, v.v.)?</label>
+        <div class="radio-group">
+          <label class="radio-item"><input type="radio" name="q6_ext" value="Có"> Có</label>
+          <label class="radio-item"><input type="radio" name="q6_ext" value="Không"> Không</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="question-label">7. Nếu CÓ, trung bình <strong>mỗi tháng</strong> gia đình Anh/Chị chi trả khoảng bao nhiêu tiền cho việc học tiếng Anh ngoài trường của con?</label>
+        <div class="radio-group">
+          <label class="radio-item"><input type="radio" name="q7_bud" value="Dưới 480.000 VNĐ"> Dưới 480.000 VNĐ</label>
+          <label class="radio-item"><input type="radio" name="q7_bud" value="481.000 - 800.000 VNĐ"> 481.000 - 800.000 VNĐ</label>
+          <label class="radio-item"><input type="radio" name="q7_bud" value="801.000 - 1.200.000 VNĐ"> 801.000 - 1.200.000 VNĐ</label>
+          <label class="radio-item"><input type="radio" name="q7_bud" value="Trên 1.200.000 VNĐ"> Trên 1.200.000 VNĐ</label>
+          <label class="radio-item"><input type="radio" name="q7_bud" value="Con chưa đi học ngoài"> Con chưa đi học ngoài</label>
+        </div>
+      </div>
+
+      <div class="btn-nav-group">
+        <button class="btn btn-secondary" onclick="prevStep(1)">« QUAY LẠI</button>
+        <button class="btn btn-primary" onclick="nextStep(1)">TIẾP THEO »</button>
+      </div>
+    </div>
+
+    <!-- STEP 2: LIKERT ATTITUDES (PART 2) -->
+    <div class="step-page" id="step2">
+      <h2>Phần 2: Quan điểm và mức độ ưu tiên khi chọn lớp học</h2>
+      <p style="margin-bottom:15px;">Xin Anh/Chị cho biết mức độ đồng ý của mình với các nhận định dưới đây theo thang điểm từ 1 (Hoàn toàn không đồng ý) đến 5 (Hoàn toàn đồng ý)</p>
+
+      <div id="likertContainer"></div>
+
+      <div class="btn-nav-group">
+        <button class="btn btn-secondary" onclick="prevStep(2)">« QUAY LẠI</button>
+        <button class="btn btn-primary" onclick="nextStep(2)">TIẾP THEO »</button>
+      </div>
+    </div>
+
+    <!-- STEP 3: PART 3 INTRO & FIXED CONDITIONS -->
+    <div class="step-page" id="step3">
+      <h2>Phần 3: Tình huống lựa chọn chương trình học tiếng Anh</h2>
+      
+      <p>Ở phần này, Anh/Chị sẽ đóng vai trò là người quyết định chọn lớp học tiếng Anh cho con. Chúng tôi sẽ đưa ra <strong>6 tình huống lựa chọn</strong> độc lập. Ở mỗi tình huống, Anh/Chị hãy so sánh 2 chương trình học (Lớp A và Lớp B) và chọn ra 1 lớp học mà Anh/Chị <strong>ưu tiên nhất</strong> cho con.</p>
+
+      <div class="info-card" style="background-color: #f0fdf4; border-left-color: var(--success);">
+        <h3 style="color: #166534; margin-top:0;">Quy tắc và điều kiện cố định chung cho tất cả các lớp học:</h3>
+        <p style="font-size:16px; margin-bottom:8px;"><em>Để đảm bảo so sánh công bằng, tất cả các lựa chọn lớp học trong bài khảo sát này đều tuân theo 5 quy chuẩn cố định sau:</em></p>
+        <ul>
+          <li><strong>1. Thời lượng học:</strong> Mỗi kỳ gồm 8 buổi học, 90 phút/buổi (thường học 2 buổi/tuần).</li>
+          <li><strong>2. Sĩ số lớp:</strong> Tối đa 20 học sinh/lớp.</li>
+          <li><strong>3. Chất lượng giáo viên:</strong> Trình độ bằng cấp và kinh nghiệm giảng dạy của giáo viên ở tất cả các lớp là như nhau.</li>
+          <li><strong>4. Cơ sở vật chất và điều kiện an toàn:</strong> Trang thiết bị học tập cơ bản và điều kiện an toàn phòng học là tương đương nhau.</li>
+          <li><strong>5. Cam kết chi phí:</strong> Không phát sinh bất kỳ khoản phí bắt buộc nào khác ngoài các khoản hiển thị (không thu thêm phí nhập học, phí giáo trình hay đồng phục).</li>
+        </ul>
+      </div>
+
+      <div class="btn-nav-group">
+        <button class="btn btn-secondary" onclick="prevStep(3)">« QUAY LẠI</button>
+        <button class="btn btn-primary" onclick="nextStep(3)">TIẾP THEO »</button>
+      </div>
+    </div>
+
+    <!-- STEP 4: PART 3 ATTRIBUTE EXPLANATIONS -->
+    <div class="step-page" id="step4">
+      <h2>Giải thích ý nghĩa đặc điểm của các lớp học:</h2>
+      <p style="margin-bottom:15px;"><em>Anh/Chị vui lòng đọc danh sách dưới đây để hiểu rõ ý nghĩa của các lựa chọn trước khi bắt đầu làm khảo sát:</em></p>
+
+    <ul class="level-list">
+      <li class="level-item">
+        <span class="level-title">1. Học phí cơ bản (cho 1 kỳ = 8 buổi):</span>
+        <ul class="level-sub-list">
+          <li><strong>480.000 VNĐ / kỳ</strong> (tương đương 60.000 VNĐ/buổi)</li>
+          <li><strong>640.000 VNĐ / kỳ</strong> (tương đương 80.000 VNĐ/buổi)</li>
+          <li><strong>800.000 VNĐ / kỳ</strong> (tương đương 100.000 VNĐ/buổi)</li>
+          <li><strong>960.000 VNĐ / kỳ</strong> (tương đương 120.000 VNĐ/buổi)</li>
+          <li><strong>1.200.000 VNĐ / kỳ</strong> (tương đương 150.000 VNĐ/buổi)</li>
+        </ul>
+      </li>
+
+      <li class="level-item">
+        <span class="level-title">2. Hình thức đóng tiền và ưu đãi chiết khấu:</span>
+        <ul class="level-sub-list">
+          <li><strong>Đóng từng kỳ</strong> (8 buổi/lần), không áp dụng giảm giá.</li>
+          <li><strong>Đóng gộp 1 lần cho 3 kỳ</strong> (24 buổi), được giảm 5% tổng học phí.</li>
+          <li><strong>Đóng gộp 1 lần cho 6 kỳ</strong> (48 buổi), được giảm 10% tổng học phí.</li>
+        </ul>
+      </li>
+
+      <li class="level-item">
+        <span class="level-title">3. Khoản tiền đặt cọc và điều kiện rút vốn:</span>
+        <ul class="level-sub-list">
+          <li><strong>Không yêu cầu đặt cọc</strong>, chỉ thanh toán tiền học phí tiêu chuẩn.</li>
+          <li><strong>Đặt cọc 0.5 kỳ học phí</strong> (tiền học 4 buổi), khoản cọc này sẽ được trừ vào học phí của kỳ học cuối cùng, nhưng không được hoàn lại nếu tự ý cho con nghỉ học giữa chừng.</li>
+          <li><strong>Đặt cọc 1 kỳ học phí</strong> (tiền học 8 buổi), khoản cọc này sẽ được trừ vào học phí của kỳ học cuối cùng, nhưng không được hoàn lại nếu tự ý cho con nghỉ học giữa chừng.</li>
+        </ul>
+      </li>
+
+      <li class="level-item">
+        <span class="level-title">4. Mục tiêu và phương pháp học chính:</span>
+        <ul class="level-sub-list">
+          <li><strong>Ôn tập ngữ pháp và bám sát bài trên trường</strong>.</li>
+          <li><strong>Tập trung giao tiếp và phản xạ tự nhiên</strong>.</li>
+          <li><strong>Học qua trò chơi và hoạt động nhóm</strong>.</li>
+          <li><strong>Chuẩn hóa phát âm và kĩ năng đọc, viết nền tảng</strong>.</li>
+        </ul>
+      </li>
+
+      <li class="level-item">
+        <span class="level-title">5. Địa điểm tổ chức lớp học:</span>
+        <ul class="level-sub-list">
+          <li><strong>Phòng học tổ chức tại nhà văn hóa làng/xã địa phương</strong>.</li>
+          <li><strong>Phòng học tổ chức tại trung tâm tiếng Anh chuyên nghiệp</strong>.</li>
+          <li><strong>Phòng học được chuẩn bị tại nhà riêng của giáo viên</strong>.</li>
+        </ul>
+      </li>
+    </ul>
+
+    <div class="nav-buttons">
+      <button type="button" class="btn btn-back" onclick="goToPage('3_step1')">« QUAY LẠI</button>
+      <button type="button" class="btn btn-next" onclick="startConjointTasks()">BẮT ĐẦU CHỌN CÁC TÌNH HUỐNG »</button>
     </div>
   </div>
 
-  <!-- STEP 1: DEMOGRAPHICS -->
-  <div id="step1" class="step-page">
-    <div class="section-title">Phần 1: Thông tin chung về Hộ gia đình</div>
+    <!-- DYNAMIC TASK STEPS (STEPS 5 TO 10 FOR TASKS 1 TO 6) -->
+    <div id="taskStepsContainer"></div>
 
-    <div class="form-group">
-      <label class="q-label">Q1. Quý phụ huynh hiện đang sinh sống tại Quận/Huyện nào ở Hà Nội?</label>
-      <select id="q1_district">
-        <option value="">-- Chọn Quận/Huyện --</option>
-        <option value="Hà Đông">Hà Đông</option>
-        <option value="Thanh Trì">Thanh Trì</option>
-        <option value="Hoài Đức">Hoài Đức</option>
-        <option value="Quốc Oai">Quốc Oai</option>
-        <option value="Chương Mỹ">Chương Mỹ</option>
-        <option value="Mỹ Đức">Mỹ Đức</option>
-        <option value="Ứng Hòa">Ứng Hòa</option>
-        <option value="Thanh Oai">Thanh Oai</option>
-        <option value="Ba Vì">Ba Vì</option>
-        <option value="Đan Phượng">Đan Phượng</option>
-        <option value="Phúc Thọ">Phúc Thọ</option>
-        <option value="Sơn Tây">Sơn Tây</option>
-        <option value="Thạch Thất">Thạch Thất</option>
-        <option value="Khác">Quận/Huyện khác</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label class="q-label">Q2. Mối quan hệ của Anh/Chị với học sinh là gì?</label>
-      <div class="radio-group">
-        <label class="radio-option"><input type="radio" name="q2_rel" value="Bố"> Bố</label>
-        <label class="radio-option"><input type="radio" name="q2_rel" value="Mẹ"> Mẹ</label>
-        <label class="radio-option"><input type="radio" name="q2_rel" value="Ông/Bà"> Ông / Bà</label>
-        <label class="radio-option"><input type="radio" name="q2_rel" value="Khác"> Khác (Người giám hộ, Anh/Chị...)</label>
+    <!-- STEP 11: THANK YOU -->
+    <div class="step-page" id="step11">
+      <div style="text-align: center; padding: 30px 10px;">
+        <h1 style="color: var(--success); font-size: 28px; margin-bottom: 15px;">✓ XIN CHÂN THÀNH CẢM ƠN!</h1>
+        <p style="font-size: 19px; margin-bottom: 20px;">Câu trả lời của Quý phụ huynh đã được nộp thành công và lưu nhận vào hệ thống nghiên cứu.</p>
+        <p style="color: var(--text-muted); font-size: 16px;">Sự hỗ trợ quý báu của Quý phụ huynh góp phần rất lớn vào thành công của đề tài tốt nghiệp MBA tại Đại học Doshisha.</p>
+        
+        <div style="margin-top: 35px; border-top: 1px solid var(--border); padding-top: 20px;">
+          <button class="btn btn-secondary" style="font-size: 14px;" onclick="resetForNewTest()">🔄 Làm lại bài khảo sát (Dành cho lượt test mới)</button>
+        </div>
       </div>
     </div>
 
-    <div class="form-group">
-      <label class="q-label">Q3. Thu nhập trung bình hàng tháng của hộ gia đình Anh/Chị ở mức nào?</label>
-      <div class="radio-group">
-        <label class="radio-option"><input type="radio" name="q3_inc" value="Dưới 5 triệu"> Dưới 5 triệu VNĐ</label>
-        <label class="radio-option"><input type="radio" name="q3_inc" value="5 - 10 triệu"> 5 – 10 triệu VNĐ</label>
-        <label class="radio-option"><input type="radio" name="q3_inc" value="10 - 15 triệu"> 10 – 15 triệu VNĐ</label>
-        <label class="radio-option"><input type="radio" name="q3_inc" value="15 - 20 triệu"> 15 – 20 triệu VNĐ</label>
-        <label class="radio-option"><input type="radio" name="q3_inc" value="Trên 20 triệu"> Trên 20 triệu VNĐ</label>
-        <label class="radio-option"><input type="radio" name="q3_inc" value="Không tiết lộ"> Không muốn tiết lộ</label>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label class="q-label">Q4. Thu nhập của hộ gia đình Anh/Chị có tính chất như thế nào?</label>
-      <div class="radio-group">
-        <label class="radio-option"><input type="radio" name="q4_stab" value="Khá ổn định"> Khá ổn định hàng tháng</label>
-        <label class="radio-option"><input type="radio" name="q4_stab" value="Biến động nhẹ"> Biến động nhẹ theo mùa / tháng</label>
-        <label class="radio-option"><input type="radio" name="q4_stab" value="Biến động nhiều"> Biến động nhiều / Không cố định</label>
-        <label class="radio-option"><input type="radio" name="q4_stab" value="Không tiết lộ"> Không muốn tiết lộ</label>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label class="q-label">Q5. Cháu nhà mình hiện đang học khối lớp mấy?</label>
-      <div class="radio-group">
-        <label class="radio-option"><input type="radio" name="q5_grade" value="Lớp 1"> Lớp 1</label>
-        <label class="radio-option"><input type="radio" name="q5_grade" value="Lớp 2"> Lớp 2</label>
-        <label class="radio-option"><input type="radio" name="q5_grade" value="Lớp 3"> Lớp 3</label>
-        <label class="radio-option"><input type="radio" name="q5_grade" value="Lớp 4"> Lớp 4</label>
-        <label class="radio-option"><input type="radio" name="q5_grade" value="Lớp 5"> Lớp 5</label>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label class="q-label">Q6. Cháu hiện có đang tham gia lớp học tiếng Anh ngoài trường không?</label>
-      <div class="radio-group">
-        <label class="radio-option"><input type="radio" name="q6_ext" value="Có"> Có</label>
-        <label class="radio-option"><input type="radio" name="q6_ext" value="Không"> Không</label>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label class="q-label">Q7. Chi phí dành cho việc học tiếng Anh ngoài trường của cháu hàng tháng khoảng bao nhiêu?</label>
-      <div class="radio-group">
-        <label class="radio-option"><input type="radio" name="q7_spend" value="Dưới 480k"> Dưới 480.000 VNĐ</label>
-        <label class="radio-option"><input type="radio" name="q7_spend" value="480k - 800k"> 480.000 – 800.000 VNĐ</label>
-        <label class="radio-option"><input type="radio" name="q7_spend" value="800k - 1.2tr"> 800.000 – 1.200.000 VNĐ</label>
-        <label class="radio-option"><input type="radio" name="q7_spend" value="Trên 1.2tr"> Trên 1.200.000 VNĐ</label>
-        <label class="radio-option"><input type="radio" name="q7_spend" value="Chưa cho học"> Hiện chưa cho học ngoài trường</label>
-      </div>
-    </div>
-
-    <div class="btn-container">
-      <button type="button" class="btn btn-secondary" onclick="prevStep(0)">« QUAY LẠI</button>
-      <button type="button" class="btn btn-primary" onclick="nextStep(2)">TIẾP THEO »</button>
-    </div>
   </div>
 
-  <!-- STEP 2: LIKERT ATTITUDES -->
-  <div id="step2" class="step-page">
-    <div class="section-title">Phần 2: Quan điểm về việc cho con học Tiếng Anh</div>
-    <p style="margin-bottom: 15px; font-size: 16px;">Xin Quý phụ huynh cho biết mức độ đồng ý với các nhận định dưới đây (Thang điểm 1: Hoàn toàn không đồng ý ➔ 5: Hoàn toàn đồng ý):</p>
+  <script>
+    // GOOGLE APPS SCRIPT URL EMBEDDED
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwr0NiIpGVABUJp-BDh79UDl5xyFSyQpPFOED8q9sGyWfx9jwT6M28HWoSovj1p3SfoXQ/exec";
 
-    <table class="likert-table">
-      <thead>
-        <tr>
-          <th class="statement">Nhận định</th>
-          <th>1</th>
-          <th>2</th>
-          <th>3</th>
-          <th>4</th>
-          <th>5</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="statement">1. Tôi ưu tiên cho con học tiếng Anh để giao tiếp tự nhiên hàng ngày hơn là chỉ để thi lấy điểm cao.</td>
-          <td><input type="radio" name="l1" value="1"></td>
-          <td><input type="radio" name="l1" value="2"></td>
-          <td><input type="radio" name="l1" value="3"></td>
-          <td><input type="radio" name="l1" value="4"></td>
-          <td><input type="radio" name="l1" value="5"></td>
-        </tr>
-        <tr>
-          <td class="statement">2. Nếu con học một thời gian mà không thấy tiến bộ rõ rệt, tôi sẽ chủ động tìm lớp khác ngay.</td>
-          <td><input type="radio" name="l2" value="1"></td>
-          <td><input type="radio" name="l2" value="2"></td>
-          <td><input type="radio" name="l2" value="3"></td>
-          <td><input type="radio" name="l2" value="4"></td>
-          <td><input type="radio" name="l2" value="5"></td>
-        </tr>
-        <tr>
-          <td class="statement">3. Tôi sẵn sàng cho con học lớp thiên về Nghe - Nói nhiều hơn là học nhiều ngữ pháp và bài tập viết.</td>
-          <td><input type="radio" name="l3" value="1"></td>
-          <td><input type="radio" name="l3" value="2"></td>
-          <td><input type="radio" name="l3" value="3"></td>
-          <td><input type="radio" name="l3" value="4"></td>
-          <td><input type="radio" name="l3" value="5"></td>
-        </tr>
-        <tr>
-          <td class="statement">4. Chương trình học phải bám sát sách giáo khoa trên trường để giúp con đạt điểm cao trong các bài kiểm tra.</td>
-          <td><input type="radio" name="l4" value="1"></td>
-          <td><input type="radio" name="l4" value="2"></td>
-          <td><input type="radio" name="l4" value="3"></td>
-          <td><input type="radio" name="l4" value="4"></td>
-          <td><input type="radio" name="l4" value="5"></td>
-        </tr>
-        <tr>
-          <td class="statement">5. Việc yêu cầu đóng học phí gộp nhiều tháng liền tạo áp lực tài chính lớn cho gia đình tôi.</td>
-          <td><input type="radio" name="l5" value="1"></td>
-          <td><input type="radio" name="l5" value="2"></td>
-          <td><input type="radio" name="l5" value="3"></td>
-          <td><input type="radio" name="l5" value="4"></td>
-          <td><input type="radio" name="l5" value="5"></td>
-        </tr>
-        <tr>
-          <td class="statement">6. Nếu được giảm giá học phí đáng kể, tôi sẵn sàng đóng tiền gộp trước cho con từ 3 đến 6 tháng.</td>
-          <td><input type="radio" name="l6" value="1"></td>
-          <td><input type="radio" name="l6" value="2"></td>
-          <td><input type="radio" name="l6" value="3"></td>
-          <td><input type="radio" name="l6" value="4"></td>
-          <td><input type="radio" name="l6" value="5"></td>
-        </tr>
-        <tr>
-          <td class="statement">7. Quãng đường đưa đón xa hoặc tốn thời gian di chuyển là lý do chính khiến tôi ngần ngại cho con đi học ngoài.</td>
-          <td><input type="radio" name="l7" value="1"></td>
-          <td><input type="radio" name="l7" value="2"></td>
-          <td><input type="radio" name="l7" value="3"></td>
-          <td><input type="radio" name="l7" value="4"></td>
-          <td><input type="radio" name="l7" value="5"></td>
-        </tr>
-        <tr>
-          <td class="statement">8. Tôi cảm thấy an tâm và tin tưởng hơn khi cho con học tại Trung tâm tư nhân so với các lớp mở tại Nhà văn hóa / Điểm sinh hoạt cộng đồng.</td>
-          <td><input type="radio" name="l8" value="1"></td>
-          <td><input type="radio" name="l8" value="2"></td>
-          <td><input type="radio" name="l8" value="3"></td>
-          <td><input type="radio" name="l8" value="4"></td>
-          <td><input type="radio" name="l8" value="5"></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="btn-container">
-      <button type="button" class="btn btn-secondary" onclick="prevStep(1)">« QUAY LẠI</button>
-      <button type="button" class="btn btn-primary" onclick="nextStep(3)">TIẾP THEO »</button>
-    </div>
-  </div>
-
-  <!-- STEP 3: CONJOINT TASKS (1 to 6) -->
-  <div id="step3" class="step-page">
-    <div class="section-title" id="taskTitle">Phần 3: Tình huống lựa chọn (Tình huống 1 / 6)</div>
-
-    <div class="conjoint-instructions">
-      📌 <strong>Hướng dẫn:</strong> Dưới đây là 6 tình huống lựa chọn khóa học độc lập. Với mỗi tình huống, xin Quý phụ huynh hãy giả định đây là <strong>2 lựa chọn DUY NHẤT</strong> hiện có trên thị trường và bấm chọn 1 chương trình học (Lớp A hoặc Lớp B) mà Quý phụ huynh ưu tiên nhất cho con mình.
-    </div>
-
-    <div class="conjoint-grid">
-      <!-- CLASS A CARD -->
-      <div class="class-card" id="cardA" onclick="selectClass('Class A')">
-        <div class="class-header">LỚP A</div>
-        <div class="attr-row"><span class="attr-name">Học phí:</span><span class="attr-val" id="a_tuition">--</span></div>
-        <div class="attr-row"><span class="attr-name">Thanh toán:</span><span class="attr-val" id="a_payment">--</span></div>
-        <div class="attr-row"><span class="attr-name">Đặt cọc:</span><span class="attr-val" id="a_deposit">--</span></div>
-        <div class="attr-row"><span class="attr-name">Trọng tâm:</span><span class="attr-val" id="a_focus">--</span></div>
-        <div class="attr-row"><span class="attr-name">Địa điểm:</span><span class="attr-val" id="a_location">--</span></div>
-        <button type="button" class="select-btn" id="btnA">CHỌN LỚP A</button>
-      </div>
-
-      <!-- CLASS B CARD -->
-      <div class="class-card" id="cardB" onclick="selectClass('Class B')">
-        <div class="class-header">LỚP B</div>
-        <div class="attr-row"><span class="attr-name">Học phí:</span><span class="attr-val" id="b_tuition">--</span></div>
-        <div class="attr-row"><span class="attr-name">Thanh toán:</span><span class="attr-val" id="b_payment">--</span></div>
-        <div class="attr-row"><span class="attr-name">Đặt cọc:</span><span class="attr-val" id="b_deposit">--</span></div>
-        <div class="attr-row"><span class="attr-name">Trọng tâm:</span><span class="attr-val" id="b_focus">--</span></div>
-        <div class="attr-row"><span class="attr-name">Địa điểm:</span><span class="attr-val" id="b_location">--</span></div>
-        <button type="button" class="select-btn" id="btnB">CHỌN LỚP B</button>
-      </div>
-    </div>
-
-    <div class="btn-container">
-      <button type="button" class="btn btn-secondary" id="taskBackBtn" onclick="prevTask()">« QUAY LẠI</button>
-      <button type="button" class="btn btn-primary" id="taskNextBtn" onclick="nextTask()">TIẾP THEO »</button>
-    </div>
-  </div>
-
-  <!-- STEP 4: THANK YOU / FINISH -->
-  <div id="step4" class="step-page" style="text-align: center; padding: 40px 10px;">
-    <div style="font-size: 50px; margin-bottom: 20px;">🎉</div>
-    <h2 style="font-size: 26px; color: #2b6cb0; margin-bottom: 15px;">XIN CHÂN THÀNH CẢM ƠN QUÝ PHỤ HUYNH!</h2>
-    <p style="font-size: 18px; color: #4a5568; max-width: 600px; margin: 0 auto 25px auto;">
-      Ý kiến đóng góp quý báu của Anh/Chị đã được ghi nhận thành công và sẽ là nguồn dữ liệu quan trọng đóng góp cho đề tài nghiên cứu giáo dục.
-    </p>
-    <div style="font-size: 14px; color: #a0aec0; margin-top: 30px;">
-      <a href="javascript:void(0)" onclick="resetSurvey()" style="color: #718096; text-decoration: underline;">Làm lại bài khảo sát (Dành cho lượt test mới)</a>
-    </div>
-  </div>
-
-</div>
-
-<script>
-  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwr0NiIpGVABUJp-BDh79UDl5xyFSyQpPFOED8q9sGyWfx9jwT6M28HWoSovj1p3SfoXQ/exec";
-
-  const ALL_VERSIONS = {
-  "1": [
-    {
-      "task": 1,
-      "classA": {
-        "tuition": "  640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn   576.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 3.456.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      },
-      "classB": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   456.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 1.368.000 VNĐ",
-        "deposit": "Cọc 0.5 kỳ:   240.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      }
-    },
-    {
-      "task": 2,
-      "classA": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   456.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 1.368.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      },
-      "classB": {
-        "tuition": "  640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   640.000 VNĐ",
-        "deposit": "Cọc 0.5 kỳ:   320.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      }
-    },
-    {
-      "task": 3,
-      "classA": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   456.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 1.368.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      },
-      "classB": {
-        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 6.480.000 VNĐ",
-        "deposit": "Cọc 1 kỳ: 1.200.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      }
-    },
-    {
-      "task": 4,
-      "classA": {
-        "tuition": "  960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   960.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      },
-      "classB": {
-        "tuition": "  640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   608.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 1.824.000 VNĐ",
-        "deposit": "Cọc 0.5 kỳ:   320.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      }
-    },
-    {
-      "task": 5,
-      "classA": {
-        "tuition": "  800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   800.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Học qua trò chơi & Hoạt động nhóm",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      },
-      "classB": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   456.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 1.368.000 VNĐ",
-        "deposit": "Cọc 0.5 kỳ:   240.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      }
-    },
-    {
-      "task": 6,
-      "classA": {
-        "tuition": "  640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   608.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 1.824.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      },
-      "classB": {
-        "tuition": "  960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   960.000 VNĐ",
-        "deposit": "Cọc 0.5 kỳ:   480.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      }
-    }
-  ],
-  "2": [
-    {
-      "task": 1,
-      "classA": {
-        "tuition": "  640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   640.000 VNĐ",
-        "deposit": "Cọc 1 kỳ:   640.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Học qua trò chơi & Hoạt động nhóm",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      },
-      "classB": {
-        "tuition": "  960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn   864.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 5.184.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      }
-    },
-    {
-      "task": 2,
-      "classA": {
-        "tuition": "  960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn   864.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 5.184.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      },
-      "classB": {
-        "tuition": "  640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   608.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 1.824.000 VNĐ",
-        "deposit": "Cọc 1 kỳ:   640.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      }
-    },
-    {
-      "task": 3,
-      "classA": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   456.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 1.368.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      },
-      "classB": {
-        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 6.480.000 VNĐ",
-        "deposit": "Cọc 1 kỳ: 1.200.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      }
-    },
-    {
-      "task": 4,
-      "classA": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   480.000 VNĐ",
-        "deposit": "Cọc 0.5 kỳ:   240.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      },
-      "classB": {
-        "tuition": "  960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   912.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 2.736.000 VNĐ",
-        "deposit": "Cọc 1 kỳ:   960.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      }
-    },
-    {
-      "task": 5,
-      "classA": {
-        "tuition": "  640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn   576.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 3.456.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Học qua trò chơi & Hoạt động nhóm",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      },
-      "classB": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   480.000 VNĐ",
-        "deposit": "Cọc 1 kỳ:   480.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      }
-    },
-    {
-      "task": 6,
-      "classA": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   456.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 1.368.000 VNĐ",
-        "deposit": "Cọc 1 kỳ:   480.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      },
-      "classB": {
-        "tuition": "  800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   800.000 VNĐ",
-        "deposit": "Cọc 0.5 kỳ:   400.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      }
-    }
-  ],
-  "3": [
-    {
-      "task": 1,
-      "classA": {
-        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 6.480.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      },
-      "classB": {
-        "tuition": "  800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   760.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 2.280.000 VNĐ",
-        "deposit": "Cọc 1 kỳ:   800.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Học qua trò chơi & Hoạt động nhóm",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      }
-    },
-    {
-      "task": 2,
-      "classA": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   480.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      },
-      "classB": {
-        "tuition": "  640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   608.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 1.824.000 VNĐ",
-        "deposit": "Cọc 1 kỳ:   640.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Học qua trò chơi & Hoạt động nhóm",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      }
-    },
-    {
-      "task": 3,
-      "classA": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   456.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 1.368.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      },
-      "classB": {
-        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 6.480.000 VNĐ",
-        "deposit": "Cọc 1 kỳ: 1.200.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      }
-    },
-    {
-      "task": 4,
-      "classA": {
-        "tuition": "  960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   912.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 2.736.000 VNĐ",
-        "deposit": "Cọc 0.5 kỳ:   480.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      },
-      "classB": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn   432.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 2.592.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      }
-    },
-    {
-      "task": 5,
-      "classA": {
-        "tuition": "  960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   912.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 2.736.000 VNĐ",
-        "deposit": "Cọc 1 kỳ:   960.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      },
-      "classB": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn   432.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 2.592.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      }
-    },
-    {
-      "task": 6,
-      "classA": {
-        "tuition": "  960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   912.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 2.736.000 VNĐ",
-        "deposit": "Cọc 1 kỳ:   960.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      },
-      "classB": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   480.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      }
-    }
-  ],
-  "4": [
-    {
-      "task": 1,
-      "classA": {
-        "tuition": "  960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   960.000 VNĐ",
-        "deposit": "Cọc 0.5 kỳ:   480.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Học qua trò chơi & Hoạt động nhóm",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      },
-      "classB": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn   432.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 2.592.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      }
-    },
-    {
-      "task": 2,
-      "classA": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   480.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Học qua trò chơi & Hoạt động nhóm",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      },
-      "classB": {
-        "tuition": "  640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   608.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 1.824.000 VNĐ",
-        "deposit": "Cọc 1 kỳ:   640.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      }
-    },
-    {
-      "task": 3,
-      "classA": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   456.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 1.368.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      },
-      "classB": {
-        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 6.480.000 VNĐ",
-        "deposit": "Cọc 1 kỳ: 1.200.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      }
-    },
-    {
-      "task": 4,
-      "classA": {
-        "tuition": "  640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   608.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 1.824.000 VNĐ",
-        "deposit": "Cọc 0.5 kỳ:   320.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      },
-      "classB": {
-        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 6.480.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      }
-    },
-    {
-      "task": 5,
-      "classA": {
-        "tuition": "  800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   800.000 VNĐ",
-        "deposit": "Cọc 0.5 kỳ:   400.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      },
-      "classB": {
-        "tuition": "  640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn   576.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 3.456.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      }
-    },
-    {
-      "task": 6,
-      "classA": {
-        "tuition": "  640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   608.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 1.824.000 VNĐ",
-        "deposit": "Cọc 0.5 kỳ:   320.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      },
-      "classB": {
-        "tuition": "  960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   960.000 VNĐ",
-        "deposit": "Cọc 1 kỳ:   960.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Học qua trò chơi & Hoạt động nhóm",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      }
-    }
-  ],
-  "5": [
-    {
-      "task": 1,
-      "classA": {
-        "tuition": "  640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   640.000 VNĐ",
-        "deposit": "Cọc 1 kỳ:   640.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      },
-      "classB": {
-        "tuition": "  800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn   720.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 4.320.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      }
-    },
-    {
-      "task": 2,
-      "classA": {
-        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay: 1.200.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      },
-      "classB": {
-        "tuition": "  960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   912.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 2.736.000 VNĐ",
-        "deposit": "Cọc 1 kỳ:   960.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      }
-    },
-    {
-      "task": 3,
-      "classA": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   456.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 1.368.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      },
-      "classB": {
-        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 6.480.000 VNĐ",
-        "deposit": "Cọc 1 kỳ: 1.200.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      }
-    },
-    {
-      "task": 4,
-      "classA": {
-        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 6.480.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      },
-      "classB": {
-        "tuition": "  800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   760.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 2.280.000 VNĐ",
-        "deposit": "Cọc 1 kỳ:   800.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      }
-    },
-    {
-      "task": 5,
-      "classA": {
-        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay: 1.200.000 VNĐ",
-        "deposit": "Cọc 0.5 kỳ:   600.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      },
-      "classB": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn   432.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 2.592.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      }
-    },
-    {
-      "task": 6,
-      "classA": {
-        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 6.480.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      },
-      "classB": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   456.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 1.368.000 VNĐ",
-        "deposit": "Cọc 1 kỳ:   480.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Học qua trò chơi & Hoạt động nhóm",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      }
-    }
-  ],
-  "6": [
-    {
-      "task": 1,
-      "classA": {
-        "tuition": "  800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   800.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Học qua trò chơi & Hoạt động nhóm",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      },
-      "classB": {
-        "tuition": "  960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   912.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 2.736.000 VNĐ",
-        "deposit": "Cọc 0.5 kỳ:   480.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      }
-    },
-    {
-      "task": 2,
-      "classA": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   456.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 1.368.000 VNĐ",
-        "deposit": "Cọc 0.5 kỳ:   240.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      },
-      "classB": {
-        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 6.480.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      }
-    },
-    {
-      "task": 3,
-      "classA": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   456.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 1.368.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      },
-      "classB": {
-        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 6.480.000 VNĐ",
-        "deposit": "Cọc 1 kỳ: 1.200.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      }
-    },
-    {
-      "task": 4,
-      "classA": {
-        "tuition": "  960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   960.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      },
-      "classB": {
-        "tuition": "  640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   608.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 1.824.000 VNĐ",
-        "deposit": "Cọc 0.5 kỳ:   320.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Học qua trò chơi & Hoạt động nhóm",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      }
-    },
-    {
-      "task": 5,
-      "classA": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   480.000 VNĐ",
-        "deposit": "Cọc 0.5 kỳ:   240.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      },
-      "classB": {
-        "tuition": "  800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn   720.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 4.320.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Học qua trò chơi & Hoạt động nhóm",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      }
-    },
-    {
-      "task": 6,
-      "classA": {
-        "tuition": "  960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn   864.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 5.184.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      },
-      "classB": {
-        "tuition": "  640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   640.000 VNĐ",
-        "deposit": "Cọc 1 kỳ:   640.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      }
-    }
-  ],
-  "7": [
-    {
-      "task": 1,
-      "classA": {
-        "tuition": "  960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   912.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 2.736.000 VNĐ",
-        "deposit": "Cọc 0.5 kỳ:   480.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Học qua trò chơi & Hoạt động nhóm",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      },
-      "classB": {
-        "tuition": "  800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   800.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      }
-    },
-    {
-      "task": 2,
-      "classA": {
-        "tuition": "  800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   760.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 2.280.000 VNĐ",
-        "deposit": "Cọc 0.5 kỳ:   400.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      },
-      "classB": {
-        "tuition": "  640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   640.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      }
-    },
-    {
-      "task": 3,
-      "classA": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   456.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 1.368.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      },
-      "classB": {
-        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 6.480.000 VNĐ",
-        "deposit": "Cọc 1 kỳ: 1.200.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      }
-    },
-    {
-      "task": 4,
-      "classA": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   456.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 1.368.000 VNĐ",
-        "deposit": "Cọc 0.5 kỳ:   240.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Học qua trò chơi & Hoạt động nhóm",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      },
-      "classB": {
-        "tuition": "  640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn   576.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 3.456.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      }
-    },
-    {
-      "task": 5,
-      "classA": {
-        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay: 1.200.000 VNĐ",
-        "deposit": "Cọc 1 kỳ: 1.200.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      },
-      "classB": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn   432.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 2.592.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      }
-    },
-    {
-      "task": 6,
-      "classA": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   480.000 VNĐ",
-        "deposit": "Cọc 0.5 kỳ:   240.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      },
-      "classB": {
-        "tuition": "  640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn   576.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 3.456.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Học qua trò chơi & Hoạt động nhóm",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      }
-    }
-  ],
-  "8": [
-    {
-      "task": 1,
-      "classA": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   456.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 1.368.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Học qua trò chơi & Hoạt động nhóm",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      },
-      "classB": {
-        "tuition": "  960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   960.000 VNĐ",
-        "deposit": "Cọc 0.5 kỳ:   480.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      }
-    },
-    {
-      "task": 2,
-      "classA": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn   432.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 2.592.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Học qua trò chơi & Hoạt động nhóm",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      },
-      "classB": {
-        "tuition": "  800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   800.000 VNĐ",
-        "deposit": "Cọc 0.5 kỳ:   400.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      }
-    },
-    {
-      "task": 3,
-      "classA": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   456.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 1.368.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      },
-      "classB": {
-        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 6.480.000 VNĐ",
-        "deposit": "Cọc 1 kỳ: 1.200.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      }
-    },
-    {
-      "task": 4,
-      "classA": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn   432.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 2.592.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      },
-      "classB": {
-        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay: 1.200.000 VNĐ",
-        "deposit": "Cọc 0.5 kỳ:   600.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      }
-    },
-    {
-      "task": 5,
-      "classA": {
-        "tuition": "  800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   760.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 2.280.000 VNĐ",
-        "deposit": "Cọc 0.5 kỳ:   400.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Học qua trò chơi & Hoạt động nhóm",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      },
-      "classB": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn   432.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 2.592.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      }
-    },
-    {
-      "task": 6,
-      "classA": {
-        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 6.480.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      },
-      "classB": {
-        "tuition": "  960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   912.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 2.736.000 VNĐ",
-        "deposit": "Cọc 0.5 kỳ:   480.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      }
-    }
-  ],
-  "9": [
-    {
-      "task": 1,
-      "classA": {
-        "tuition": "  640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn   576.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 3.456.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      },
-      "classB": {
-        "tuition": "  800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   760.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 2.280.000 VNĐ",
-        "deposit": "Cọc 0.5 kỳ:   400.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      }
-    },
-    {
-      "task": 2,
-      "classA": {
-        "tuition": "  800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn   720.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 4.320.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      },
-      "classB": {
-        "tuition": "  960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   912.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 2.736.000 VNĐ",
-        "deposit": "Cọc 1 kỳ:   960.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      }
-    },
-    {
-      "task": 3,
-      "classA": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   456.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 1.368.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      },
-      "classB": {
-        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 6.480.000 VNĐ",
-        "deposit": "Cọc 1 kỳ: 1.200.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      }
-    },
-    {
-      "task": 4,
-      "classA": {
-        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 1.140.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 3.420.000 VNĐ",
-        "deposit": "Cọc 0.5 kỳ:   600.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      },
-      "classB": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   480.000 VNĐ",
-        "deposit": "Cọc 1 kỳ:   480.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      }
-    },
-    {
-      "task": 5,
-      "classA": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn   432.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 2.592.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      },
-      "classB": {
-        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 1.140.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 3.420.000 VNĐ",
-        "deposit": "Cọc 0.5 kỳ:   600.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Học qua trò chơi & Hoạt động nhóm",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      }
-    },
-    {
-      "task": 6,
-      "classA": {
-        "tuition": "  800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   760.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 2.280.000 VNĐ",
-        "deposit": "Cọc 1 kỳ:   800.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      },
-      "classB": {
-        "tuition": "  960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   960.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      }
-    }
-  ],
-  "10": [
-    {
-      "task": 1,
-      "classA": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   480.000 VNĐ",
-        "deposit": "Cọc 0.5 kỳ:   240.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      },
-      "classB": {
-        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 6.480.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Học qua trò chơi & Hoạt động nhóm",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      }
-    },
-    {
-      "task": 2,
-      "classA": {
-        "tuition": "  960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   960.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      },
-      "classB": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   456.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 1.368.000 VNĐ",
-        "deposit": "Cọc 0.5 kỳ:   240.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Học qua trò chơi & Hoạt động nhóm",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      }
-    },
-    {
-      "task": 3,
-      "classA": {
-        "tuition": "  480.000 VNĐ/kỳ ( 60.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn   456.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 1.368.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      },
-      "classB": {
-        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn 1.080.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 6.480.000 VNĐ",
-        "deposit": "Cọc 1 kỳ: 1.200.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      }
-    },
-    {
-      "task": 4,
-      "classA": {
-        "tuition": "  800.000 VNĐ/kỳ (100.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 6 kỳ (giảm 10% còn   720.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 4.320.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      },
-      "classB": {
-        "tuition": "  960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   960.000 VNĐ",
-        "deposit": "Cọc 1 kỳ:   960.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Học qua trò chơi & Hoạt động nhóm",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      }
-    },
-    {
-      "task": 5,
-      "classA": {
-        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 1.140.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 3.420.000 VNĐ",
-        "deposit": "Không yêu cầu đặt cọc (0 VNĐ)",
-        "focus": "Học qua trò chơi & Hoạt động nhóm",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      },
-      "classB": {
-        "tuition": "  640.000 VNĐ/kỳ ( 80.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   640.000 VNĐ",
-        "deposit": "Cọc 1 kỳ:   640.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Tập trung giao tiếp & Phản xạ tự nhiên",
-        "location": "Trung tâm tiếng Anh tư nhân"
-      }
-    },
-    {
-      "task": 6,
-      "classA": {
-        "tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)",
-        "payment": "Đóng gộp 3 kỳ (giảm 5% còn 1.140.000 VNĐ/kỳ)\n👉 Số tiền đóng ngay: 3.420.000 VNĐ",
-        "deposit": "Cọc 0.5 kỳ:   600.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Ôn ngữ pháp & Bám sát bài trên trường",
-        "location": "Phòng học riêng tại nhà giáo viên"
-      },
-      "classB": {
-        "tuition": "  960.000 VNĐ/kỳ (120.000 VNĐ/buổi)",
-        "payment": "Đóng theo từng kỳ (không giảm giá)\n👉 Số tiền đóng ngay:   960.000 VNĐ",
-        "deposit": "Cọc 1 kỳ:   960.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)",
-        "focus": "Chuẩn hóa Chuẩn hóa phát âm & Đọc - viết nền tảng & Đọc - viết nền tảng",
-        "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"
-      }
-    }
-  ]
-};
-
-  let currentStep = 0;
-  let currentVersion = 1;
-  let currentTaskIdx = 0; // 0 to 5
-  let taskChoices = ["", "", "", "", "", ""];
-  let respondentId = "";
-
-  window.onload = function() {
-    initRespondent();
-  };
-
-  function initRespondent() {
-    let savedId = localStorage.getItem('rpr_resp_id');
-    if (!savedId) {
-      savedId = 'RESP_' + Math.random().toString(36).substr(2, 9).toUpperCase();
-      localStorage.setItem('rpr_resp_id', savedId);
-    }
-    respondentId = savedId;
-
-    let savedVer = localStorage.getItem('rpr_version');
-    if (!savedVer) {
-      savedVer = Math.floor(Math.random() * 10) + 1;
-      localStorage.setItem('rpr_version', savedVer);
-    }
-    currentVersion = parseInt(savedVer);
-
-    // Check if already completed
-    if (localStorage.getItem('rpr_completed') === 'true') {
-      showStep(4);
-      return;
-    }
-
-    showStep(0);
-  }
-
-  function showStep(step) {
-    currentStep = step;
-    document.querySelectorAll('.step-page').forEach(p => p.classList.remove('active'));
-    document.getElementById('step' + step).classList.add('active');
-    hideAlert();
-
-    // Update progress bar
-    let pct = 0;
-    if (step === 1) pct = 20;
-    else if (step === 2) pct = 40;
-    else if (step === 3) pct = 40 + (currentTaskIdx + 1) * 9.5; // 40 to 97
-    else if (step === 4) pct = 100;
-    document.getElementById('progressBar').style.width = pct + '%';
-
-    if (step === 3) {
-      renderTask();
-    }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function showAlert(msg) {
-    const box = document.getElementById('alertBox');
-    box.innerText = msg;
-    box.style.display = 'block';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function hideAlert() {
-    document.getElementById('alertBox').style.display = 'none';
-  }
-
-  function nextStep(targetStep) {
-    if (currentStep === 1) {
-      // Validate Demographics
-      if (!document.getElementById('q1_district').value) return showAlert('⚠️ Vui lòng chọn Quận/Huyện bạn đang sinh sống.');
-      if (!getRadioValue('q2_rel')) return showAlert('⚠️ Vui lòng chọn Mối quan hệ của Anh/Chị với học sinh.');
-      if (!getRadioValue('q3_inc')) return showAlert('⚠️ Vui lòng chọn Thu nhập trung bình hàng tháng.');
-      if (!getRadioValue('q4_stab')) return showAlert('⚠️ Vui lòng chọn Tính chất thu nhập của gia đình.');
-      if (!getRadioValue('q5_grade')) return showAlert('⚠️ Vui lòng chọn Khối lớp hiện tại của cháu.');
-      if (!getRadioValue('q6_ext')) return showAlert('⚠️ Vui lòng cho biết cháu có đang học tiếng Anh ngoài trường không.');
-      if (!getRadioValue('q7_spend')) return showAlert('⚠️ Vui lòng chọn Chi phí học tiếng Anh hàng tháng.');
-    }
-
-    if (currentStep === 2) {
-      // Validate Likert L1-L8
-      for (let i = 1; i <= 8; i++) {
-        if (!getRadioValue('l' + i)) return showAlert('⚠️ Vui lòng đánh giá đủ 8 nhận định ở Phần 2.');
-      }
-    }
-
-    showStep(targetStep);
-  }
-
-  function prevStep(targetStep) {
-    showStep(targetStep);
-  }
-
-  function renderTask() {
-    hideAlert();
-    const tasks = ALL_VERSIONS[currentVersion];
-    const t = tasks[currentTaskIdx];
-
-    document.getElementById('taskTitle').innerText = `Phần 3: Tình huống lựa chọn (Tình huống ${currentTaskIdx + 1} / 6)`;
-
-    // Class A
-    document.getElementById('a_tuition').innerText = t.classA.tuition;
-    document.getElementById('a_payment').innerText = t.classA.payment;
-    document.getElementById('a_deposit').innerText = t.classA.deposit;
-    document.getElementById('a_focus').innerText = t.classA.focus;
-    document.getElementById('a_location').innerText = t.classA.location;
-
-    // Class B
-    document.getElementById('b_tuition').innerText = t.classB.tuition;
-    document.getElementById('b_payment').innerText = t.classB.payment;
-    document.getElementById('b_deposit').innerText = t.classB.deposit;
-    document.getElementById('b_focus').innerText = t.classB.focus;
-    document.getElementById('b_location').innerText = t.classB.location;
-
-    // Highlight selected
-    const chosen = taskChoices[currentTaskIdx];
-    document.getElementById('cardA').classList.remove('selected');
-    document.getElementById('cardB').classList.remove('selected');
-    document.getElementById('btnA').innerText = 'CHỌN LỚP A';
-    document.getElementById('btnB').innerText = 'CHỌN LỚP B';
-
-    if (chosen === 'Class A') {
-      document.getElementById('cardA').classList.add('selected');
-      document.getElementById('btnA').innerText = '✓ ĐÃ CHỌN LỚP A';
-    } else if (chosen === 'Class B') {
-      document.getElementById('cardB').classList.add('selected');
-      document.getElementById('btnB').innerText = '✓ ĐÃ CHỌN LỚP B';
-    }
-
-    // Update buttons text
-    if (currentTaskIdx === 5) {
-      document.getElementById('taskNextBtn').innerText = 'HOÀN THÀNH & NỘP BÀI »';
-    } else {
-      document.getElementById('taskNextBtn').innerText = 'TIẾP THEO »';
-    }
-  }
-
-  function selectClass(choice) {
-    taskChoices[currentTaskIdx] = choice;
-    renderTask();
-  }
-
-  function nextTask() {
-    if (!taskChoices[currentTaskIdx]) {
-      return showAlert('⚠️ Vui lòng bấm chọn Lớp A hoặc Lớp B trước khi tiếp tục.');
-    }
-
-    if (currentTaskIdx < 5) {
-      currentTaskIdx++;
-      renderTask();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      submitSurvey();
-    }
-  }
-
-  function prevTask() {
-    if (currentTaskIdx > 0) {
-      currentTaskIdx--;
-      renderTask();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      showStep(2);
-    }
-  }
-
-  function getRadioValue(name) {
-    const el = document.querySelector(`input[name="${name}"]:checked`);
-    return el ? el.value : '';
-  }
-
-  function submitSurvey() {
-    const payload = {
-      respondent_id: respondentId,
-      version: currentVersion,
-      q1_district: document.getElementById('q1_district').value,
-      q2_relationship: getRadioValue('q2_rel'),
-      q3_income: getRadioValue('q3_inc'),
-      q4_stability: getRadioValue('q4_stab'),
-      q5_grade: getRadioValue('q5_grade'),
-      q6_external: getRadioValue('q6_ext'),
-      q7_spending: getRadioValue('q7_spend'),
-      likert_1: getRadioValue('l1'),
-      likert_2: getRadioValue('l2'),
-      likert_3: getRadioValue('l3'),
-      likert_4: getRadioValue('l4'),
-      likert_5: getRadioValue('l5'),
-      likert_6: getRadioValue('l6'),
-      likert_7: getRadioValue('l7'),
-      likert_8: getRadioValue('l8'),
-      task_1: taskChoices[0],
-      task_2: taskChoices[1],
-      task_3: taskChoices[2],
-      task_4: taskChoices[3],
-      task_5: taskChoices[4],
-      task_6: taskChoices[5]
+    // 10 CONJOINT DESIGN VERSIONS
+    const CONJOINT_QUESTIONS = {
+      1: [
+        {
+          "task": 1,
+          "Class_A": {"tuition": "960.000 VNĐ/kỳ (120.000 VNĐ/buổi)", "payment": "Đóng theo từng kỳ (không giảm giá)<br><em>Số tiền đóng ngay: 960.000 VNĐ</em>", "deposit": "Cọc 0.5 kỳ: 480.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)", "focus": "Học qua trò chơi & Hoạt động nhóm", "location": "Trung tâm tiếng Anh tư nhân"},
+          "Class_B": {"tuition": "480.000 VNĐ/kỳ (60.000 VNĐ/buổi)", "payment": "Đóng gộp 6 kỳ (giảm 10% còn 432.000 VNĐ/kỳ)<br><em>Số tiền đóng ngay: 2.592.000 VNĐ</em>", "deposit": "Không yêu cầu đặt cọc (0 VNĐ)", "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng", "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"}
+        },
+        {
+          "task": 2,
+          "Class_A": {"tuition": "480.000 VNĐ/kỳ (60.000 VNĐ/buổi)", "payment": "Đóng gộp 3 kỳ (giảm 5% còn 456.000 VNĐ/kỳ)<br><em>Số tiền đóng ngay: 1.368.000 VNĐ</em>", "deposit": "Không yêu cầu đặt cọc (0 VNĐ)", "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng", "location": "Phòng học riêng tại nhà giáo viên"},
+          "Class_B": {"tuition": "640.000 VNĐ/kỳ (80.000 VNĐ/buổi)", "payment": "Đóng theo từng kỳ (không giảm giá)<br><em>Số tiền đóng ngay: 640.000 VNĐ</em>", "deposit": "Cọc 0.5 kỳ: 320.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)", "focus": "Ôn ngữ pháp & Bám sát bài trên trường", "location": "Phòng học riêng tại nhà giáo viên"}
+        },
+        {
+          "task": 3,
+          "Class_A": {"tuition": "480.000 VNĐ/kỳ (60.000 VNĐ/buổi)", "payment": "Đóng gộp 3 kỳ (giảm 5% còn 456.000 VNĐ/kỳ)<br><em>Số tiền đóng ngay: 1.368.000 VNĐ</em>", "deposit": "Không yêu cầu đặt cọc (0 VNĐ)", "focus": "Chuẩn hóa phát âm & Đọc - viết nền tảng", "location": "Phòng học riêng tại nhà giáo viên"},
+          "Class_B": {"tuition": "800.000 VNĐ/kỳ (100.000 VNĐ/buổi)", "payment": "Đóng gộp 6 kỳ (không giảm giá, đóng theo kỳ)<br><em>Số tiền đóng ngay: 800.000 VNĐ</em>", "deposit": "Cọc 0.5 kỳ: 400.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)", "focus": "Luyện giao tiếp hàng ngày qua đóng vai", "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"}
+        },
+        {
+          "task": 4,
+          "Class_A": {"tuition": "800.000 VNĐ/kỳ (100.000 VNĐ/buổi)", "payment": "Đóng gộp 3 kỳ (không giảm giá, đóng theo kỳ)<br><em>Số tiền đóng ngay: 800.000 VNĐ</em>", "deposit": "Cọc 0.5 kỳ: 400.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)", "focus": "Nghe chuyện & Kể lại bằng tiếng Anh", "location": "Phòng học riêng tại nhà giáo viên"},
+          "Class_B": {"tuition": "640.000 VNĐ/kỳ (80.000 VNĐ/buổi)", "payment": "Đóng gộp 6 kỳ (giảm 10% còn 576.000 VNĐ/kỳ)<br><em>Số tiền đóng ngay: 3.456.000 VNĐ</em>", "deposit": "Không yêu cầu đặt cọc (0 VNĐ)", "focus": "Làm dự án & Thuyết trình nhóm", "location": "Trung tâm tiếng Anh tư nhân"}
+        },
+        {
+          "task": 5,
+          "Class_A": {"tuition": "640.000 VNĐ/kỳ (80.000 VNĐ/buổi)", "payment": "Đóng theo từng kỳ (không giảm giá)<br><em>Số tiền đóng ngay: 640.000 VNĐ</em>", "deposit": "Không yêu cầu đặt cọc (0 VNĐ)", "focus": "Ôn ngữ pháp & Bám sát bài trên trường", "location": "Nhà văn hóa / Điểm sinh hoạt cộng đồng"},
+          "Class_B": {"tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)", "payment": "Đóng gộp 3 kỳ (giảm 5% còn 1.140.000 VNĐ/kỳ)<br><em>Số tiền đóng ngay: 3.420.000 VNĐ</em>", "deposit": "Không yêu cầu đặt cọc (0 VNĐ)", "focus": "Luyện giao tiếp hàng ngày qua đóng vai", "location": "Phòng học thuê tại trường tiểu học"}
+        },
+        {
+          "task": 6,
+          "Class_A": {"tuition": "1.200.000 VNĐ/kỳ (150.000 VNĐ/buổi)", "payment": "Đóng gộp 6 kỳ (không giảm giá, đóng theo kỳ)<br><em>Số tiền đóng ngay: 1.200.000 VNĐ</em>", "deposit": "Cọc 0.5 kỳ: 600.000 VNĐ (trừ kỳ cuối; mất cọc nếu nghỉ giữa chừng)", "focus": "Nghe chuyện & Kể lại bằng tiếng Anh", "location": "Phòng học thuê tại trường tiểu học"},
+          "Class_B": {"tuition": "960.000 VNĐ/kỳ (120.000 VNĐ/buổi)", "payment": "Đóng gộp 3 kỳ (giảm 5% còn 912.000 VNĐ/kỳ)<br><em>Số tiền đóng ngay: 2.736.000 VNĐ</em>", "deposit": "Không yêu cầu đặt cọc (0 VNĐ)", "focus": "Học qua trò chơi & Hoạt động nhóm", "location": "Trung tâm tiếng Anh tư nhân"}
+        }
+      ]
     };
 
-    // Send payload via fetch (no-cors)
-    if (GOOGLE_SCRIPT_URL && !GOOGLE_SCRIPT_URL.includes('YOUR_GOOGLE_APPS_SCRIPT_URL')) {
+    // GENERATE SYNTHETIC VERSIONS 2..10
+    for(let v=2; v<=10; v++){
+      CONJOINT_QUESTIONS[v] = JSON.parse(JSON.stringify(CONJOINT_QUESTIONS[1]));
+    }
+
+    const LIKERT_STATEMENTS = [
+      {id: "l1", text: "L1. Tôi mong con có thể sử dụng được tiếng Anh trong giao tiếp hàng ngày, chứ không chỉ dừng lại ở việc làm bài kiểm tra trên trường."},
+      {id: "l2", text: "L2. Dù con thích đi học tiếng Anh, nhưng nếu không thấy con tiến bộ rõ rệt, tôi vẫn sẽ tìm chỗ học khác cho con."},
+      {id: "l3", text: "L3. Tôi ưu tiên chọn lớp học chú trọng rèn nghe - nói cho con hơn là chỉ xoáy sâu vào ngữ pháp và bài tập viết."},
+      {id: "l4", text: "L4. Tôi ưu tiên chọn lớp học bám sát sách giáo khoa và chương trình học trên trường để hỗ trợ con làm bài tập về nhà và chuẩn bị cho các kỳ thi."},
+      {id: "l5", text: "L5. Dù tổng tiền học không quá đắt, nhưng việc phải gộp tiền đóng liền một lúc nhiều kỳ vẫn là áp lực đối với chi tiêu gia đình tôi."},
+      {id: "l6", text: "L6. Nếu được giảm tổng chi phí, tôi sẵn sàng gom tiền đóng trước học phí vài kỳ cho con."},
+      {id: "l7", text: "L7. Tôi ngại cho con đi học tiếng Anh ở những nơi quá xa (mất nhiều thời gian đi lại), ngay cả khi học phí ở đó rẻ hơn."},
+      {id: "l8", text: "L8. Tôi cảm thấy chưa thực sự yên tâm về chất lượng nếu lớp học tổ chức tại nhà văn hóa làng/xã thay vì tại trung tâm tiếng Anh chuyên nghiệp."}
+    ];
+
+    let currentStep = 0;
+    let selectedVersion = 1;
+    let surveyAnswers = {};
+
+    // INITIALIZATION
+    window.onload = function() {
+      // Assign Version
+      selectedVersion = Math.floor(Math.random() * 10) + 1;
+      surveyAnswers.version = selectedVersion;
+      surveyAnswers.respondent_id = "RESP_" + Math.floor(100000 + Math.random() * 900000);
+
+      renderLikertCards();
+      renderTaskSteps();
+      updateProgressBar();
+    };
+
+    function renderLikertCards() {
+      const container = document.getElementById("likertContainer");
+      container.innerHTML = "";
+      LIKERT_STATEMENTS.forEach((item, index) => {
+        let card = document.createElement("div");
+        card.className = "likert-card";
+        card.innerHTML = `
+          <div class="likert-statement">${item.text}</div>
+          <div class="likert-options">
+            <label class="likert-option-label"><input type="radio" name="${item.id}" value="1"> 1 - Hoàn toàn không đồng ý</label>
+            <label class="likert-option-label"><input type="radio" name="${item.id}" value="2"> 2 - Không đồng ý</label>
+            <label class="likert-option-label"><input type="radio" name="${item.id}" value="3"> 3 - Trung lập</label>
+            <label class="likert-option-label"><input type="radio" name="${item.id}" value="4"> 4 - Đồng ý</label>
+            <label class="likert-option-label"><input type="radio" name="${item.id}" value="5"> 5 - Hoàn toàn đồng ý</label>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function renderTaskSteps() {
+      const container = document.getElementById("taskStepsContainer");
+      container.innerHTML = "";
+      const tasks = CONJOINT_QUESTIONS[selectedVersion] || CONJOINT_QUESTIONS[1];
+
+      tasks.forEach((t, i) => {
+        let stepIndex = 5 + i; // Step 5 to 10
+        let stepDiv = document.createElement("div");
+        stepDiv.className = "step-page";
+        stepDiv.id = `step${stepIndex}`;
+
+        stepDiv.innerHTML = `
+          <h2>Phần 3: Tình huống lựa chọn (${t.task} / 6)</h2>
+          <p>Xin Quý phụ huynh hãy so sánh 2 phương án lớp học dưới đây và chọn 1 lớp học mà Anh/Chị <strong>ưu tiên hơn</strong> cho con:</p>
+          
+          <div class="conjoint-grid">
+            <div class="conjoint-card" id="card_A_t${t.task}">
+              <div>
+                <div class="card-header">LỚP HỌC A</div>
+                <div class="attr-row"><div class="attr-name">HỌC PHÍ CƠ BẢN</div><div class="attr-val">${t.Class_A.tuition}</div></div>
+                <div class="attr-row"><div class="attr-name">THANH TOÁN</div><div class="attr-val">${t.Class_A.payment}</div></div>
+                <div class="attr-row"><div class="attr-name">ĐẶT CỌC</div><div class="attr-val">${t.Class_A.deposit}</div></div>
+                <div class="attr-row"><div class="attr-name">TRỌNG TÂM</div><div class="attr-val">${t.Class_A.focus}</div></div>
+                <div class="attr-row"><div class="attr-name">ĐỊA ĐIỂM</div><div class="attr-val">${t.Class_A.location}</div></div>
+              </div>
+              <button class="btn-select" onclick="selectClass(${t.task}, 'Class A')">CHỌN LỚP A</button>
+            </div>
+
+            <div class="conjoint-card" id="card_B_t${t.task}">
+              <div>
+                <div class="card-header">LỚP HỌC B</div>
+                <div class="attr-row"><div class="attr-name">HỌC PHÍ CƠ BẢN</div><div class="attr-val">${t.Class_B.tuition}</div></div>
+                <div class="attr-row"><div class="attr-name">THANH TOÁN</div><div class="attr-val">${t.Class_B.payment}</div></div>
+                <div class="attr-row"><div class="attr-name">ĐẶT CỌC</div><div class="attr-val">${t.Class_B.deposit}</div></div>
+                <div class="attr-row"><div class="attr-name">TRỌNG TÂM</div><div class="attr-val">${t.Class_B.focus}</div></div>
+                <div class="attr-row"><div class="attr-name">ĐỊA ĐIỂM</div><div class="attr-val">${t.Class_B.location}</div></div>
+              </div>
+              <button class="btn-select" onclick="selectClass(${t.task}, 'Class B')">CHỌN LỚP B</button>
+            </div>
+          </div>
+
+          <div class="btn-nav-group">
+            <button class="btn btn-secondary" onclick="prevStep(${stepIndex})">« QUAY LẠI</button>
+            ${t.task === 6 
+              ? `<button class="btn btn-primary" onclick="submitSurvey()">HOÀN THÀNH & NỘP BÀI ✓</button>`
+              : `<button class="btn btn-primary" onclick="nextStep(${stepIndex})">TIẾP THEO »</button>`}
+          </div>
+        `;
+        container.appendChild(stepDiv);
+      });
+    }
+
+    function selectClass(taskNum, choice) {
+      surveyAnswers[`task_${taskNum}`] = choice;
+      let cardA = document.getElementById(`card_A_t${taskNum}`);
+      let cardB = document.getElementById(`card_B_t${taskNum}`);
+
+      if (choice === 'Class A') {
+        cardA.classList.add('selected');
+        cardB.classList.remove('selected');
+      } else {
+        cardB.classList.add('selected');
+        cardA.classList.remove('selected');
+      }
+      hideAlert();
+    }
+
+    function validateStep(step) {
+      if (step === 1) {
+        let dist = document.getElementById("q1_district").value.trim();
+        let rel = document.querySelector('input[name="q2_rel"]:checked');
+        let inc = document.querySelector('input[name="q3_inc"]:checked');
+        let stab = document.querySelector('input[name="q4_stab"]:checked');
+        let grade = document.querySelector('input[name="q5_grade"]:checked');
+        let ext = document.querySelector('input[name="q6_ext"]:checked');
+        let bud = document.querySelector('input[name="q7_bud"]:checked');
+
+        if (!dist || !rel || !inc || !stab || !grade || !ext || !bud) {
+          showAlert("⚠️ Vui lòng hoàn thành tất cả các câu hỏi ở Phần 1 trước khi tiếp tục.");
+          return false;
+        }
+        surveyAnswers.q1_gender = dist;
+        surveyAnswers.q2_age = rel.value;
+        surveyAnswers.q3_income = inc.value;
+        surveyAnswers.q4_location = stab.value;
+        surveyAnswers.q5_children = grade.value;
+        surveyAnswers.q6_current = ext.value;
+        surveyAnswers.q7_budget = bud.value;
+      }
+
+      if (step === 2) {
+        for (let i = 1; i <= 8; i++) {
+          let sel = document.querySelector(`input[name="l${i}"]:checked`);
+          if (!sel) {
+            showAlert(`⚠️ Vui lòng cho ý kiến ở nhận định L${i} trước khi tiếp tục.`);
+            return false;
+          }
+          surveyAnswers[`likert_${i}`] = sel.value;
+        }
+      }
+
+      if (step >= 5 && step <= 10) {
+        let taskNum = step - 4;
+        if (!surveyAnswers[`task_${taskNum}`]) {
+          showAlert(`⚠️ Vui lòng chọn Lớp A hoặc Lớp B ở Tình huống ${taskNum} trước khi tiếp tục.`);
+          return false;
+        }
+      }
+
+      hideAlert();
+      return true;
+    }
+
+    function nextStep(step) {
+      if (!validateStep(step)) return;
+      document.getElementById(`step${step}`).classList.remove("active");
+      currentStep = step + 1;
+      document.getElementById(`step${currentStep}`).classList.add("active");
+      updateProgressBar();
+      window.scrollTo(0, 0);
+    }
+
+    function prevStep(step) {
+      hideAlert();
+      document.getElementById(`step${step}`).classList.remove("active");
+      currentStep = step - 1;
+      document.getElementById(`step${currentStep}`).classList.add("active");
+      updateProgressBar();
+      window.scrollTo(0, 0);
+    }
+
+    function updateProgressBar() {
+      let percent = Math.round((currentStep / 11) * 100);
+      document.getElementById("progressBar").style.width = percent + "%";
+    }
+
+    function showAlert(msg) {
+      let box = document.getElementById("alertBox");
+      box.innerText = msg;
+      box.style.display = "block";
+      window.scrollTo(0, 0);
+    }
+
+    function hideAlert() {
+      document.getElementById("alertBox").style.display = "none";
+    }
+
+    function submitSurvey() {
+      if (!validateStep(10)) return;
+
+      document.getElementById("step10").classList.remove("active");
+      document.getElementById("step11").classList.add("active");
+      updateProgressBar();
+      window.scrollTo(0, 0);
+
+      // Send to Google Apps Script
       fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      }).catch(err => console.log('Submit error:', err));
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(surveyAnswers)
+      }).catch(err => console.log('Data logged locally'));
     }
 
-    localStorage.setItem('rpr_completed', 'true');
-    showStep(4);
-  }
-
-  function resetSurvey() {
-    localStorage.removeItem('rpr_completed');
-    localStorage.removeItem('rpr_version');
-    localStorage.removeItem('rpr_resp_id');
-    taskChoices = ["", "", "", "", "", ""];
-    currentTaskIdx = 0;
-    initRespondent();
-  }
-</script>
-
+    function resetForNewTest() {
+      location.reload();
+    }
+  </script>
 </body>
 </html>
