@@ -1743,8 +1743,7 @@
   function showAlreadyCompletedScreen() {
     document.querySelectorAll(".step-page").forEach(el => el.classList.remove("active"));
     document.getElementById("thankYouTitle").innerText = "✓ ANH/CHỊ ĐÃ HOÀN THÀNH KHẢO SÁT";
-    document.getElementById("thankYouMsg1").innerText = "Hệ thống ghi nhận thiết bị này đã hoàn thành bài khảo sát trước đó. Mỗi phụ huynh chỉ cần tham gia một lần duy nhất.";
-    document.getElementById("thankYouMsg2").innerText = "Xin chân thành cảm ơn sự nhiệt tình hỗ trợ của Quý phụ huynh!";
+    document.getElementById("thankYouMsg1").innerText = "Xin chân thành cảm ơn sự nhiệt tình hỗ trợ của Quý phụ huynh!";
     currentStep = 11;
     document.getElementById("step11").classList.add("active");
     updateProgressBar();
