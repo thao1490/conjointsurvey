@@ -489,7 +489,7 @@
     <h2>Phần 1: Thông tin chung về hộ gia đình</h2>
     
     <div class="form-group">
-      <label class="question-label" for="q1_district">1. Anh/Chị hiện đang sinh sống tại khu vực nào của Hà Nội?</label>
+      <label class="question-label" for="q1_district">1. Anh/Chị hiện đang sinh sống tại khu vực (xã) nào của Hà Nội?</label>
       <input type="text" id="q1_district" placeholder="Ví dụ: Xã Đông Anh, Kim Anh, Quang Minh...">
     </div>
 
@@ -1743,7 +1743,8 @@
   function showAlreadyCompletedScreen() {
     document.querySelectorAll(".step-page").forEach(el => el.classList.remove("active"));
     document.getElementById("thankYouTitle").innerText = "✓ ANH/CHỊ ĐÃ HOÀN THÀNH KHẢO SÁT";
-    document.getElementById("thankYouMsg1").innerText = "Xin chân thành cảm ơn sự nhiệt tình hỗ trợ của Quý phụ huynh!";
+    document.getElementById("thankYouMsg1").innerText = "Hệ thống ghi nhận thiết bị này đã hoàn thành bài khảo sát trước đó. Mỗi phụ huynh chỉ cần tham gia một lần duy nhất.";
+    document.getElementById("thankYouMsg2").innerText = "Xin chân thành cảm ơn sự nhiệt tình hỗ trợ của Quý phụ huynh!";
     currentStep = 11;
     document.getElementById("step11").classList.add("active");
     updateProgressBar();
@@ -1824,23 +1825,31 @@
     const container = document.getElementById("taskStepsContainer");
     container.innerHTML = "";
     const tasks = CONJOINT_QUESTIONS[selectedVersion] || CONJOINT_QUESTIONS[1];
-    const baseAttrSpecs = [
-      { key: "tuition", label: "Học phí cơ bản" },
-      { key: "payment", label: "Thanh toán" },
-      { key: "deposit", label: "Tiền đặt cọc" },
-      { key: "focus", label: "Mục tiêu học" },
-      { key: "location", label: "Địa điểm" }
+    const attrBlocks = [
+      [
+        { key: "tuition", label: "Học phí cơ bản" },
+        { key: "payment", label: "Thanh toán" }
+      ],
+      [
+        { key: "deposit", label: "Tiền đặt cọc" }
+      ],
+      [
+        { key: "focus", label: "Mục tiêu học" }
+      ],
+      [
+        { key: "location", label: "Địa điểm" }
+      ]
     ];
 
-    // Xáo trộn thứ tự hiển thị 5 thuộc tính qua từng task (xoay vòng đều để tránh hiệu ứng vị trí đầu/cuối,
-    // đồng thời vẫn giữ Lớp A và Lớp B song song cùng hàng trong mỗi task)
-    const TASK_ATTR_ORDERS = [
-      [0, 1, 2, 3, 4], // Task 1: Học phí -> Thanh toán -> Đặt cọc -> Mục tiêu -> Địa điểm
-      [3, 4, 0, 1, 2], // Task 2: Mục tiêu -> Địa điểm -> Học phí -> Thanh toán -> Đặt cọc
-      [1, 2, 3, 4, 0], // Task 3: Thanh toán -> Đặt cọc -> Mục tiêu -> Địa điểm -> Học phí
-      [4, 0, 3, 2, 1], // Task 4: Địa điểm -> Học phí -> Mục tiêu -> Đặt cọc -> Thanh toán
-      [2, 3, 1, 0, 4], // Task 5: Đặt cọc -> Mục tiêu -> Thanh toán -> Học phí -> Địa điểm
-      [3, 0, 2, 4, 1]  // Task 6: Mục tiêu -> Học phí -> Đặt cọc -> Địa điểm -> Thanh toán
+    // Xoay vòng thứ tự các cụm thuộc tính qua từng task, nhưng luôn giữ cặp [Học phí cơ bản + Thanh toán]
+    // nằm cạnh nhau theo đúng thứ tự đó để phụ huynh dễ đối chiếu học phí gốc, ưu đãi và số tiền phải trả
+    const TASK_BLOCK_ORDERS = [
+      [0, 1, 2, 3], // Task 1: [Học phí, Thanh toán] -> Đặt cọc -> Mục tiêu -> Địa điểm
+      [2, 3, 0, 1], // Task 2: Mục tiêu -> Địa điểm -> [Học phí, Thanh toán] -> Đặt cọc
+      [1, 2, 3, 0], // Task 3: Đặt cọc -> Mục tiêu -> Địa điểm -> [Học phí, Thanh toán]
+      [3, 0, 1, 2], // Task 4: Địa điểm -> [Học phí, Thanh toán] -> Đặt cọc -> Mục tiêu
+      [1, 0, 3, 2], // Task 5: Đặt cọc -> [Học phí, Thanh toán] -> Địa điểm -> Mục tiêu
+      [2, 0, 1, 3]  // Task 6: Mục tiêu -> [Học phí, Thanh toán] -> Đặt cọc -> Địa điểm
     ];
 
     tasks.forEach((t, i) => {
@@ -1849,8 +1858,8 @@
       stepDiv.className = "step-page";
       stepDiv.id = `step${stepIndex}`;
 
-      const order = TASK_ATTR_ORDERS[i] || [0, 1, 2, 3, 4];
-      const orderedAttrs = order.map(idx => baseAttrSpecs[idx]);
+      const blockOrder = TASK_BLOCK_ORDERS[i] || [0, 1, 2, 3];
+      const orderedAttrs = blockOrder.flatMap(bIdx => attrBlocks[bIdx]);
 
       let rowsHtml = `
         <div class="conjoint-cell cell-header class-a-t${t.task}" onclick="selectClass(${t.task}, 'Class A')">
