@@ -130,7 +130,8 @@
       background-color: var(--accent);
       border-color: var(--primary-border);
     }
-    .radio-item input[type="radio"] {
+    .radio-item input[type="radio"],
+    .radio-item input[type="checkbox"] {
       margin-right: 12px;
       width: 19px;
       height: 19px;
@@ -488,8 +489,8 @@
     <h2>Phần 1: Thông tin chung về hộ gia đình</h2>
     
     <div class="form-group">
-      <label class="question-label" for="q1_district">1. Anh/Chị hiện đang sinh sống tại quận/huyện nào ở Hà Nội?</label>
-      <input type="text" id="q1_district" placeholder="Ví dụ: Đông Anh, Gia Lâm, Mê Linh...">
+      <label class="question-label" for="q1_district">1. Anh/Chị hiện đang sinh sống tại khu vực nào của Hà Nội?</label>
+      <input type="text" id="q1_district" placeholder="Ví dụ: Xã Đông Anh, Kim Anh, Quang Minh...">
     </div>
 
     <div class="form-group">
@@ -527,13 +528,13 @@
     </div>
 
     <div class="form-group">
-      <label class="question-label">5. Con của Anh/Chị hiện đang học lớp mấy?</label>
+      <label class="question-label">5. Con của Anh/Chị hiện đang học lớp mấy? <span style="font-weight: 400; color: var(--text-muted); font-size: 14.5px;">(Có thể chọn nhiều đáp án nếu gia đình có từ 2 bé tiểu học trở lên)</span></label>
       <div class="radio-group">
-        <label class="radio-item"><input type="radio" name="q5_grade" value="Lớp 1"> Lớp 1</label>
-        <label class="radio-item"><input type="radio" name="q5_grade" value="Lớp 2"> Lớp 2</label>
-        <label class="radio-item"><input type="radio" name="q5_grade" value="Lớp 3"> Lớp 3</label>
-        <label class="radio-item"><input type="radio" name="q5_grade" value="Lớp 4"> Lớp 4</label>
-        <label class="radio-item"><input type="radio" name="q5_grade" value="Lớp 5"> Lớp 5</label>
+        <label class="radio-item"><input type="checkbox" name="q5_grade" value="Lớp 1"> Lớp 1</label>
+        <label class="radio-item"><input type="checkbox" name="q5_grade" value="Lớp 2"> Lớp 2</label>
+        <label class="radio-item"><input type="checkbox" name="q5_grade" value="Lớp 3"> Lớp 3</label>
+        <label class="radio-item"><input type="checkbox" name="q5_grade" value="Lớp 4"> Lớp 4</label>
+        <label class="radio-item"><input type="checkbox" name="q5_grade" value="Lớp 5"> Lớp 5</label>
       </div>
     </div>
 
@@ -663,9 +664,9 @@
   <!-- STEP 11: THANK YOU -->
   <div class="step-page" id="step11">
     <div style="text-align: center; padding: 30px 12px;">
-      <h1 style="color: var(--primary); font-size: 25px; margin-bottom: 16px;">✓ XIN CHÂN THÀNH CẢM ƠN!</h1>
-      <p style="font-size: 16px; color: var(--text); margin-bottom: 14px;">Cảm ơn Quý phụ huynh đã dành thời gian quý báu để hoàn thành khảo sát này.</p>
-      <p style="font-size: 16px; color: var(--text); margin-bottom: 0;">Kính chúc Quý phụ huynh thật nhiều sức khỏe!</p>
+      <h1 id="thankYouTitle" style="color: var(--primary); font-size: 25px; margin-bottom: 16px;">✓ XIN CHÂN THÀNH CẢM ƠN!</h1>
+      <p id="thankYouMsg1" style="font-size: 16px; color: var(--text); margin-bottom: 14px;">Cảm ơn Quý phụ huynh đã dành thời gian quý báu để hoàn thành khảo sát này.</p>
+      <p id="thankYouMsg2" style="font-size: 16px; color: var(--text); margin-bottom: 0;">Kính chúc Quý phụ huynh thật nhiều sức khỏe!</p>
     </div>
   </div>
 
@@ -1718,6 +1719,9 @@
   ]
 };
 
+  // [HƯỚNG DẪN TỰ THÊM CÂU LIKERT MỚI]:
+  // Để thêm L9, L10: chỉ cần copy thêm dòng mới theo đúng mẫu { id: "l9", key: "l9_ten_bien", text: "L9. Nội dung..." } vào cuối danh sách này,
+  // đồng thời thêm cột tương ứng trong Google Sheet và Google Apps Script. Giao diện và kiểm tra bắt buộc sẽ tự động cập nhật.
   const LIKERT_STATEMENTS = [
     { id: "l1", key: "l1_communication", text: "L1. Tôi mong con có thể sử dụng được tiếng Anh trong giao tiếp hàng ngày, chứ không chỉ dừng lại ở việc làm bài kiểm tra trên trường." },
     { id: "l2", key: "l2_progress", text: "L2. Dù con thích đi học tiếng Anh, nhưng nếu không thấy con tiến bộ rõ rệt, tôi vẫn sẽ tìm chỗ học khác cho con." },
@@ -1729,14 +1733,36 @@
     { id: "l8", key: "l8_location_conf", text: "L8. Tôi cảm thấy chưa thực sự yên tâm về chất lượng nếu lớp học tổ chức tại nhà văn hóa làng/xã thay vì tại trung tâm tiếng Anh chuyên nghiệp." }
   ];
 
+  const SURVEY_COMPLETED_STORAGE_KEY = "cbc_survey_completed_vn_v1";
+  let surveyStartTime = Date.now();
   let currentStep = 0;
   let selectedVersion = 1;
   let surveyAnswers = {};
   let isSubmitting = false;
 
+  function showAlreadyCompletedScreen() {
+    document.querySelectorAll(".step-page").forEach(el => el.classList.remove("active"));
+    document.getElementById("thankYouTitle").innerText = "✓ ANH/CHỊ ĐÃ HOÀN THÀNH KHẢO SÁT";
+    document.getElementById("thankYouMsg1").innerText = "Xin chân thành cảm ơn sự nhiệt tình hỗ trợ của Quý phụ huynh!";
+    currentStep = 11;
+    document.getElementById("step11").classList.add("active");
+    updateProgressBar();
+  }
+
   // INITIALIZATION
   window.onload = function() {
+    try {
+      if (localStorage.getItem(SURVEY_COMPLETED_STORAGE_KEY) === "true") {
+        showAlreadyCompletedScreen();
+        return;
+      }
+    } catch (e) {
+      // Ignore storage access errors in strict private modes
+    }
+
+    surveyStartTime = Date.now();
     selectedVersion = Math.floor(Math.random() * 10) + 1;
+    surveyAnswers.language = "VI";
     surveyAnswers.version = selectedVersion;
     surveyAnswers.respondent_id = "RESP_" + Date.now() + "_" + Math.floor(100 + Math.random() * 900);
     
@@ -1798,12 +1824,23 @@
     const container = document.getElementById("taskStepsContainer");
     container.innerHTML = "";
     const tasks = CONJOINT_QUESTIONS[selectedVersion] || CONJOINT_QUESTIONS[1];
-    const attrSpecs = [
-      { key: "tuition", label: "Học phí cơ bản", isLast: false },
-      { key: "payment", label: "Thanh toán", isLast: false },
-      { key: "deposit", label: "Tiền đặt cọc", isLast: false },
-      { key: "focus", label: "Mục tiêu học", isLast: false },
-      { key: "location", label: "Địa điểm", isLast: true }
+    const baseAttrSpecs = [
+      { key: "tuition", label: "Học phí cơ bản" },
+      { key: "payment", label: "Thanh toán" },
+      { key: "deposit", label: "Tiền đặt cọc" },
+      { key: "focus", label: "Mục tiêu học" },
+      { key: "location", label: "Địa điểm" }
+    ];
+
+    // Xáo trộn thứ tự hiển thị 5 thuộc tính qua từng task (xoay vòng đều để tránh hiệu ứng vị trí đầu/cuối,
+    // đồng thời vẫn giữ Lớp A và Lớp B song song cùng hàng trong mỗi task)
+    const TASK_ATTR_ORDERS = [
+      [0, 1, 2, 3, 4], // Task 1: Học phí -> Thanh toán -> Đặt cọc -> Mục tiêu -> Địa điểm
+      [3, 4, 0, 1, 2], // Task 2: Mục tiêu -> Địa điểm -> Học phí -> Thanh toán -> Đặt cọc
+      [1, 2, 3, 4, 0], // Task 3: Thanh toán -> Đặt cọc -> Mục tiêu -> Địa điểm -> Học phí
+      [4, 0, 3, 2, 1], // Task 4: Địa điểm -> Học phí -> Mục tiêu -> Đặt cọc -> Thanh toán
+      [2, 3, 1, 0, 4], // Task 5: Đặt cọc -> Mục tiêu -> Thanh toán -> Học phí -> Địa điểm
+      [3, 0, 2, 4, 1]  // Task 6: Mục tiêu -> Học phí -> Đặt cọc -> Địa điểm -> Thanh toán
     ];
 
     tasks.forEach((t, i) => {
@@ -1811,6 +1848,9 @@
       let stepDiv = document.createElement("div");
       stepDiv.className = "step-page";
       stepDiv.id = `step${stepIndex}`;
+
+      const order = TASK_ATTR_ORDERS[i] || [0, 1, 2, 3, 4];
+      const orderedAttrs = order.map(idx => baseAttrSpecs[idx]);
 
       let rowsHtml = `
         <div class="conjoint-cell cell-header class-a-t${t.task}" onclick="selectClass(${t.task}, 'Class A')">
@@ -1821,8 +1861,8 @@
         </div>
       `;
 
-      attrSpecs.forEach((attr) => {
-        const lastCls = attr.isLast ? " cell-attr-last" : "";
+      orderedAttrs.forEach((attr, attrIdx) => {
+        const lastCls = (attrIdx === orderedAttrs.length - 1) ? " cell-attr-last" : "";
         rowsHtml += `
           <div class="conjoint-cell cell-attr${lastCls} class-a-t${t.task}" onclick="selectClass(${t.task}, 'Class A')">
             <div class="attr-name">${attr.label}</div>
@@ -1884,11 +1924,11 @@
       let relOther = document.getElementById("q2_other_text").value.trim();
       let inc = document.querySelector('input[name="q3_inc"]:checked');
       let stab = document.querySelector('input[name="q4_stab"]:checked');
-      let grade = document.querySelector('input[name="q5_grade"]:checked');
+      let gradeNodes = document.querySelectorAll('input[name="q5_grade"]:checked');
       let ext = document.querySelector('input[name="q6_ext"]:checked');
       let bud = document.querySelector('input[name="q7_bud"]:checked');
 
-      if (!dist || !rel || !inc || !stab || !grade || !ext) {
+      if (!dist || !rel || !inc || !stab || gradeNodes.length === 0 || !ext) {
         showAlert("⚠️ Vui lòng hoàn thành tất cả các câu hỏi ở Phần 1 trước khi tiếp tục.");
         return false;
       }
@@ -1906,7 +1946,7 @@
       surveyAnswers.q2_relationship = (rel.value === "Khác") ? `Khác: ${relOther}` : rel.value;
       surveyAnswers.q3_income = inc.value;
       surveyAnswers.q4_stability = stab.value;
-      surveyAnswers.q5_grade = grade.value;
+      surveyAnswers.q5_grade = Array.from(gradeNodes).map(cb => cb.value).join(", ");
       surveyAnswers.q6_external = ext.value;
       surveyAnswers.q7_spending = (ext.value === "Có" && bud) ? bud.value : "Không áp dụng (Không học ngoài)";
     }
@@ -1957,6 +1997,12 @@
     if (isSubmitting) return;
     if (!validateStep(10)) return;
 
+    const totalSeconds = Math.max(1, Math.round((Date.now() - surveyStartTime) / 1000));
+    const mins = Math.floor(totalSeconds / 60);
+    const secs = totalSeconds % 60;
+    surveyAnswers.duration_seconds = totalSeconds;
+    surveyAnswers.duration_formatted = `${mins}m ${String(secs).padStart(2, "0")}s`;
+
     isSubmitting = true;
     const submitBtn = document.getElementById("submitBtn");
     if (submitBtn) {
@@ -1971,6 +2017,9 @@
       body: JSON.stringify(surveyAnswers)
     })
     .then(() => {
+      try {
+        localStorage.setItem(SURVEY_COMPLETED_STORAGE_KEY, "true");
+      } catch (e) {}
       document.getElementById("step10").classList.remove("active");
       currentStep = 11;
       document.getElementById("step11").classList.add("active");
